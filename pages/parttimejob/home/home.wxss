@@ -1,0 +1,247 @@
+/* pages/parttimejob/home/home.wxss */
+page{ 
+ display: flex; 
+ flex-direction: column; 
+}
+
+/* 内容 */
+.box{
+  border-bottom: 16rpx #f9f9f9 solid;
+}
+.box:last-child{
+  border-bottom: none;
+}
+.block {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20rpx 40rpx;
+}
+.block_content{
+  margin-top: 10rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.userinfo {
+  margin-top: 10rpx;
+  width:76%;
+  display: flex;
+  height: 100rpx;
+}
+.userinfo > .username {
+  max-width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 100rpx;
+  letter-spacing: 2rpx;
+  font-size: 34rpx;
+  color: #444;
+}
+.userinfo > image {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 35rpx 10rpx;
+}
+/* 内容 */
+.details {
+  width: 76%;
+  display: block;
+  margin-left: 150rpx;
+}
+.box_con {
+  color: #555;
+  font-size: 30rpx;
+  word-wrap:break-word;
+  line-height: 1.6;
+}
+.box_con > .text {
+  width: 100%;
+  word-wrap:break-word;
+}
+.box_con > .list > .list_label {
+  color: #1c5c91;
+  font-size: 30rpx;
+}
+.box_con > .list > .list_name {
+  word-wrap: break-word;
+}
+
+/* image */
+.details_img {
+  margin: 20rpx 0 10rpx;
+}
+.details_img .image {
+  width: 31%;
+  height: 170rpx;
+  margin-top: 0;
+  border-radius: 0;
+  margin: 5rpx 5rpx;
+  float: left;
+}
+/* 企业图标 */
+.block .price {
+  margin-top: 30rpx;
+}
+.block > .price > image{
+  width: 50rpx;
+  height: 50rpx;
+}
+/* 地址同行 */
+.add_all{
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+.add_all .time{
+  font-size: 24rpx;
+  padding-top: 10rpx;
+  color: #666;
+}
+/* 功能 */
+.details_like{
+  padding: 20rpx;
+  position: relative;
+  display: flex;
+  font-size: 13px;
+  flex-direction: row;
+}
+.details_like>.asd{
+  position: absolute;
+  right: 20rpx;
+  display: flex;
+}
+.details_like>.asd>text{
+  color: #666;
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+.details_like>.asd>image{
+  height: 40rpx;
+  width: 40rpx;
+  padding: 0 15rpx;
+}
+.details_like_text{
+  vertical-align: middle;
+  margin-right: 210px;
+  padding-left: 50rpx;
+  color: #555;
+  font-size: 26rpx;
+}
+
+/* 添加 */
+.append > image {
+  position: fixed;
+  right: 20rpx;
+  bottom: 50rpx;
+  width: 100rpx;
+  height: 100rpx;
+}
+/* 消除导航滚动条 */
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+/* 评论 */
+.box > .comments {
+  margin: 0rpx 50rpx 10rpx;
+  padding: 20rpx;
+  font-size: 30rpx;
+  letter-spacing: 2rpx;
+  line-height: 1.5;
+}
+.box > .comments > .btn {
+  background: #f2f2f2;
+  height: 60rpx;
+  font-size: 30rpx;
+  color: #2196f3;
+  line-height: 60rpx;
+  padding: 0 20rpx;
+  border-radius: 5rpx;
+}
+.box > .comments > .block2 {
+  background: #f2f2f2;
+  margin-top: 10rpx;
+  border-radius: 5rpx;
+  padding: 10rpx 20rpx;
+}
+.box > .comments > .block2 > .comments_box {
+  padding: 8rpx 0;
+}
+.box > .comments > .block2 > .comments_box > .name {
+  color: #2196f3;
+}
+.box > .comments > .block2 > .comments_box > .text {
+  color: #666;
+}
+.box > .comments > .block2 > .comments_box > .reply {
+  color: #444;
+  padding: 0 10rpx;
+}
+
+
+/* 评论输入框 */
+.input_null{
+  color: #C9C9C9;
+} 
+.release{
+  display: flex;
+  align-items: flex-end; /*底部对齐*/
+  justify-content: space-between; /*两端对齐*/
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 18rpx 0 18rpx 30rpx;
+  background-color: #F7F8F7;
+  font-size: 28rpx;
+  z-index: 999;
+}
+.release .text{
+  width: 504rpx;
+  min-height: 34rpx;
+  max-height: 102rpx; /*最多显示三行*/
+  border-width: 15rpx 20rpx; /*使用padding与预期留白不一致，故使用border*/
+  border-style: solid;
+  border-color: #ffffff;
+  line-height: 34rpx;
+  font-size: 28rpx;
+  background-color: #ffffff;
+  border-radius: 4rpx;
+}
+.release .submit{
+  width: 116rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 24rpx;
+  background: #2196f3;
+}
+
+.none{
+    text-align: center;
+}
+.none image {
+    margin: 0 auto;
+    display: block;
+    width: 52%;
+}
+
+.none text{
+    color: darkgrey;
+}
+.bottom{
+  text-align: center;
+  margin: 20rpx;
+  height: 100rpx;
+}
+.bottom>text{
+  font-size: 22rpx;
+  color: #555;
+}

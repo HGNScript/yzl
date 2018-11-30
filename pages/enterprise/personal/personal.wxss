@@ -1,0 +1,96 @@
+/* 头部 */
+ page{
+  background: #f2f2f2;
+}
+/* header */
+.header {
+  background:rgb(68, 68, 68);
+  width: 100%;
+  height: 260rpx;
+  display: flex;
+  padding: 0 20rpx;
+}
+.header > .userimg {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  border: 8rpx #fff solid;
+  margin-top: 47rpx;
+  margin-right: 20rpx;
+}
+.header > .user_box {
+  margin-top: 47rpx;  
+  height: 166rpx;
+}
+.header > .user_box > .user_name {
+  height: 90rpx;
+  line-height: 90rpx;
+  display: flex;
+}
+.header > .user_box > .user_name > text {
+  max-width:400rpx; 
+  color: #fff;
+  font-size: 36rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.header > .user_box > .user_name > image {
+  width: 50rpx;
+  height: 50rpx;
+  margin: 20rpx 10rpx;
+}
+.header > .user_box > .user_add {
+  color: #f2f2f2;
+  width: 500rpx;
+  word-wrap: break-word;
+  font-size: 26rpx;
+}
+/* navbar */
+.navbar {
+  display: flex;
+  height: 100rpx;
+  background: #fff;
+  border-bottom: 1.5px #e5e5e5 solid;
+}
+.navbar > .nav {
+  display: block;
+  width: 50%;
+  text-align: center;
+  line-height: 100rpx;
+  color: #444;
+  font-size: 34rpx;
+}
+.navbar > .active {
+  border-bottom: 3px #19b4ed solid;
+  color: #19b4ed;
+}
+
+
+
+
+
+.information {
+  background: #fff;
+  border-bottom: 1px #e5e5e5 solid;
+  display: flex;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+
+
+/* no */
+.none {
+  text-align: center;
+  color: #999;
+  margin-top: 50%;
+}
+.none image {
+  display: block;
+  width: 250rpx;
+  height: 70rpx;
+  margin: 20rpx auto;
+}

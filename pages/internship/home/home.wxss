@@ -1,0 +1,113 @@
+/* pages/internship/home/home.wxss */
+/* header */
+@import "../template/template.wxss";
+
+/* 内容 */
+.content {
+  padding: 0rpx 80rpx;
+}
+.content > .title:first-child{
+  padding: 50rpx 25rpx 20rpx;  
+}
+.content > .title {
+  position: relative;
+  font-size: 46rpx;
+  color: #3b8bca;
+  border-bottom: 2px #3b8bca solid;
+  padding: 70rpx 25rpx 20rpx;
+  margin-bottom: 10rpx;
+}
+.content > .title > image {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  right: 25rpx;
+}
+.information1{
+  padding: 25rpx 25rpx 0rpx;
+  font-size: 36rpx;
+  color: #444;
+}
+.content > .prompt {
+  color: #0e2c44;
+  font-size: 34rpx;
+  text-align: center;
+  padding: 30rpx 0 10rpx;
+}
+
+.content > .information_show {
+  height: 300rpx;
+  overflow: hidden;
+}
+/* 方向按钮 */
+.content > .direction {
+  border-top: 2px #3b8bca solid;
+  margin-top: 40rpx;
+}
+.content > .direction > .directionimg {
+  width: 45rpx;
+  height: 40rpx;
+  display: block;
+  margin: 0 auto;
+  margin-top: 15rpx;
+}
+
+/* swiper */
+.swiper {
+  position: relative;
+  padding: 0 90rpx;
+}
+.swiper_box {
+  margin-top: 20rpx;
+  border: 1px #cfcfcf solid;
+  border-radius: 10rpx;
+  padding: 30rpx 20rpx;
+}
+.swiper_box > .date {
+  display: flex;
+  border-bottom: 1.5px #3b8bca solid;
+  padding-bottom: 15rpx;
+}
+.swiper_box > .date > .day {
+  color: #3b8bca;
+  font-size: 40rpx;
+}
+.swiper_box > .date > .label1,
+.swiper_box > .date > .label2,
+.swiper_box > .date > .label3 {
+  color: #fff;
+  padding: 5rpx 20rpx;
+  border-radius: 10rpx;
+  margin-left: 25rpx;
+  font-size: 34rpx;
+} 
+.label1 {
+  background: #009787;
+}
+.swiper_box > .date > .label2 {
+  font-size: 28rpx;
+   margin-left: 8rpx;
+  background: #fdb803;
+}
+.label3 {
+  background: red;
+}
+.swiper_box > .text {
+  font-size: 34rpx;
+  padding: 10rpx 20rpx;
+}
+.swiper-left{
+  position: absolute;
+  top: 90rpx;
+  left: 10rpx;
+  width: 70rpx;
+  height: 70rpx;
+}
+.swiper-right{
+  position: absolute;
+  top: 90rpx;
+  right: 10rpx;
+  width: 70rpx;
+  height: 70rpx;
+}
+

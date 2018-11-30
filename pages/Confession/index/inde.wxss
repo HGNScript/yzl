@@ -1,0 +1,193 @@
+page {
+    background-color: #f2f2f2;
+    padding-bottom: 200rpx;
+}
+
+/* 轮播 */
+
+.swiper1 {
+    width: 100%;
+    height: 400rpx;
+}
+
+.swiper1 image {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* 选项卡 */
+
+.navbar {
+    width: 100%;
+    background: #fff;
+    height: 100rpx;
+    line-height: 100rpx;
+    display: flex;
+    border-bottom: 1px #e5e5e5 solid;
+    background: rgba(255, 255, 255, .8);
+}
+
+.navtext {
+    width: 50%;
+    text-align: center;
+    font-size: 34rpx;
+    color: #444;
+}
+
+.active {
+    color: #19b4ed;
+    border-bottom: 2px #19b4ed solid;
+}
+
+/* 块 */
+
+.item {
+    background: rgba(255, 255, 255, 0.3);
+    margin: 15rpx 25rpx;
+    border-radius: 10rpx;
+    padding: 10rpx 10rpx 80rpx 10rpx;
+}
+
+.head {
+    display: flex;
+    position: relative;
+}
+
+.head > .user-img {
+    display: block;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    margin: 10rpx 15rpx;
+}
+
+.head > .user > .user_box {
+    display: flex;
+}
+
+.head > .user > .user_box > .name {
+    max-width: 100%;
+    font-size: 32rpx;
+    color: #444;
+    margin: 10rpx 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.head > .user > .time {
+    font-size: 28rpx;
+    color: #444;
+}
+
+.head > .user > .user_box > image {
+    width: 30rpx;
+    height: 30rpx;
+    margin: 0 5rpx;
+    margin-top: 20rpx;
+    
+}
+
+.head > .theyName {
+    position: absolute;
+    top: 10rpx;
+    right: 20rpx;
+    max-width: 37%;
+    font-size: 25rpx;
+    color: #444;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.content {
+    padding: 0;
+}
+
+.content > .loveLetter {
+    width: 90%;
+    margin: 20rpx auto;
+    word-break: break-all;
+    text-indent: 55rpx;
+    text-align: left;
+}
+
+.content-img {
+    margin: 0 auto;
+    max-width: 90%;
+    /* max-height: 600rpx; */
+}
+
+.content-img > image {
+    max-width: 100%;
+}
+
+.foot {
+    position: relative;
+    display: flex;
+}
+
+.foot > .like {
+    position: absolute;
+    display: flex;
+    right: 30rpx;
+    margin: 10rpx;
+}
+
+.item > .foot > .like > image {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.item > .foot > .like > .number {
+    margin-top: 5rpx;
+    font-size: 28rpx;
+    color: #444;
+}
+
+/* 比心 */
+
+.suspension {
+    position: fixed;
+    bottom: 50rpx;
+    right: 50rpx;
+}
+
+.suspension image {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.none {
+    text-align: center;
+}
+
+.none image {
+    margin: 0 auto;
+    display: block;
+    width: 52%;
+}
+
+.none text {
+    color: darkgrey;
+}
+
+.bgimg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+}
+
+.bottom{
+  text-align: center;
+  margin: 20rpx;
+  height: 100rpx;
+}
+.bottom>text{
+  font-size: 22rpx;
+  color: rgb(31, 28, 28);
+}

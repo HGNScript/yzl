@@ -1,0 +1,190 @@
+<!--导航条-->
+<view class="navbar">
+    <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+</view>
+<!-- currentTab 为 0  -->
+<view class='post' wx:for="{{CircleMy}}" wx:key="id" wx:if="{{currentTab == 0}}">
+    <view class='con'>
+        <!-- 用户信息 -->
+        <view class='user'>
+            <image src="{{user.company['company_state'] == 2?user.company.company_logo:user.imageUrl}}" class='userimg'></image>
+            <view class='user_box'>
+                <view class='name'>{{user.company['company_state'] == 2?user.company.company_name:user.user_name}}</view>
+            </view>
+            <view class='day'>{{item.create_time}}</view>
+        </view>
+        <!-- 文字内容 -->
+        <view class='text' bindtap='post' id='{{item.circle_id}}'>{{item.circle_content}}</view>
+
+        <view class='image' bindtap='post' id='{{item.circle_id}}'  wx:for="{{item.img}}" wx:key="id" wx:for-item="list">
+            <image src='{{list.img_url}}'></image>
+        </view>
+    </view>
+    <view class='remove'></view>
+    <!-- 点赞、删除 -->
+    <view class='function'>
+        <image class='del' src='/image/delete.png' bindtap='delCircleMy' data-index="{{index}}" id='{{item.circle_id}}'></image>
+    </view>
+
+    <view class='hr'></view>
+</view>
+<!-- currentTab 为 0  -->
+
+
+
+<!-- currentTab 为 1  -->
+<view class="box" wx:for="{{Fleamarket}}" wx:key="k" wx:if="{{currentTab == 1}}">
+    <view class="block">
+        <image class='userimage' src="{{user.company['company_state'] == 2?user.company.company_logo:user.imageUrl}}"></image>
+        <view class="block_content" bindtap='detailed' data-id="{{item.fleamarket_id}}">
+            <view class="details">
+                <view class="details_things">{{item.fleamarket_title}}</view>
+                <view class="details_name">{{user.company['company_state'] == 2?user.company.company_name:user.user_name}}</view>
+                <view class="{{item.checked?'checked_none':'checked_show'}}" bindtap='detailed' data-id="{{item.fleamarket_id}}">
+                    <view class='details_content'>{{item.fleamarket_content}}</view>
+                </view>
+
+                <view class='remove'></view>
+                <view class='add_all'>
+                    <view class='time'>{{item.create_time}}</view>
+                </view>
+
+                <view class="price">
+                    <view class='to_price'>￥{{item.fleamarket_price}}</view>
+                    <view class='original_price'>￥{{item.fleamarket_costprice}}</view>
+                    <!-- <image class='deal' src='/image/delete.png' bindtap='1' ></image> -->
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 点赞、删除 -->
+    <view class='function'>
+        <image class='del' src='/image/delete.png' bindtap='delFleamarket' data-index="{{index}}" id='{{item.fleamarket_id}}'></image>
+    </view>
+    <view class='hr'></view>
+</view>
+
+<!-- currentTab 为 1  -->
+
+
+
+<!-- currentTab 为 2  -->
+<view class='post' wx:for="{{Recruit}}" wx:key="id" wx:if="{{currentTab == 2}}">
+    <view class="box" wx:key="id">
+        <view class="block">
+            <view class="block_content">
+                <image src="{{user.company['company_state'] == 2?user.company.company_logo:user.imageUrl}}" bindtap='imageUrl'></image>
+                <view class="details">
+                    <view class="details_things">
+                        <view class='name'>{{user.company['company_state'] == 2?user.company.company_name:user.user_name}}</view>
+                    </view>
+                    <!-- 内容 -->
+                    <view class="box_con" bindtap='bind_market_details' data-id="{{item.recruit_id}}">
+                        <view class='text'>{{item.recruit_detailed}}</view>
+                        <view class='list'>
+                            <text class='list_label'>招聘岗位：</text>
+                            <text class='list_name'>{{item.recruit_post}}</text>
+                        </view>
+                        <view class='list'>
+                            <text class='list_label'>学历要求：</text>
+                            <text class='list_name'>{{item.recruit_demand}}</text>
+                        </view>
+                        <view class='list'>
+                            <text class='list_label'>招聘人数：</text>
+                            <text class='list_name'>{{item.recruit_number}}人</text>
+                        </view>
+                        <view class='list'>
+                            <text class='list_label'>工资待遇：</text>
+                            <text class='list_name'>{{item.recruit_wages}}元</text>
+                        </view>
+                        <view class='list'>
+                            <text class='list_label'>地址：</text>
+                            <text class='list_name'>{{item.user.company.company_address}}</text>
+                        </view>
+                    </view>
+
+                    <!-- image -->
+                    <view class='remove'></view>
+                </view>
+                <!-- 时间 -->
+                <view class="price">
+                    <view class='time'>{{item.create_time}}</view>
+                </view>
+            </view>
+
+
+        </view>
+
+        <view class='footer'>
+            <image class='delimg' src='/image/delete.png' bindtap='delRecruit' data-index="{{index}}" id='{{item.recruit_id}}'></image>
+        </view>
+        <view class='hr'></view>
+    </view>
+
+</view>
+<!-- currentTab 为 2  -->
+
+
+
+<!-- currentTab 为 3  -->
+<view class='post' wx:for="{{allMyJob}}" wx:key="id" wx:if="{{currentTab == 3}}">
+    <view class="box" wx:key="id">
+        <view class="block">
+            <view class="block_content">
+                <image src="{{user.company['company_state'] == 2?user.company.company_logo:user.imageUrl}}" bindtap='imageUrl'></image>
+                <view class="details">
+                    <view class="details_things">
+                        <view class='name'>{{user.company['company_state'] == 2?user.company.company_name:user.user_name}}</view>
+                    </view>
+                    <!-- 内容 -->
+                    <view class="box_con" bindtap='JobUrl' data-id="{{item.job_id}}">
+                        <view class='list'>
+                            <text class='list_label'>兼职意向：</text>
+                            <text class='list_name'>{{item.job_post}}</text>
+                        </view>
+                        <view class='list'>
+                            <text class='list_label'>意向地点：</text>
+                            <text class='list_name'>{{item.job_adress}}</text>
+                        </view>
+                        <view class='list'>
+                            <text class='list_label'>兼职时间：</text>
+                            <text class='list_name'>{{item.job_time}}</text>
+                        </view>
+                        <view class='list'>
+                            <text class='list_label'>联系电话：</text>
+                            <text class='list_name'>{{item.job_phone}}</text>
+                        </view>
+                        <view class='list'>
+                            <text class='list_label'>备注信息：</text>
+                            <text class='list_name'>{{item.job_text}}</text>
+                        </view>
+                    </view>
+
+                    <!-- image -->
+                    <view class="details_img" wx:for="{{item.img}}">
+                        <image class='image' src="{{item.img_url}}" bindtap='img'></image>
+                    </view>
+                    <view class='remove'></view>
+                </view>
+                <!-- 时间 -->
+                <view class="price">
+                    <view class='time'>{{item.create_time}}</view>
+                </view>
+            </view>
+
+
+        </view>
+
+        <view class='footer'>
+            <image class='delimg' src='/image/delete.png' bindtap='delJob' data-index="{{index}}" id='{{item.job_id}}'></image>
+        </view>
+        <view class='hr'></view>
+    </view>
+</view>
+
+
+<!-- //找不到数据 -->
+<view class='none' wx:if="{{(!CircleMy && currentTab == 0) || (!Fleamarket && currentTab == 1) || (!Recruit && currentTab == 2) || (!allMyJob && currentTab == 3)}}">
+    <image src='/image/null.png'></image>
+    <text>暂时找不到数据</text>
+</view>

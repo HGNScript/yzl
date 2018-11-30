@@ -1,0 +1,45 @@
+<!--pages/instructions/instructions.wxml-->
+<view class='list1'>
+  <view class='title'>1.实习系统</view>
+  <view class='text'>目前该功能主要面向广州城建技工学校实习生，用户需要在个人中心通过学生认证才可使用该功能，实习生可以通过点击右上角的菜单按钮选择签到栏选项即可进行签到，点击实习信息即可填写该学生的实习企业、工作地点、岗位、工资等，还可以点击下方实习（月）记录可提交月实习报告。</view>
+  <image class='list1img' mode='widthFix' src='{{url}}personal/practice/1.png' data-url="{{url}}personal/practice/1.png" bindtap='img'></image>
+  <image class='list1img' mode='widthFix' src='{{url}}personal/practice/2.png' data-url="{{url}}personal/practice/2.png" bindtap='img'></image>
+</view>
+<view class='list1'>
+  <view class='title'>2.如何发布帖子？</view>
+  <view class='text'>点击进入到相应帖子的预览页面，找到右上方或右下方的 “ + ” 号按钮，点击进入即可根据发布要求设定发布内容，发布的信息将会在相应的预览页面显示。</view>
+  <image class='list1img' mode='widthFix' src='{{url}}personal/tz/1.png' data-url="{{url}}personal/tz/1.png" bindtap='img'></image>
+  <image class='list1img' mode='widthFix' src='{{url}}personal/tz/2.png' data-url="{{url}}personal/tz/2.png" bindtap='img'></image>
+</view>
+<view class='list1'>
+  <view class='title'>3.如何使用问卷功能？</view>
+  <view class='text'>用户可以通过自身要求可在问卷功能上进行发起问卷和填写问卷；而其中发起问卷分为两种方式：一种是手动导入，另一种是Excel表格导入，当选择手动导入时，用户可以在小程序页面根据要求来手动编辑问卷内容(建议问卷内容比较少的时候使用)；而使用Excel表格导入，用户只需要根据我们给出的Excel表格文档格式在Excel表里排版编辑好，上传到我们的小程序即可。填写问卷：用户可搜索到相应的问卷进行填写，填好后即可提交。</view>
+  <image class='list1img' mode='widthFix' src='{{url}}personal/wj/1.png' data-url="{{url}}personal/wj/1.png" bindtap='img'></image>
+  <image class='list1img' mode='widthFix' src='{{url}}personal/wj/2.png' data-url="{{url}}personal/wj/2.png" bindtap='img'></image>
+  <image class='list1img' mode='widthFix' src='{{url}}personal/wj/3.png' data-url="{{url}}personal/wj/3.png" bindtap='img'></image>
+  <image class='list1img' mode='widthFix' src='{{url}}personal/wj/4.png' data-url="{{url}}personal/wj/4.png" bindtap='img'></image>
+</view>
+<view class='list1'>
+  <view class='title'>4.树洞功能</view>
+  <view class='text'>用户可以在树洞该功能里进行语音录制，录制些个人的小秘密、心里话...同时你也可以对着树洞进行哭诉、抱怨，把不愉快的时事统统丢进树洞里，然后还可以在我的秘密录音库里查听到你当时的录音，这就是树洞，一个藏着秘密的树洞！</view>
+  <image class='list1img' mode='widthFix' src='{{url}}personal/sd/1.png' data-url="{{url}}personal/sd/1.png" bindtap='img'></image>
+  <image class='list1img' mode='widthFix' src='{{url}}personal/sd/2.png' data-url="{{url}}personal/sd/2.png" bindtap='img'></image>
+</view>
+<view class='list1'>
+  <view class='title'>5.表白墙功能</view>
+  <view class='text'>爱就要大声说出来，用户可以在表白墙功能里对心仪的他(她)进行表白，可在发布时编辑是否要匿名发布，匿名发布则会隐藏头像及用户昵称。</view>
+  <image class='list1img' mode='widthFix' src='{{url}}personal/bb/1.png' data-url="{{url}}personal/bb/1.png" bindtap='img'></image>
+</view>
+<view class='list1'>
+  <view class='title'>6.聊吧</view>
+  <view class='text'>用户可在该功能里与其他用户进行即时聊天，讨论相应话题等,如果用户长时间不发言会自动退出聊天室，请下拉重新进入聊天室</view>
+  <image class='list1img' mode='widthFix' src='{{url}}personal/lb/1.png' data-url="{{url}}personal/lb/1.png" bindtap='img'></image>
+</view>
+<view class='list1'>
+  <view class='title'>7.命运转盘</view>
+  <view class='text'>“你做不了的决定，就由我来帮你定”，命运转盘，用户可在里面使用热门转盘或自定义转盘，选择轮盘后即可进行轮盘抽取，轮盘抽取的概率都是相等的。</view>
+  <image class='list1img' mode='widthFix' src='{{url}}personal/zp/1.png' data-url="{{url}}personal/zp/1.png" bindtap='img'></image>
+  <image class='list1img' mode='widthFix' src='{{url}}personal/zp/2.png' data-url="{{url}}personal/zp/2.png" bindtap='img'></image>
+  <image class='list1img' mode='widthFix' src='{{url}}personal/zp/3.png' data-url="{{url}}personal/zp/3.png" bindtap='img'></image>
+  <image class='list1img' mode='widthFix' src='{{url}}personal/zp/4.png' data-url="{{url}}personal/zp/4.png" bindtap='img'></image>
+</view>

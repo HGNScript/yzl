@@ -1,0 +1,2 @@
+<!--pages/questionnaire/Excel/Excel.wxml-->
+<web-view src="https://gzysr.cn/upbook/index?user_id={{user_id}}"></web-view>

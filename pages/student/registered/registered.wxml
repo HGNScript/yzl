@@ -1,0 +1,64 @@
+<!--pages/student/registered/registered.wxml-->
+<form bindsubmit="formSubmit"  wx:if="{{stu_type == null}}">
+<view>
+<!-- 学校 -->
+  <view class='options'>
+    <picker class='picker' bindchange="school" value='{{casIndex}}' range="{{casArray}}" range-key="school_name">
+      <view>
+        <text>{{casArray[casIndex].school_name}}</text>
+      </view>
+    </picker>
+    <image class='right' src='/image/icon/flea/right.png'></image>
+  </view>
+
+<!-- 姓名 -->
+  <view class="options">
+    <input type='text' class='input1' placeholder='请输入姓名' placeholder-class='placeholder' name="stu_name" value='{{stu_name}}'></input>
+  </view>
+<!-- 年级 -->
+  <view class='options'>
+    <picker class='picker' bindchange="grade" range="{{gradeArray}}">
+      <view>
+        <text>{{gradeArray[gradeIndex]}}</text>
+      </view>
+    </picker>
+    <image class='right' src='/image/icon/flea/right.png'></image>
+  </view>
+<!-- 专业 -->
+  <view class="options">
+    <input type='text' name="stu_major" class='input1' placeholder='请输入专业' placeholder-class='placeholder' value='{{stu_major}}'></input>
+  </view>
+<!-- 班级 -->
+  <view class="options">
+    <input type='text' name="stu_class" class='input1' placeholder='请输入班级' placeholder-class='placeholder' value='{{stu_class}}'></input>
+  </view>
+<!-- 学号 -->
+  <view class="options">
+    <input type='number' name="stu_number" class='input1' placeholder='请输入学号' placeholder-class='placeholder' value='{{stu_number}}'></input>
+  </view>
+<!-- 上传学生证 -->
+  <view class='upload'>
+    <view class='title'>上传学生证</view>
+    <view class='upload_box'>
+    <!-- img -->
+      <view class='img_box' wx:if="{{card_img}}">
+        <image class='img' src="{{card_img}}"></image>
+        <image class='del' src='/image/icon/circle/del.png' bindtap='delImg' data-url="{{card_img}}" ></image>
+      </view>
+    <!-- btn -->
+      <view class='upload_btn' bindtap='uploadcard' wx:else>
+        <image src='/image/icon/student/upload.png'></image>
+        <view class='text'>点击上传图片</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<button class='btn' formType="submit">提交</button>
+</form>
+
+
+<view class='con' wx:if="{{stu_type == 3}}">
+  <image src='/image/icon/enterprise/audit.png'></image>
+  <view class='text'>正在审核，请耐心等候......</view>
+</view>

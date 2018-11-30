@@ -1,0 +1,3 @@
+<!--pages/questionnaire/dowload.wxml-->
+<!-- <web-view src="http://yzl.top/upbook/download?url={{url}}"></web-view> -->
+<web-view src="https://gzysr.cn/upbook/download?url={{url}}"></web-view>

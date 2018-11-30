@@ -1,0 +1,119 @@
+/* pages/resources/home/home.wxss */
+
+page {
+    background-color: #f8f8f8;
+}
+.search_input {
+    display: flex;
+    height: 110rpx;
+    padding: 0 20rpx;
+}
+.search_input .search_input_left {
+    margin: 15rpx 0 ;
+    width: 85%;
+    background: #fff;
+    height: 80rpx;
+    padding-left: 15rpx;
+    vertical-align: middle;
+    border-radius: 5rpx;
+    display: flex;
+    box-sizing: border-box;
+    font-size: 26rpx;
+}
+
+.search_input .search_input_left image {
+    width: 40rpx;
+    height: 40rpx;
+    margin: 20rpx 0;
+    margin-right: 12px;
+}
+
+.search_input .search_input_left input {
+    display: inline-block;
+    height: 40rpx;
+    margin: 20rpx 0;
+    width: 83%;
+}
+
+.search_input .search_input_right {
+    display: inline-block;
+    font-size: 27rpx;
+    width: 15%;
+    text-align: center;
+    line-height: 110rpx;
+}
+
+.search_history, .search_hot {
+    margin-top: 30px;
+    padding: 0 20rpx;
+}
+
+.search_history .search_title image {
+    display: inline-block;
+    width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    right: 20px;
+}
+
+.search_title {
+    font-size: 28rpx;
+}
+
+.search_content view {
+    display: inline-block;
+    padding: 6px;
+    width: auto;
+    border: 1px solid #ccc;
+    margin: 15px 15px 0 0;
+    border-radius: 5px;
+}
+
+.block_all {
+    background: #fff;
+    display: flex;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.resources_img {
+    width: 220rpx;
+    height: 120rpx;
+    margin: 20rpx;
+}
+
+.resources_content_box {
+    display: flex;
+    width: 58%;
+    margin: 30rpx;
+}
+
+.resources_content>.resources_title {
+    font-size: 32rpx;
+    color: #000;
+}
+
+.resources_content>.resources_cont {
+    font-size: 28rpx;
+    color: #444;
+    margin-top: 12rpx;
+}
+
+.resources_content_box {
+    width: 460rpx;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.none{
+    text-align: center;
+}
+.none image {
+    margin: 0 auto;
+    display: block;
+    width: 52%;
+}
+
+.none text{
+    color: darkgrey;
+}

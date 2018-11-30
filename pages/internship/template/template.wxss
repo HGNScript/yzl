@@ -1,0 +1,121 @@
+/* pages/internship/template/template.wxss */
+/* header */
+.header {
+  position: relative;
+  background: #237ac1;
+  height: 136rpx;
+  padding: 0 45rpx;
+}
+.header > .logo {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-top: 8rpx;
+}
+.header > .return {
+  position: absolute;
+  left: 45rpx;
+  top: 25rpx;
+  z-index: 999;
+}
+.header > .return > button {
+  height: 86rpx;
+  line-height: 86rpx;
+  background: #367cb7;
+  color: #fff;
+}
+.header > .name {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  text-align: center;
+  color: #fff;
+  font-size: 48rpx;
+  line-height: 136rpx;
+}
+.header > .btn {
+  position: absolute;
+  right: 45rpx;
+  top: 25rpx;
+}
+.header > .btn > button {
+  height: 86rpx;
+  line-height: 86rpx;
+  background: #367cb7;
+  color: #fff;
+}
+
+/* 菜单下拉显示隐藏 */
+.menu {
+  border-radius: 10rpx;  
+  box-shadow: 0rpx 0rpx 10rpx rgba(0, 0, 0, .2);
+  width: 300rpx;
+  position: absolute;
+  right: 0rpx;
+  font-size: 30rpx;
+  color: #666;
+  z-index: 9999;
+  margin-top: 136rpx;
+}
+.display_show{
+  display: block;
+  border-bottom: 1rpx #e5e5e5 solid;
+  background: #fff;
+  padding: 10px;
+}
+.display_show:last-child{
+  border-bottom: 0rpx;
+}
+.display_none{
+  display: none;
+}
+
+/* footer */
+.footer {
+  background: #237ac1;
+  font-size: 20rpx;
+  color: #fff;
+  text-align: center;
+  padding: 20rpx 0;
+}
+.footer2 {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #237ac1;
+  font-size: 20rpx;
+  color: #fff;
+  text-align: center;
+  padding: 20rpx 0;
+}
+.badge {
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  left: 80%;
+  top:30%;
+  border-radius: 50%;
+  background: red;
+}
+.badge1 {
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  left: 30%;
+  top:13%;
+  border-radius: 50%;
+  background: red;
+}
+.badge2 {
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  left: 50%;
+  top:57%;
+  border-radius: 50%;
+  background: red;
+}

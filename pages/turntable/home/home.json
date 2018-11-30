@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "命运转盘",
+  "usingComponents": {
+    "zhuanpan": "/components/zhuanpan/zhuanpan"
+  }
+}

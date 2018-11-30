@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "企业招聘",
+    "usingComponents": {
+        "refresh-view": "/components/RefreshView/refresh-view"
+    },
+    "backgroundTextStyle": "dark"
+}

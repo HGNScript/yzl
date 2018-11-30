@@ -1,0 +1,30 @@
+<!--pages/schoolmap/schoolmap.wxml-->
+<view class='block'>
+  <text>广州城建职业技术学院</text>
+  <image src='{{url}}schoolmap/cj.png' bindtap='img' data-url="{{url}}schoolmap/cj.png"></image>
+</view>
+<view class='block'>
+  <text>广州大学华软软件学院</text>
+  <image src='{{url}}schoolmap/hr.png' bindtap='img' data-url="{{url}}schoolmap/hr.png"></image>
+</view>
+<view class='block'>
+  <text>广东水利电力职业技术学院</text>
+  <image src='{{url}}schoolmap/sl.png' bindtap='img' data-url="{{url}}schoolmap/sl.png"></image>
+</view>
+<view class='block'>
+  <text>广州华夏职业学院</text>
+  <image src='{{url}}schoolmap/hx.png' bindtap='img' data-url="{{url}}schoolmap/hx.png"></image>
+</view>
+<view class='block'>
+  <text>广州南洋理工职业学院</text>
+  <image src='{{url}}schoolmap/ny.png' bindtap='img' data-url="{{url}}schoolmap/ny.png"></image>
+</view>
+<view class='block'>
+  <text>华南农业大学珠江学院</text>
+  <image src='{{url}}schoolmap/hnny.png' bindtap='img' data-url="{{url}}schoolmap/hnny.png"></image>
+</view>
+<view class='block'>
+  <text>中山大学南方学院</text>
+  <image src='{{url}}schoolmap/zsdx.png' bindtap='img' data-url="{{url}}schoolmap/zsdx.png"></image>
+</view>
+

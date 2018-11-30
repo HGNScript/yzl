@@ -1,0 +1,22 @@
+<!--pages/internship/logfeedback/logfeedback.wxml 日志反馈-->
+
+<view bindtap='focus'>
+<import src="../template/template.wxml" />
+<template is="header" data="{{headData}}"></template>
+
+<!-- 选项栏 -->
+<view class='options'>
+  <view class='home' bindtap='home'>返回上级</view>
+  <view class='task'>日志反馈</view>
+  <view class='null'></view>
+</view>
+
+<!-- 内容 -->
+<view class='content'>
+  <view class='title'>日志反馈</view>
+   <view wx:if="{{logsData !== null}}" bindtap="log" data-id="{{logsData.logs_id}}" class='text'>{{logsData.replay_val}}</view>
+  <view wx:if="{{logsData == null}}" class='text'>没有未阅读的评语</view>
+</view>
+
+<template is="footer2"></template>
+</view>

@@ -1,0 +1,100 @@
+page {
+  background-color: #f5f5f5;
+}
+.header {
+  background-color: #fff;
+  padding: 20rpx;
+  border-bottom: 1rpx #ededed solid;
+}
+.header > .search {
+  background-color: #ededed;
+  height: 70rpx;
+  display: flex;
+  position: relative;
+  padding: 0 10rpx;
+  padding-left: 15rpx;
+}
+.header > .search > image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+  margin-top: 15rpx;
+}
+.header > .search > input {
+  margin-top: 10rpx;  
+  width:70%;
+  font-size: 30rpx;
+  color: #444;
+  padding: 0 10rpx;
+}
+.header > .search > .btn {
+  width: 21%;
+  position: absolute;
+  right: 0;
+  background-color: #fff;
+  color: #666;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+}
+
+/* yes */
+.yes {
+  background: #fff;
+  margin-top: 10rpx;
+}
+.con_box {
+  border-bottom: 1px #e5e5e5 solid;
+  padding: 15rpx 0 30rpx;
+}
+.con_box > .user_head {
+  display: flex;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.con_box > .user_head > image {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  margin: 15rpx;
+}
+.con_box > .user_head > .user_name {
+  font-size: 32rpx;
+  color: #444;
+  max-width: 450rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.con_box > .user_head > .user_time {
+  font-size: 26rpx;
+  color: #666;
+  margin-left: 20rpx;
+}
+.con_box > .con_text {
+  margin-left: 100rpx;
+  margin-right: 30rpx;
+  font-size: 30rpx;
+  color: #555;
+  line-height: 1.5;
+  letter-spacing: 1rpx;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+}
+
+/* no */
+.none {
+  text-align: center;
+  color: #999;
+  margin-top: 50%;
+}
+.none image {
+  display: block;
+  width: 250rpx;
+  height: 70rpx;
+  margin: 20rpx auto;
+}

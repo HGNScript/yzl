@@ -1,0 +1,342 @@
+/**index.wxss**/
+page{
+  /* background: #f2f2f2; */
+}
+.swiper{
+  width: 100%;
+  height: 400rpx;
+}
+.swiper-img {
+  width: 100%;
+  height: 400rpx;
+}
+.swiper-item,.swiperList,swiper  {
+  height: 80rpx;
+  width: 100%;
+  line-height: 80rpx;
+}
+.swiperList>image{
+  margin: 0rpx 20rpx;
+  width: 36rpx;
+  height: 36rpx;
+}
+.swiperList>.advertising_text{
+  color: #333;
+  font-size: 28rpx;
+  position: absolute;
+  width:660rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.hr{
+  border: 2rpx solid #f5f5f5;
+  background:#f5f5f5;
+}
+/* 企业招聘 */
+ .block_all{
+  width: 99%;
+  margin:0.5%;
+  background:#fff;
+  border-bottom: 15rpx solid #f5f5f5;
+}
+.type_a_title{
+  width: 100%;
+  height: 100rpx;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 90rpx;
+}
+.type_a_title>image{
+  margin: 0rpx 20rpx;
+  width: 50rpx;
+  height: 50rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+.type_a_title>span{
+  color: #333;
+  font-size: 34rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+.hr01{
+  border: 1px #f8f8f8 solid;
+}
+.block {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10rpx 10rpx;
+}
+
+.block_content {
+  display: flex;
+}
+.block_content>image {
+  margin-top: 20rpx;
+  width: 90rpx;
+  height: 90rpx;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+
+/* 推荐图标 */
+.details_icon{
+  width: 70rpx;
+}
+.details_icon>image{
+  width: 70rpx;
+  height: 70rpx;
+  float: right;
+}
+.details_content1 {
+   margin: 0 10rpx;
+  font-size: 28rpx;
+  line-height: 1.5;
+  display: -webkit-box;    
+  -webkit-box-orient: vertical;    
+  -webkit-line-clamp: 2;    
+  overflow: hidden;
+}
+.detail_imgs>image{
+  width: 32%;
+  height: 200rpx;
+  margin:15rpx 5rpx;
+}
+.time{
+  font-size: 24rpx;
+}
+.details_like{
+  padding: 20rpx;
+  position: relative;
+  font-size: 13px;
+  color: #555;
+}
+.details_time{
+  font-size: 26rpx;
+  margin: 0rpx 10rpx;
+  margin-bottom: 10rpx;
+}
+.details_like>.asd{
+  position: absolute;
+  right: 0rpx;
+}
+.details_like_text{
+  vertical-align: middle;
+  position: absolute;
+  right: 20rpx;
+  color: #555;
+  font-size: 26rpx;
+}
+.details_like>.asd>image{
+  height: 18px;
+  width: 18px;
+  margin-right: 22px;
+}
+
+/* 广告图片轮播图 */
+.swiper1{
+  width: 100%;
+  height: 180rpx;
+  background:#fff;
+}
+.swiper1-img {
+  width: 100%;
+  height:100%;
+}
+/* 跳蚤市场 */
+.market{
+  width: 100%;
+}
+.market-box {
+  margin: 2.6%;
+  display: inline-block;
+  width: 28%;
+}
+.box{
+  margin-top: 20rpx; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} 
+.box>view{
+  margin: 6rpx 0rpx;
+}
+.market-img{
+  height: 180rpx;
+  width: 180rpx;
+}  
+.market-name{
+  color: #333;
+  font-size: 26rpx;
+  font-weight: 400;
+}
+.market-price{
+  font-size: 24rpx;
+  color: red;
+}
+
+
+
+/* 企业招聘 */
+.details>.details_things{
+  display: flex;
+  width:536rpx;
+  color: #333;
+  font-size: 30rpx;
+  margin-top: 26rpx;
+  letter-spacing:4rpx;
+}
+.details>.details_things>.text{ 
+  max-width: 570rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+} 
+.details>.details_things>image{
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0rpx 15rpx;
+}
+.details>.details_name{
+  font-size: 26rpx;
+  margin-top: 10rpx;
+}
+
+
+
+
+
+/* 兼职轮播图 */
+.swiper2{
+  width: 100%;
+  height: 560rpx;
+  background:#fff;
+}
+.blocks {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding:10rpx 10rpx;
+}
+.details>.details_thingss{
+  display: flex;
+   width:536rpx;
+  color: #333;
+  font-size: 30rpx;
+  margin-top: 12rpx;
+  letter-spacing:4rpx;
+}
+.details>.details_thingss>.texts{ 
+  max-width: 88%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.details>.details_thingss>image{
+  width: 40rpx;
+  height: 40rpx;
+  margin: 16rpx 15rpx;
+}
+.details>.details_names{
+  font-size: 26rpx;
+  margin-top: -36rpx;
+}
+
+
+.details_likes{
+  margin-top: -32rpx;
+  position: relative;
+  display: flex;
+  font-size: 13px;
+  flex-direction: row;
+}
+.details_time{
+  font-size: 26rpx;
+  margin: 0rpx 10rpx;
+  margin-bottom: 10rpx;
+}
+.details_likes>.asd{
+  position: absolute;
+  right: 0rpx;
+}
+.details_likes_text{
+  vertical-align: middle;
+  margin-left: 260rpx;
+  color: #555;
+  font-size: 26rpx;
+}
+.details_likes>.asd>image{
+  height: 18px;
+  width: 18px;
+  margin-right: 22px;
+}
+.bottom{
+  text-align: center;
+  margin: 20rpx;
+}
+.bottom>text{
+  font-size: 22rpx;
+  color: #555;
+}
+
+/* 兼职？ */
+.userinfo {
+  margin-top: 10rpx;
+  width:70%;
+  display: flex;
+  height: 100rpx;
+}
+.userinfo > .username {
+  max-width: 88%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 100rpx;
+  letter-spacing: 2rpx;
+  font-size: 32rpx;
+  color: #444;
+}
+.userinfo > image {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 35rpx 10rpx;
+}
+.tjimg {
+  position: absolute;
+  right: 10rpx;
+}
+/* 内容 */
+.details_content2 {
+  width: 80%;
+  display: block;
+  margin-left: 120rpx;
+}
+.box_con {
+  color: #555;
+  font-size: 30rpx;
+  word-wrap:break-word;
+  line-height: 1.6;
+}
+.box_con > .text {
+  width: 100%;
+  word-wrap:break-word;
+}
+.box_con > .list > .list_label {
+  color: #1c5c91;
+  font-size: 30rpx;
+}
+.box_con > .list > .list_name {
+  word-wrap: break-word;
+}
+
+
+.wages , .post{
+    color: #1c5c91;
+    font-size: 30rpx;
+    margin: 5rpx;
+    line-height: normal;
+}

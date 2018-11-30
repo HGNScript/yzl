@@ -1,0 +1,33 @@
+<!--pages/enterprise/search/search.wxml-->
+<view class='header'>
+  <view class='search'>
+    <image src='/image/icon/flea/search.png'></image>
+    <input class='search-input' type='text' placeholder='请输入企业名称或关键字' placeholder-style='font-size:30rpx;' bindinput='searchText' />
+    <view class='btn' bindtap='getSeachData'>搜索</view>
+  </view>
+</view>
+
+<!-- 有 -->
+<view class='yes' wx:if="{{searchcon}}">
+  <!-- 内容 -->
+  <view class='con_box' wx:for="{{searchcon}}" wx:key="" bindtap='bind_market_details' data-id="{{item.recruit_id}}">
+    <view class='user_head'>
+      <image src='{{item.company_logo}}'></image>
+      <view class='user_name'>
+      <rich-text nodes="{{item.company_name}}"></rich-text>
+      </view>
+      <view class='user_time'>
+      {{item.create_time}}
+      </view>
+    </view>
+    <view class='con_text'>
+      <rich-text nodes="{{item.recruit_detailed}}"></rich-text>
+    </view>
+  </view>
+</view>
+
+<!-- 没有 -->
+<view class='none' wx:if="{{!searchcon.length}}">
+  <image src='/image/none.png'></image>
+  <text>没有找到搜索内容哦!</text>
+</view>

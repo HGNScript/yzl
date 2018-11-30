@@ -1,0 +1,16 @@
+/* pages/schoolmap/schoolmap.wxss */
+.block {
+  text-align: center;
+  margin: 20rpx;
+  margin-top: 50rpx;
+  color: #333;
+}
+.block > text {
+  font-size: 42rpx;
+  font-family: cursive;
+}
+.block > image {
+  width: 100%;
+  margin-top: 20rpx;
+  height: 500rpx;
+}

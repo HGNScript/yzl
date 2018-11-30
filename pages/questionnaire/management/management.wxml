@@ -1,0 +1,25 @@
+<!--pages/questionnaire/management/management.wxml 问卷管理-->
+<!-- 没有问卷 -->
+<view class='none' wx:if="{{!roll.length}}">
+  <image src='/image/icon/answer/none.png'></image>
+  <view class='text'>你还没有发起过问卷噢~{{row.length}}</view>
+</view>
+
+<!-- 有问卷显示 -->
+<view class='content'>
+ <view class='roll' wx:for="{{roll}}" wx:key="id">
+    <view class='con' bindtap='roll' data-id="{{item.book_id}}">
+      <view class='title'>{{item.book_name}}</view>
+      <view class='details'>
+        <view class='name'>{{item.launch_name}}</view>
+      </view>
+       <view class='details'>
+        <view class='time'>{{item.create_time}}</view>
+      </view>
+    </view>
+    <view class='button'>
+      <button class='download' data-id="{{item.book_id}}" bindtap='download'>下载</button>
+      <button class='delete' bindtap='deleteBook' data-id="{{item.book_id}}" data-index="{{index}}">删除</button>
+    </view>
+  </view>
+</view>

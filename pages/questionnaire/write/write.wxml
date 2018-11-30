@@ -1,0 +1,38 @@
+<!--pages/questionnaire/write/write.wxml 填写问卷--> 
+<!-- 搜索 -->
+<view class='search'>
+  <input type='text' placeholder='请输入问卷标题' value="{{search}}" placeholder-class='placeholder' bindinput='inputap'></input>
+  <image src='/image/icon/answer/search.png' bindtap='search'></image>
+</view>
+
+<!-- <view class='hr'></view> -->
+
+<!--导航条-->
+<view class="navbar">
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap" data-col="{{item.col}}">{{item.name}}</text>
+</view>
+
+<!-- 分类 -->
+<!-- 最新 -->
+<!-- <view hidden="{{currentTab!==0}}"> -->
+<view>
+  <view class='roll' wx:for="{{roll}}" wx:key="id" bindtap='roll' data-id="{{item.book_id}}">
+    <view class='con'>
+    <view class='con_box1'>
+      <view class='title'>{{item.book_name}}</view>
+      <view class='num'>浏览量：{{item.book_flow}}</view>
+    </view>
+      <view class='details'>
+        <view class='name'>{{item.launch_name}}</view>
+        <view class='time'>{{item.create_time}}</view>
+        
+      </view>
+    </view>
+    <!-- <image class='rightimg' src='/image/icon/answer/right.png'></image> -->
+  </view>
+</view>
+
+<view class='none' wx:if="{{!roll.length}}">
+    <image src='/image/null.png'></image>
+    <text>暂时找不到数据</text>
+</view>

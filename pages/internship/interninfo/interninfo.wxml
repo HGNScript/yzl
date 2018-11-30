@@ -1,0 +1,61 @@
+<!--pages/internship/interninfo/interninfo.wxml 实习信息-->
+<view bindtap='focus'>
+
+<import src="../template/template.wxml" />
+<template is="header" data="{{headData}}"></template>
+
+
+<!-- 选项栏 -->
+<view class='options'>
+  <view class='home' bindtap='home'>首页</view>
+  <view class='task'>添加实习信息</view>
+  <view class='null'></view>
+</view>
+
+<!-- 内容 -->
+<form bindsubmit="companySubmit">
+  <view class='content'>
+    <view class='title'>实习信息</view>
+    <view class='case'>
+      <view class='label'>实习单位名称：</view>
+      <input name="company_name" class='input1' type='text' placeholder='请填写实习单位全称' placeholder-class='placeholder'></input>
+      <view class='label'>实习地点：</view>
+      <view class='place'>
+        <input name='province' class='input2' type='text' placeholder='省份' placeholder-class='placeholder'></input>
+        <input name='city' class='input2' type='text' placeholder='市' placeholder-class='placeholder'></input>
+        <input name='county' class='input2' type='text' placeholder='县/区/村' placeholder-class='placeholder'></input>
+      </view>
+      <view class='label'>月实习补贴：</view>
+      <input name='money' class='input1' type='number' placeholder='月实习补贴' placeholder-class='placeholder'></input>
+      <view class='label'>岗位：</view>
+      <input name='prin' class='input1' type='text' placeholder='岗位' placeholder-class='placeholder'></input>
+      <view class='label'>实习单位负责人：</view>
+      <input name='padfd' class='input1' type='text' placeholder='实习单位负责人' placeholder-class='placeholder'></input>
+      <view class='label'>负责人联系电话：</view>
+      <input name='prin_phone' class='input1' type='number' placeholder='负责人联系电话' placeholder-class='placeholder'></input>
+      <view class='label'>是否对口</view>
+      <radio-group class="radio-group" bindchange="correct">
+        <label class="radio" wx:for="{{radio1}}" wx:key="id">
+          <radio value="{{item.value}}" checked="{{item.checked}}" />{{item.value}}
+        </label>
+      </radio-group>
+      <view class='label'>是否学校/老师推荐</view>
+      <radio-group class="radio-group" bindchange="introduce">
+        <label class="radio" wx:for="{{radio2}}" wx:key="id">
+          <radio value="{{item.value}}" checked="{{item.checked}}" />{{item.value}}
+        </label>
+      </radio-group>
+      <view class='label'>学生满意度评价</view>
+      <picker class='pickercon' bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <input class='picker' value='{{array[index]}}' placeholder='请选择' placeholder-class='placeholder'>
+        </input>
+        <image class='picker_img' src='/image/icon/internship/picker.png'></image>
+      </picker>
+      <button class='btn' form-type='submit'>添加</button>
+
+    </view>
+  </view>
+</form>
+<template is="footer"></template>
+
+</view>

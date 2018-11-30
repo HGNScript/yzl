@@ -1,0 +1,70 @@
+<!--pages/release/release.wxml 编辑发布小猿圈-->
+
+
+<view class='hr'></view>
+
+<view class="Block">
+  <!-- 文本框 -->
+  <view class="textarea">
+    <textarea placeholder="想说点什么呢！" bindinput='getContent' />
+  </view>
+  <!-- 上传图片 -->
+  <view class='pic'>
+
+    <!-- 上传图片按钮 -->
+    <view class='upload' bindtap='uploadImg'>
+      <image src='/image/icon/circle/pic.png'></image>
+    </view>
+
+    <!-- 图片 -->
+    <view class='pic_box' wx:for="{{imgurl}}" wx:key="key"  wx:for-index="idx">
+      <view class='image'>
+        <image class='imgurl' src='{{item.url}}'></image>
+        <image class='del' src='/image/icon/circle/del.png' bindtap='delImg' data-index="{{idx}}" data-url="{{item.url}}"></image>
+      </view>
+    </view>
+    
+    <!-- 消除浮动 -->
+    <view class='remove'></view>
+  </view>
+</view>
+
+<view class='hr'></view>
+<!-- 心情 -->
+<view class='face'>
+  <view class='title'>
+    <image class='title-img' src='/image/icon/circle/0.png'></image>
+    <text>表情包标签</text>
+  </view>
+  <swiper indicator-dots="{{indicatorDots}}">
+    <block wx:for="{{faceImgurl}}" wx:key="id" wx:for-index="idx">
+      <swiper-item>
+        <view class="face_box" wx:for="{{item.faceimg}}" wx:for-item="list" wx:key="id">
+          <image src='{{list}}' data-faceurl='{{list}}'  data-pindex='{{idx}}' data-index='{{index}}' bindtap='toDetail' class="face_img {{faceindex == index && pindex == idx ?'choice':''}}"></image>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+
+<view class='hr'></view>
+
+<!-- 复选定位 -->
+<view class='checkbox_box'>
+  <checkbox-group bindchange="getAddress">
+    <checkbox class='checkbox' value='1'></checkbox>
+    <view class='text'>定位</view>
+  </checkbox-group>
+</view>
+<!-- 单选按钮 -->
+<radio-group class="radio-group" bindchange="radioChange">
+  <view class='radio_box' wx:for="{{radio}}" wx:key="name">
+    <radio class="radio" value="{{item.value}}" checked="{{item.checked}}">
+    </radio>
+    <view class='text'>{{item.name}}</view>
+  </view>
+</radio-group>
+
+<!-- btn -->
+<button class="btn" bindtap='submit' >发 布</button>

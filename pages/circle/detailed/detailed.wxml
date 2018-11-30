@@ -1,0 +1,119 @@
+<!--pages/detailed/detailed.wxml 评论详情-->
+<!-- 没有用户评价 -->
+<view id="page">
+    <view class='no' style='display:none;'>
+        暂无用户评价哦~
+    </view>
+
+    <view class='content'>
+        <view class="con">
+            <view class='user'>
+                <image class='topimg' src="{{matter.user.company['company_state'] == 2?matter.user.company.company_logo:matter.user.imageUrl}}" bindtap='userimg' data-uid="{{matter.user.id}}"></image>
+                <view class='name'>
+                    <view class='text'>{{matter.user.company['company_state'] == 2?matter.user.company.company_name:matter.user.user_name}}</view>
+                    <image wx:if="{{matter.user.gender == '男'}}" src='/image/icon/circle/nan.png'></image>
+                    <image wx:elif="{{matter.user.gender == '女'}}" src='/image/icon/circle/nv.png'></image>
+                </view>
+                <image class='face' wx:if="{{matter.circle_faceUrl != 0}}" src='{{matter.circle_faceUrl}}'></image>
+            </view>
+            <!-- 文本内容 -->
+            <view class='matter'>
+                <view class="text_box" bindtap='bindundetails'>
+                    <view class='text'>{{matter.circle_content}}</view>
+                </view>
+
+                <!-- img  -->
+                <view class='matter_img' wx:for="{{matter.img}}" wx:for-item="list" wx:key="id">
+                    <image src='{{list.img_url}}' bindtap='img' data-imgurl="{{list.img_url}}" data-imgurls="{{matter.img}}"></image>
+                </view>
+                <view class='address' wx:if="{{matter.circle_addresss != 0}}">{{matter.circle_addresss}}</view>
+                <view class='address' wx:else></view>
+                <view class='day'>{{matter.create_time}}</view>
+            </view>
+
+            <!-- 页脚 -->
+            <view class='con_footer'>
+                <view class='browse' wx:if="{{matter.circle_flow  != 0}}">浏览量：{{matter.circle_flow}}</view>
+                <view class='btn'>
+                    <block>
+                        <image src='/image/icon/circle/zan2.png' wx:if="{{matter.goodFlag}}" bindtap='good' data-index="{{index}}"></image>
+                        <image src='/image/icon/circle/zan1.png' wx:else bindtap='good' data-index="{{index}}"></image>
+                    </block>
+
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class='hr'></view>
+    <!-- 评论 -->
+    <view class='comments'>
+        <view class='header'>
+            <!-- 评论次数 -->
+            <view class='title'>评论：</view>
+            <text class='num'>{{matter.comment.length}}</text>
+            <!-- 评论按钮 -->
+            <!-- <view class='combtn' bindtap='bindReply'>
+            <image src='/image/icon/circle/com.png'></image>
+            <text class='text'>评论</text>
+        </view> -->
+        </view>
+
+        <!-- 用户评论 -->
+        <view class='centre' wx:for="{{comment}}" wx:key="key" wx:for-index="idx">
+            <view class='user'>
+                <image src="{{item.comuser.company['company_state'] == 2?item.comuser.company.company_logo:item.comuser.imageUrl}}" bindtap='userimg' data-uid="{{item.comuser.id}}"></image>
+                <view class='name'>
+                    <view class='text'>{{item['comuser']['company']['company_state'] == 2?item.comuser.company.company_name:item.comuser.user_name}}</view>
+                    <image wx:if="{{item.comuser.gender == '男'}}" src='/image/icon/circle/nan.png'></image>
+                    <image wx:elif="{{item.comuser.gender == '女'}}" src='/image/icon/circle/nv.png'></image>
+                </view>
+                <view class='day'>{{item.create_time}}</view>
+            </view>
+
+            <view class='text' bindtap='replyComment' data-pname="{{item['comuser']['company']['company_state'] == 2?item.comuser.company.company_name:item.comuser.user_name}}" data-pid="{{item.comment_id}}">
+                {{item.comment_content}}
+            </view>
+
+            <view class='reply'>
+                <!-- <view class='btn' bindtap='reply' data-index="{{idx}}" wx:if="{{item.son.length != 0}}" >查看全部({{item.son.length}})条评论 ></view> -->
+
+                <view class='reply_box' wx:if="{{item.son.length != 0}}">
+                    <view class='box'>
+
+                        <!-- 回复 -->
+                        <view class='back1' wx:for="{{item.son}}" wx:for-item="list" wx:key="d">
+                            <view wx:if="{{list.puser == null}}">
+
+                                <text class='user' bindtap='userimg' data-uid="{{list.comuser.id}}">{{list['comuser']['company']['company_state'] == 2?list.comuser.company.company_name:list.comuser.user_name}}：</text>
+                                <text class='text' data-pname="{{list['comuser']['company']['company_state'] == 2?list.comuser.company.company_name:list.comuser.user_name}}" data-pid="{{item.comment_id}}" data-uid="{{list.comuser.id}}" data-index="{{idx}}" bindtap='replyComment'>{{list.comment_content}}</text>
+                            </view>
+
+
+                            <view wx:else>
+                                <text class='user' bindtap='userimg' data-uid="{{list.comuser.id}}">{{list.comuser.company['company_state'] == 2?list.comuser.company.company_name:list.comuser.user_name}}</text>
+
+                                <text class='huifu'>回复</text>
+
+                                <text class='user' bindtap='userimg' data-uid="{{list.puser.id}}">{{list.puser.company['company_state'] == 2?list.puser.company.company_name:list.puser.user_name}}:</text>
+
+                                <text class='text' data-pname="{{list.comuser.company['company_state'] == 2?list.comuser.company.company_name:list.comuser.user_name}}" data-pid="{{item.comment_id}}" data-uid="{{list.comuser.id}}" data-index="{{idx}}" bindtap='replyComment'>{{list.comment_content}}</text>
+
+                            </view>
+                        </view>
+
+                    </view>
+                </view>
+            </view>
+
+        </view>
+
+    </view>
+
+    <!-- 评论框 -->
+    <view class="release">
+        <textarea class="text" placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" placeholder="{{textValue}}" bindinput='comment' value='{{addComment}}' bindblur='textFocus' focus='{{textFlag}}' bindconfirm='submit' data-id="{{matter.circle_id}}"></textarea>
+        <button class="submit" bindtap='submit' data-id="{{matter.circle_id}}">发送</button>
+    </view>
+
+</view>

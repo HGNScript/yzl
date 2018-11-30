@@ -1,0 +1,126 @@
+/* pages/personal/personal.wxss */
+page {
+  background: #f8f8f8;
+  padding-bottom: 20rpx;
+}
+.user {
+  background: #19b4ed;
+  padding: 30rpx 0;
+  position: relative;
+  height: 300rpx;
+}
+.userbtn {
+  width: 50%;
+  display: block;
+  margin: 110rpx auto;
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.userAvatarUrl {
+  display: block;
+  width: 150rpx;
+  height: 150rpx;
+  margin: 0 auto;
+  margin-top: 50rpx;  
+  border-radius: 50%;
+  overflow: hidden;
+}
+.userNickName {
+  display: block;
+  margin: 0rpx auto;
+  text-align: center;
+  color: #fff;
+  padding-bottom:50rpx; 
+}
+
+.content {
+  background: #fff;
+}
+ .navigator {
+  display: inline-block;
+  width: 24.6%;   
+  padding: 20rpx 0;
+}
+.navigator > navigator > .image {
+  width: 80rpx;
+  height: 80rpx;
+  display: block;
+  margin: 0 auto;
+}
+.navigator > navigator > .list {
+  font-size: 30rpx;
+  display: block;
+  text-align: center;
+  padding-top: 15rpx;
+  color: #444;
+}
+
+.navigator> button {
+  width: 100%; 
+  line-height: 1;
+  background: #fff;
+}
+.navigator > button::after{
+  border: none;  
+}
+.navigator > button > .image {
+  width: 80rpx;
+  height: 80rpx;
+  display: block;
+  margin: 0 auto;
+}
+.navigator > button > .list {
+  font-size: 30rpx;
+  display: block;
+  text-align: center;
+  padding-top: 15rpx;
+  color: #444;
+}
+
+.con_box2 {
+  height: 100rpx;
+  padding-left: 30rpx;
+  border-bottom: 1px #e5e5e5 solid;
+}
+.con_box2:last-child {
+  border-bottom: none;
+}
+.con_box2 > .navigator2  {
+  position: relative;
+  display: flex;
+}
+.con_box2 > .navigator2 > .image2 {
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 25rpx;
+  margin-right: 10rpx;
+}
+.con_box2 > .navigator2 > .rightimg {
+  position: absolute;
+  right: 30rpx;
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 25rpx;
+}
+.con_box2 > .navigator2 > .list2 {
+  font-size: 30rpx;
+  color: #444;
+  line-height: 100rpx;
+}
+
+.btnuser {
+    position: absolute;
+    display: inline-block;
+    height: 60rpx;
+    font-size: 20rpx;
+    text-align: center;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    border: none !important; 
+}
+.btnuser > image{
+    width: 60rpx;
+    height: 60rpx;
+}

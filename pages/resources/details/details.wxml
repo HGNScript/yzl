@@ -1,0 +1,25 @@
+<!--pages/resources/details/details.wxml-->
+<view class="resources_all">
+  <image class="resources_img" src="{{ShareData.share_img}}" />
+  <view class="resources_content_box">
+    <view class="resources_content">
+        <view class='resources_title'>{{ShareData.share_title}}</view>
+        <view class="resources_cont">
+          <text class="resources_conts">阅读：{{ShareData.share_read}}次</text>
+        </view>
+    </view>
+  </view>
+</view>
+
+<view class='resources_details'>
+  <view class='details_title'>说明</view>
+  <view class='details_content'>{{ShareData.share_content}}</view>
+    <view class='resources_share'>
+      <text class='resources_label'>提取链接：</text>
+      <text selectable="true" class='resources_link'>{{ShareData.share_url}}</text>
+    </view>
+     <view class='resources_share'>
+      <text class='resources_label'>提取密码：</text>
+      <text selectable="true" class='resources_link'>{{ShareData.share_pwd}}</text>
+    </view>
+</view>

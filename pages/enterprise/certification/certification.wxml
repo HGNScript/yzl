@@ -1,0 +1,75 @@
+<!--pages/enterprise/certification/certification.wxml-->
+<form bindsubmit="formCompanyData" wx:if="{{company_state == null}}" >
+  <view>
+    <!-- 企业名称 -->
+    <view class="options">
+      <input name="company_name" type='text' class='input1' placeholder='请输入企业名称' placeholder-class='placeholder' value='{{company_name}}'></input>
+    </view>
+    <!-- 企业类型 -->
+    <view class='options'>
+      <picker class='picker' bindchange="bindCasPickerChange" value="{{casIndex1}}" range="{{casArray}}" range-key='type_name'>
+        <view>
+          <text>{{casArray[casIndex].type_name}}</text>
+        </view>
+      </picker>
+      <image class='right' src='/image/icon/flea/right.png'></image>
+    </view>
+   <!-- 企业联系方式 -->
+    <view class="options">
+      <input name="company_phone" type='number' class='input1' placeholder='企业联系方式' placeholder-class='placeholder' value='{{company_phone}}'></input>
+    </view>
+    <!-- 法人姓名 -->
+    <view class="options">
+      <input name="corporation_name" type='text' class='input1' placeholder='请输入法人姓名' placeholder-class='placeholder' value='{{corporation_name}}'></input>
+    </view>
+    <!-- 身份证 -->
+    <view class="options">
+      <input name="id_card" type='number' class='input1' placeholder='请输入身份证号' placeholder-class='placeholder' value='{{id_card}}'></input>
+    </view>
+    <!-- 地址 -->
+    <view class="options">
+      <input name="company_address" type='text' class='input1' placeholder='请输入企业地址' placeholder-class='placeholder' value='{{company_address}}'></input>
+    </view>
+    <!-- 简介 -->
+    <view class='options2'>
+      <textarea name="company_synopsis" class='textarea' placeholder='请输入企业简介' placeholder-class='placeholder' value='{{company_synopsis}}'></textarea>
+    </view>
+
+    <!-- 上传企业Logo -->
+    <view class='upload'>
+      <view class='title'>上传企业Logo</view>
+      <view class='upload_box'>
+        <view class='img_box' wx:if="{{logopath != null}}">
+          <image class='img' src='{{logourl[0]}}'></image>
+          <image class='del' src='/image/icon/circle/del.png' bindtap='delImg' data-id="1" data-url="{{logourl[0]}}" ></image>
+        </view>
+        <view class='upload_btn' bindtap='uploadLogo' wx:if="{{logopath == null}}">
+          <image src='/image/icon/student/upload.png' ></image>
+          <view class='text'>点击上传图片</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 上传营业执照 -->
+    <view class='upload'>
+      <view class='title'>上传营业执照</view>
+      <view class='upload_box'>
+        <view class='img_box' wx:if="{{permitpath != null}}">
+          <image class='img' src='{{permiturl[0]}}'></image>
+          <image class='del' src='/image/icon/circle/del.png' bindtap='delImg' data-id="2" data-url="{{permiturl[0]}}"></image>
+        </view>
+        <view class='upload_btn' bindtap='uploadlicense' wx:if="{{permitpath == null}}">
+          <image src='/image/icon/student/upload.png'></image>
+          <view class='text'>点击上传图片</view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+  <button class='btn' form-type='submit'>提交</button>
+</form>
+
+<view class='con' wx:if="{{company_state == 1}}">
+  <image src='/image/icon/enterprise/audit.png'></image>
+  <view class='text'>正在审核，请耐心等候......</view>
+</view>

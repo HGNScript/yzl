@@ -1,0 +1,64 @@
+<refresh-view id='refreshView' bind:onRefresh="onPullDownRefresh" bind:onPullState="_pullState" />
+
+<view bindtouchstart='handletouchstart' bindtouchmove='handletouchmove' bindtouchend='handletouchend' bindtouchcancel='handletouchcancel'>
+
+<image class='bgimg' src='/image/bb3.jpg'>
+</image>
+
+<view class='navbar'>
+    <view wx:for="{{navbar}}" data-ind='{{index}}' class="navtext {{currenttab==index ? 'active' : '' }}" wx:key="unique" bindtap='navbarTap'>{{item}}</view>
+</view>
+
+<view hidden="{{currenttab!==0}}"></view>
+<!-- 块 -->
+<view class='item' wx:for="{{confessionAll}}">
+    <view class='head'>
+        <image class='user-img' src='{{item.user.company.company_state == 2?item.user.company.company_logo:item.user.imageUrl}}' wx:if="{{item.white_so==0}}"></image>
+        <image class='user-img' src='../../../image/dog.jpg' wx:else></image>
+        <view class='user'>
+            <view class='user_box'>
+                <view class='name' wx:if="{{item.white_so==0}}">{{item.user.company.company_state == 2?item.user.company.company_name:item.user.user_name}}</view>
+                <view class='name' wx:else>匿名</view>
+                <image wx:if="{{item.user.gender == '女'}}" src='../../../image/girl.png'></image>
+                <image wx:if="{{item.user.gender == '男'}}" src='../../../image/boy.png'></image>
+            </view>
+            <view class='time'>{{item.create_time}}</view>
+        </view>
+        <view class='theyName' wx:if="{{item.white_obj}}">对{{item.white_obj}}表白</view>
+    </view>
+
+    <view class='content'>
+        <view class='loveLetter'>
+            {{item.white_content}}
+        </view>
+    </view>
+
+    <view class='content-img'>
+        <image wx:if="{{item.img!=null}}" src='{{item.img.img_url}}' bindtap='Dj' data-url="{{item.img.img_url}}" mode='widthFix'></image>
+    </view>
+
+    <view class='foot'>
+        <view class='like'>
+            <image wx:if="{{item.goodFlag}}" src="../../../image/heart1.png" bindtap="good" data-index='{{index}}'></image>
+            <image wx:else src="../../../image/heart.png" bindtap="good" data-index="{{index}}"></image>
+            <view class='number'>{{item.white_fabulous}}</view>
+        </view>
+    </view>
+</view>
+
+<view class='bottom' wx:if="{{confessionAll.length}}">
+        <text>数据加载完毕~</text>
+</view>
+
+<!-- 比心 -->
+<view class='suspension' bindtap="to">
+    <image src='../../../image/bixin.png'></image>
+</view>
+
+
+<view class='none' wx:if="{{!confessionAll.length}}">
+    <image src='/image/null.png'></image>
+    <text>暂时找不到数据</text>
+</view>
+
+</view>

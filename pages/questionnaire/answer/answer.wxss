@@ -1,0 +1,108 @@
+/* pages/questionnaire/answer/answer.wxss */
+page {
+  background: #f9f9f9;
+}
+.header {
+  margin: 20rpx;
+  border-bottom: 1.5px #e5e5e5 solid;
+  padding-bottom: 30rpx;
+}
+.header > .title {
+  font-size: 42rpx;
+  font-weight: bold;
+  text-align: center;
+  color: #444;
+  padding: 20rpx 0;
+}
+.header > .details {
+  position: relative;
+  display: flex;
+  font-size: 28rpx;
+  color: #666;
+  padding: 30rpx 0;
+  text-align: left;
+}
+.header > .details > .name{
+  line-height: 1.5;
+}
+.header > .details > .day {
+  line-height: 1.5;
+  position: absolute;
+  right: 0rpx;
+}
+.header > .abstracttitle {
+  color: #666;
+  font-size: 28rpx;
+  line-height: 1.8;
+}
+.header > .abstract {
+  text-indent: 2em;
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* 内容 */
+.content {
+  margin: 30rpx;
+  margin-top: 50rpx;
+}
+.content > .subject > .title {
+  letter-spacing: 3rpx;
+  color: #444;
+  padding: 25rpx 0;
+  line-height: 2;
+  font-size: 36rpx;
+}
+.content > .subject > .title > .prompt {
+  font-size: 36rpx;
+  color: #f00;
+}
+
+/* 单选 */
+.content > .subject > .radio,
+.content > .subject > .checkbox{
+  border: 1.5px #e5e5e5 solid;
+  border-radius: 10rpx;
+  background: #fff;
+  margin: 10rpx 0;
+}
+.content > .subject > .radio > radio-group > .options,
+.content > .subject > .checkbox > checkbox-group > .options {
+  display: flex;
+  border-bottom: 1.5px #e5e5e5 solid;
+  padding: 15rpx;
+}
+.content > .subject > .radio > radio-group > .options:last-child,
+.content > .subject > .checkbox > checkbox-group > .options:last-child {
+  border-bottom: none;
+} 
+.content > .subject > .radio > radio-group > .options > .value,
+.content > .subject > .checkbox > checkbox-group > .options > .value {
+  margin-left: 15rpx;
+  letter-spacing: 3rpx;
+  font-size: 34rpx;
+  color: #555;
+  margin-top: 6rpx;
+}
+
+.content > .subject > .answer {
+  background: #fff;
+  border: 1.5px #e5e5e5 solid;
+  border-radius: 10rpx;
+  width: 93%;
+  height: 200rpx;
+  padding: 20rpx;
+  font-size: 30rpx;
+  color: #555;
+  letter-spacing: 3rpx;
+}
+.placeholder {
+  font-size: 30rpx;
+}
+
+.content > .btn {
+  background: #4caf50;
+  color: #fff;
+  margin: 100rpx 0 50rpx;
+}

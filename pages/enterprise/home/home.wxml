@@ -1,0 +1,108 @@
+<!--pages/enterprise/home/home.wxml-->
+<refresh-view id='refreshView' bind:onRefresh="onPullDownRefresh" bind:onPullState="_pullState" />
+
+<view bindtouchstart='handletouchstart' bindtouchmove='handletouchmove' bindtouchend='handletouchend' bindtouchcancel='handletouchcancel'>
+
+
+    <!--导航条-->
+    <view class="navbar">
+        <scroll-view scroll-x="true" class="nav" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+            <block wx:for="{{navData}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
+                <view class="nav-item {{currentTab == idx ?'active':''}}" data-current="{{idx}}" bindtap="switchNav">{{navItem.type_name}}</view>
+            </block>
+        </scroll-view>
+        <view class='search_icon' bindtap='bind_market_search'>
+            <image src="/image/icon/flea/search.png"></image>
+        </view>
+    </view>
+
+    <!--内容-->
+    <view class="box" wx:for="{{homeData}}" wx:key="id">
+        <view class="block">
+            <view class="block_content">
+                <image src="{{item.user.company.company_logo}}" bindtap='userimg' data-id="{{item.user.id}}"></image>
+                <view class="details">
+                    <view class="details_things">{{item.user.company.company_name}}</view>
+                    <view class="details_name">{{item.contact_name}}：
+                        <text class='phone'>{{item.contact_number}}</text>
+                    </view>
+
+                    <!-- 内容 -->
+                    <view class="box_con {{item.checked?'checked_show':'checked_none'}}" bindtap='bind_market_details' data-id="{{item.recruit_id}}">
+                        <view class='text'>{{item.recruit_detailed}}</view>
+                        <view class='list'>
+                            <text class='list_label'>招聘岗位：</text>
+                            <text class='list_name'>{{item.recruit_post}}</text>
+                        </view>
+                        <view class='list'>
+                            <text class='list_label'>学历要求：</text>
+                            <text class='list_name'>{{item.recruit_demand}}</text>
+                        </view>
+                        <view class='list'>
+                            <text class='list_label'>招聘人数：</text>
+                            <text class='list_name'>{{item.recruit_number}}</text>
+                        </view>
+                        <view class='list'>
+                            <text class='list_label'>工资待遇：</text>
+                            <text class='list_name'>{{item.recruit_wages}}元</text>
+                        </view>
+                        <view class='list'>
+                            <text class='list_label'>地址：</text>
+                            <text class='list_name'>{{item.user.company.company_address}}</text>
+                        </view>
+                    </view>
+                    <!-- 按钮 -->
+                    <view class='check'>
+                        <view class='text' wx:if="{{item.checked}}" catchtap='check' data-index="{{index}}">全部</view>
+                        <view class='text' wx:else catchtap='check' data-index="{{index}}">收起</view>
+                    </view>
+
+                    <!-- image -->
+                    <view wx:if="{{item.img}}" class="details_img" wx:for="{{item.img}}" wx:for-item="list" wx:key="id">
+                        <image class='image' src="{{list.img_url}}" bindtap='img' data-imgurl="{{list.img_url}}" data-imgurls="{{item.img}}"></image>
+                    </view>
+                    <view class='remove'></view>
+
+                    <!-- 时间 -->
+                    <view class='add_all'>
+                        <view class='time'>{{item.create_time}}</view>
+                    </view>
+                </view>
+            </view>
+
+            <view class="price">
+                <image src='/image/qy.png'></image>
+            </view>
+        </view>
+
+        <!-- 页脚功能 -->
+        <view class="details_like">
+            <text class="details_like_text">浏览量:{{item.recruit_flow}}</text>
+            <view class='asd'>
+                <image src="/image/icon/circle/pl.png" bindtap='bind_market_details' data-id="{{item.recruit_id}}"></image>
+                <text wx:if="{{item.comment.length}}">{{item.comment.length}}</text>
+                <image src='/image/icon/circle/zan2.png' wx:if="{{item.goodFlag}}" bindtap='good' data-index="{{index}}"></image>
+                <image src='/image/icon/circle/zan1.png' wx:else bindtap='good' data-index="{{index}}"></image>
+                <text wx:if="{{ item.recruit_good != 0 }}">{{item.recruit_good}}</text>
+                <image src='/image/icon/circle/sc2.png' wx:if="{{item.collectFlag}}" bindtap='coller' data-index="{{index}}"></image>
+                <image src='/image/icon/circle/sc1.png' wx:else bindtap='coller' data-index="{{index}}"></image>
+            </view>
+        </view>
+    </view>
+
+    <view class='bottom' wx:if="{{homeData.length != 0}}">
+        <text>数据加载完毕~</text>
+    </view>
+
+    <!-- 添加发布 -->
+    <view class='append' bindtap='append'>
+        <image src='/image/icon/flea/jia.png'></image>
+    </view>
+
+
+    <view class='none' wx:if="{{!homeData.length}}">
+        <image src='/image/null.png'></image>
+        <text>暂时找不到数据</text>
+    </view>
+
+</view>

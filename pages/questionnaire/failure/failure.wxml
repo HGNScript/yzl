@@ -1,0 +1,8 @@
+<!--pages/questionnaire/failure/failure.wxml-->
+<view class='failure'>
+  <image src='/image/icon/answer/failure.png'></image>
+  <view class='text'>提交失败</view>
+</view>
+
+<button class='btn1' bindtap='failure'>重新填写</button>
+<button class='btn2' bindtap='submit'>返回首页</button>

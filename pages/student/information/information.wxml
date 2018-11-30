@@ -1,0 +1,27 @@
+<!--pages/student/information/information.wxml-->
+<view class='box'>
+  <view class='content'>
+    <image src='/image/icon/student/xx.png'></image>
+    <view class='name'>{{student.stu_name}}</view>
+  </view>
+   <view class='content'>
+    <image src='/image/icon/student/xm.png'></image>
+    <view class='name'>{{student.school.school_name}}</view>
+  </view>
+   <view class='content'>
+    <image src='/image/icon/student/nj.png'></image>
+    <view class='name'>{{student.stu_grade}}</view>
+  </view>
+   <view class='content'>
+    <image src='/image/icon/student/zy.png'></image>
+    <view class='name'>{{student.stu_major}}</view>
+  </view>
+   <view class='content'>
+    <image src='/image/icon/student/bj.png'></image>
+    <view class='name'>{{student.stu_class}}</view>
+  </view>
+  <view class='content'>
+    <image src='/image/icon/student/xh.png'></image>
+    <view class='name'>{{student.stu_number}}</view>
+  </view>
+</view>

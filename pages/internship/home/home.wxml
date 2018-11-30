@@ -1,0 +1,111 @@
+<!--pages/internship/home/home.wxml 实习系统-->
+<!-- header -->
+<view bindtap="focus">
+
+<import src="../template/template.wxml" />
+<template is="header" data="{{headData}}"></template>
+
+<!-- 内容 -->
+<view class='content' >
+  <!-- 实习指导教师 -->
+  <view class='title'>实习指导教师</view>
+  <view class='information1'>
+    <text>教师名称：</text>
+    <text>{{stuData.tch_name}}</text>
+  </view>
+  <view class='information1'>
+    <text>教师联系电话：</text>
+    <text>{{stuData.tch_phone}}</text>
+  </view>
+  <view class='information1'>
+    <text>教师邮箱：</text>
+    <text>{{stuData.tch_email}}</text>
+  </view>
+<!-- 学生基础信息 -->
+<view class='title'>学生基础信息</view>
+<view class='prompt'>(如果信息错误,请联系实习指导教师帮你修改)</view>
+<view class='information1'>
+  <text>学号：</text>
+  <text>{{stuData.stu_numBer}}</text>
+</view>
+<view class='information1'>
+  <text>身份证：</text>
+  <text>{{stuData.identity}}</text>
+</view>
+<view class='information1'>
+  <text>联系电话：</text>
+  <text>{{stuData.stu_phone}}</text>
+</view>
+<!-- 实习信息 -->
+<view class='title'>
+  <text>实习信息</text>
+  <image src='/image/icon/internship/pen.png' bindtap='interninfo' data-id = "{{stuData.stu_id}}"></image>
+</view>
+<view class="{{collected?'information_show':'information_none'}}">
+  <view class='information1'>
+    <view>实习单位名称：</view>
+    <view style='text-indent:2em;'>{{stuData.company.company_name}}</view>
+  </view>
+  <view class='information1'>
+    <view>实习地点：</view>
+    <view style='text-indent:2em;'>{{stuData.company.company_address}}</view>
+  </view>
+  <view class='information1'>
+    <view>月实习补贴：</view>
+    <view style='text-indent:2em;'>{{stuData.company.company_salary}}</view>
+  </view>
+  <view class='information1'>
+    <view>职务：</view>
+    <view style='text-indent:2em;'>{{stuData.company.company_position}}</view>
+  </view>
+  <view class='information1'>
+    <view>负责人：</view>
+    <view style='text-indent:2em;'>{{stuData.company.principal}}</view>
+  </view>
+  <view class='information1'>
+    <view>负责人联系电话：</view>
+    <view style='text-indent:2em;'>{{stuData.company.principal_phone}}</view>
+  </view>
+  <view class='information1'>
+    <view>到岗日期：</view>
+    <view style='text-indent:2em;'>{{stuData.company.date}}</view>
+  </view>
+</view>
+<!-- 按钮 -->
+<view class='direction'>
+  <image class='directionimg' catchtap='onCollectionTap' src='/image/icon/internship/bottom.png' wx:if="{{collected}}"></image>
+  <image class='directionimg' catchtap='onCollectionTap' src='/image/icon/internship/top.png' wx:else></image>
+</view>
+
+<!-- 实习(月)记录 -->
+<view class='title'>
+  <text>实习(月)记录</text>
+  <image src='/image/icon/internship/pen.png' bindtap='practicenote'></image>
+</view>
+
+</view>
+<!-- swiper -->
+<view class='swiper'>
+  <swiper current="{{swiper.current}}">
+    <block wx:for="{{stuData.logsData}}" wx:key="">
+      <swiper-item bindtap="log" data-id="{{item.logs_id}}">
+        <view class='swiper_box'>
+          <view class='date'>
+            <view class='day'>{{item.sendtime}}</view>
+            <view wx:if="{{item.replyFlag==1}}" class="label1">{{item.replay_val}}</view>
+            <view wx:if="{{item.replyFlag==2}}" class="label3">{{item.replay_val}}</view>
+            <view wx:if="{{item.replyFlag==0}}" class="label2">未评阅</view>
+          </view>
+          <view class='text'>当前日志只有图片，请点击查看</view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <image class='swiper-left' bindtap='left' src='/image/icon/internship/left.png'></image>
+  <image class='swiper-right' bindtap='right' src='/image/icon/internship/right.png'></image>
+</view>
+
+<!-- 页脚 -->
+<template is="footer"></template>
+
+</view>

@@ -1,0 +1,256 @@
+/* pages/circle/circle.wxss */
+page{
+  height: 100%;
+}
+/* + 按钮 */
+.fabu{
+  float:right;
+  margin-top: 9px;
+  margin-right: 13px;
+}
+.fabu image{
+  width: 80rpx;
+  height: 80rpx;
+}
+
+/* 导航 */
+.navbar{
+  width: 50%;
+  font-size: 30rpx;
+  flex: none;
+  display: flex;
+  color: rgb(99, 88, 88);
+  background: #fff;
+}
+.navbar .item{
+  position: relative;
+  flex: auto;
+  text-align: center;
+  line-height: 100rpx;
+}
+.navbar .item.active{
+  color:#000;
+}
+.navbar .item.active:after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6rpx;
+  width: 100%;
+  margin:0 auto;
+  background:#19b4ed;
+}
+/* 内容 */
+.content {
+  padding-bottom: 60rpx;
+}
+.con {
+  padding:30rpx;
+  border-bottom: 1px #f6f6f6 solid;
+}
+.con:last-child {
+  border-bottom: none;
+}
+.con > .user {
+  display: flex;
+  position: relative;
+}
+.con > .user > .topimg {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+.con > .user > .name {
+  display: flex;
+  margin-left: 15rpx;
+}
+.con > .user > .name > .text {
+  position: relative;
+  color: #666;
+  font-size: 32rpx;
+  line-height: 100rpx;
+  max-width: 250rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.con > .user > .name > image {
+  width: 30rpx;
+  height: 30rpx;
+  padding: 0 10rpx;
+  margin-top: 35rpx;
+}
+.con > .user > .face {
+  width: 120rpx;
+  height: 120rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+/* 内容 */
+.con > .matter {
+  margin: 30rpx 50rpx;
+}
+.con > .matter > .text_box > .text {
+  font-size: 30rpx;
+  color: #444;
+  letter-spacing: 3rpx;
+  line-height: 1.7;
+  word-wrap: break-word;
+}
+.checked_none {
+  max-height: 100rpx;
+  overflow: hidden;
+}
+.con > .matter > .matter_img {
+  margin: 30rpx 0 0;
+}
+.con > .matter > .matter_img > image {
+  width: 32%;
+  height: 200rpx;
+  padding: 0 3rpx 10rpx;
+  float: left;
+}
+.con > .matter > .address {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 26rpx;
+  color: #666;
+}
+.con > .matter > .day {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.8;
+}
+/* 下拉收起 */
+.con > .matter > .check {
+  margin: 20rpx 0;
+  width: 20%;
+}
+.con > .matter > .check > .text {
+  color: #1c5c91;
+  font-size: 30rpx;
+}
+/* 内容页脚 */
+.con > .con_footer {
+  position: relative;
+  height: 40rpx;
+}
+.con > .con_footer > .browse {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 40rpx;
+}
+.con > .con_footer > .btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+
+} 
+.con > .con_footer > .btn > text {
+    line-height: 40rpx;
+    margin-right: 10rpx;
+    color: #666;
+    font-size: 30rpx;
+}
+.con > .con_footer > .btn > image {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 20rpx;
+} 
+
+/* 评论 */
+/* .con > .comments {
+  background: #f2f2f2;
+  margin: 50rpx 50rpx 10rpx;
+  padding: 20rpx;
+  font-size: 30rpx;
+  letter-spacing: 2rpx;
+  line-height: 1.5;
+}
+.con > .comments > .btn {
+  background: #f2f2f2;
+  height: 60rpx;
+  font-size: 30rpx;
+  color: #2196f3;
+  line-height: 60rpx;
+  padding: 0 20rpx;
+  border-radius: 5rpx;
+}
+.con > .comments > .block {
+  background: #f2f2f2;
+  margin-top: 10rpx;
+  border-radius: 5rpx;
+  padding: 10rpx 20rpx;
+}
+.con > .comments > .block > .comments_box {
+  padding: 8rpx 0;
+}
+.con > .comments > .block > .comments_box > .name {
+  color: #2196f3;
+}
+.con > .comments > .block > .comments_box > .text {
+  color: #666;
+}
+.con > .comments > .block > .comments_box > .reply {
+  color: #444;
+  padding: 0 10rpx;
+} */
+
+/* 评论输入框 */
+.input_null{
+color: #C9C9C9;
+} 
+.release{
+display: flex;
+align-items: flex-end; /*底部对齐*/
+justify-content: space-between; /*两端对齐*/
+box-sizing: border-box;
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+padding: 18rpx 0 18rpx 30rpx;
+background-color: #F7F8F7;
+font-size: 28rpx;
+z-index: 999;
+}
+.release .text{
+width: 504rpx;
+min-height: 34rpx;
+max-height: 102rpx; /*最多显示三行*/
+border-width: 15rpx 20rpx; /*使用padding与预期留白不一致，故使用border*/
+border-style: solid;
+border-color: #ffffff;
+line-height: 34rpx;
+font-size: 28rpx;
+background-color: #ffffff;
+border-radius: 4rpx;
+}
+.release .submit{
+  width: 116rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 24rpx;
+  background: #66CC00;
+}
+
+.none{
+    text-align: center;
+}
+.none image {
+    margin: 0 auto;
+    display: block;
+    width: 52%;
+}
+
+.none text{
+    color: darkgrey;
+}

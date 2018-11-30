@@ -1,0 +1,198 @@
+/* pages/questionnaire/manual/manual.wxss */
+.headline {
+  padding: 30rpx 30rpx 0;
+}
+.title {
+  color: #444;
+  font-size: 36rpx;
+  padding: 10rpx;
+}
+.input1 {
+  border: 1.5px #e5e5e5 solid;
+  border-radius: 10rpx;
+  padding: 10rpx;
+  margin: 10rpx;
+  font-size: 30rpx;
+  color: #555;
+}
+.textarea1 {
+  width: 93%;
+  height: 200rpx;
+  display: block;
+  border: 1.5px #e5e5e5 solid;
+  border-radius: 10rpx;
+  padding: 10rpx;
+  margin: 10rpx auto;
+  font-size: 30rpx;
+  color: #555;
+}
+.placeholder {
+  font-size: 30rpx;
+}
+
+/* 题目 */
+.content {
+  margin: 0 30rpx;
+}
+.content > .title {
+  color: #444;
+  font-size: 36rpx;
+  padding: 10rpx;
+}
+.content > .append {
+  border: 3px #e5e5e5 dashed;
+  border-radius: 10rpx;
+  height: 180rpx;
+  margin: 10rpx;
+}
+.content > .append > image {
+  width: 80rpx;
+  height: 80rpx;
+  display: block;
+  margin: 50rpx auto;
+}
+
+/* 题型模板 */
+.answer {
+  position: relative;
+  border: 1.5px #e5e5e5 solid;
+  margin: 20rpx 10rpx;
+  padding: 30rpx 10rpx;
+  border-radius: 5rpx;
+}
+.answer > .subject {
+  border-bottom: 1px #e5e5e5 solid;
+  display: flex;
+}
+.answer > .subject > .title {
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  color: #555;
+  width: 65%;
+  height: 120rpx;
+}
+/* 题目分类下拉 */
+.case {
+  position: absolute;
+  right: 10rpx;
+  width: 25%;
+  background: #f5f5f5;
+  border-radius: 5rpx;
+}
+.select_box{
+  height: 80rpx;
+  position: relative;
+  z-index: 10;
+  padding: 0 10rpx;
+}
+.select{
+  box-sizing: border-box;
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+}
+.select_text{
+  font-size: 30rpx;
+  color: #444;
+  flex: 1;
+  font-weight: bold;
+}
+.select_img{
+  width: 30rpx;
+  height: 30rpx;
+  display: block;
+  transition:transform 0.3s;
+}
+.select_img_rotate{
+  transform:rotate(180deg); 
+}
+.option_box{
+  position: absolute;
+  top: 80rpx;
+  right:0;
+  width: 100%;
+  box-sizing: border-box;
+  height: 0;
+  overflow-y: auto;
+  border-top: 0;
+  background: #f9f9f9;
+  transition: height 0.3s;
+  padding: 0 10rpx;
+}
+.option{
+  display: block;
+  line-height: 40rpx;
+  font-size: 30rpx;
+  border-bottom: 1px solid #efefef;
+  padding:20rpx 0;
+}
+.del {
+    width: 50rpx;
+    height: 50rpx;
+    padding-left:10rpx; 
+}
+/* 答案 */
+.result > .con1 > .options {
+  display: flex;
+  padding-left: 15rpx;
+  margin: 10rpx 0;
+}
+.result > .con1 > .options > .label {
+  color: #444;
+  font-size: 34rpx;
+}
+.result > .con1 > .options > input {
+  width: 90%;
+  padding-left: 10rpx;
+  border-bottom: 1px #e5e5e5 solid;
+}
+.result > .con1 > .addbtn {
+  background: #4caf50;
+  height: 80rpx;
+  display: flex;
+  width: 37%;
+  margin: 20rpx 15rpx 0;
+}
+.result > .con1 > .addbtn > image {
+  width: 50rpx;
+  height: 50rpx;
+  margin: 15rpx 5rpx 0;
+}
+.result > .con1 > .addbtn > text {
+  font-size: 30rpx;
+  color: #fff;
+}
+.result > .con2 > .con2_answer {
+  border: 1.5px #e5e5e5 solid;
+  border-radius: 10rpx;
+  display: block;
+  margin: 0 auto;
+  padding: 10rpx;
+  height: 200rpx;
+}
+.result > .con1_show {
+  display: block;
+}
+.result > .con1_hiden {
+  display: none;
+}
+
+/* btn */
+.btn {
+  background: #4caf50;
+  color: #fff;
+  width: 90%;
+  display: block;
+  margin: 80rpx auto 50rpx;
+}
+
+
+
+/* 单选框 */
+
+.radio {
+    width: 50%;
+    margin-top: 10rpx;
+    margin-left: 5rpx;
+}

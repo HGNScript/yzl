@@ -1,0 +1,13 @@
+<!--pages/apply/apply.wxml 应用-->
+<view class='apply' wx:for="{{apply}}"  wx:key="id">
+  <view class='title'>
+    <text>{{item.title}}</text>
+  </view>
+  
+  <view class='app' wx:for="{{item.app}}" data-index='{{ind}}' wx:for-item="items"  wx:key="id">
+    <navigator  url="{{items.url}}" open-type="navigate"  hover-class="none">
+      <image src='{{items.img}}'></image>
+      <view class='name'>{{items.name}}</view>
+    </navigator>
+  </view>
+</view>

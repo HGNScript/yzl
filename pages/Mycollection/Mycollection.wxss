@@ -1,0 +1,181 @@
+/* pages/Mycollection/Mycollection.wxss */
+
+/* 导航 */
+
+.navbar {
+    width: 100%;
+    font-size: 30rpx;
+    flex: none;
+    display: flex;
+    color: rgb(99, 88, 88);
+    background: #fff;
+    border-bottom: 1.5rpx #e5e5e5 solid;
+}
+
+.navbar .item {
+    position: relative;
+    flex: auto;
+    text-align: center;
+    line-height: 100rpx;
+}
+
+.navbar .item.active {
+    color: #000;
+}
+
+.navbar .item.active:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 6rpx;
+    width: 100%;
+    margin: 0 auto;
+    background: #19b4ed;
+}
+
+/* 内容 */
+
+/* 用户信息 */
+
+.post > .con > .user {
+    display: flex;
+    position: relative;
+    padding: 20rpx;
+}
+
+.post > .con > .user > .userimg {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+}
+
+.post > .con > .user > .user_box {
+    margin-left: 15rpx;
+    display: flex;
+}
+
+.post > .con > .user > .user_box > .name {
+    color: #666;
+    font-size: 34rpx;
+    line-height: 100rpx;
+    max-width: 250rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.post > .con > .user > .user_box > .gender {
+    width: 30rpx;
+    height: 30rpx;
+    padding: 0 10rpx;
+    margin-top: 35rpx;
+}
+
+.post > .con > .user > .day {
+    font-size: 28rpx;
+    color: #666;
+    position: absolute;
+    right: 20rpx;
+    top: 20rpx;
+    line-height: 100rpx;
+}
+
+/* 文本 */
+
+.post > .con > .text {
+    margin: 0 50rpx;
+    font-size: 30rpx;
+    color: #555;
+    line-height: 1.6;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+/* 点赞、删除 */
+
+.post > .function {
+    position: relative;
+    border-top: 1.5px #e5e5e5 solid;
+    display: flex;
+    height: 80rpx;
+    z-index: 999;
+}
+
+.post > .function > .fun_box {
+    display: flex;
+    margin-right: 20rpx;
+}
+
+.post > .function > .fun_box > image {
+    width: 40rpx;
+    height: 40rpx;
+    margin: 20rpx;
+}
+
+.post > .function > .fun_box > text {
+    color: #666;
+    line-height: 80rpx;
+    font-size: 30rpx;
+}
+
+.post > .function > .del {
+    position: absolute;
+    right: 30rpx;
+    top: 20rpx;
+    width: 40rpx;
+    height: 40rpx;
+}
+
+/* image */
+
+.post > .image {
+    padding: 0 50rpx;
+}
+
+.post > .image > image {
+    width: 31%;
+    height: 210rpx;
+    padding: 30rpx 6rpx;
+    float: left;
+}
+
+/*找不到数据*/
+
+.none {
+    text-align: center;
+}
+
+.none image {
+    margin: 0 auto;
+    display: block;
+    width: 52%;
+}
+
+.none text {
+    color: darkgrey;
+}
+
+/* 内容 */
+
+.box_con {
+    width: 80%;
+    margin: 0 auto;
+    color: #555;
+    font-size: 28rpx;
+    word-wrap: break-word;
+    line-height: 1.6;
+}
+
+.box_con > .text {
+    width: 100%;
+    word-wrap: break-word;
+}
+
+.box_con > .list > .list_label {
+    color: #1c5c91;
+}

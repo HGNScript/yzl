@@ -1,0 +1,100 @@
+/* pages/internship/interninfo/interninfo.wxss */
+@import "../template/template.wxss";
+
+/* 选项卡 */
+.options {
+  margin: 20rpx 40rpx;
+  display: flex;
+  color: #444;
+  font-size: 34rpx;
+}
+.options > .home {
+  width: 25%;
+  line-height: 2.5;
+  border-bottom: 1.5px #e5e5e5 solid;
+  text-align: center;
+}
+.options > .task {
+  width:35%;
+  border:1.5px #e5e5e5 solid;
+  border-bottom: 0px;
+  border-radius: 8rpx 8rpx 0 0;
+  line-height: 2.5;
+  text-align: center;
+  padding: 0 20rpx;
+}
+.options > .null {
+  width: 40%;
+  border-bottom: 1.5px #e5e5e5 solid;  
+}
+
+/* 内容 */
+.content {
+  padding: 0 80rpx;
+}
+.content > .title {
+  font-size: 46rpx;
+  color: #3b8bca;
+  border-bottom: 2px #3b8bca solid;
+  padding: 25rpx;
+}
+.content > .case {
+  margin: 20rpx 30rpx;
+}
+.content > .case > .label {
+  margin: 20rpx 0 15rpx;  
+  color: #444;
+}
+.content > .case > .input1 {
+  border: 1.5px #e5e5e5 solid;
+  border-radius: 10rpx;
+  height: 70rpx;
+  margin: 15rpx 0;
+  padding: 0 10rpx;
+}
+.placeholder {
+  font-size: 30rpx;
+}
+.content > .case > .place {
+  display: flex;
+}
+.content > .case > .place > .input2 {
+  border: 1.5px #e5e5e5 solid;
+  border-radius: 10rpx;
+  height: 70rpx;
+  text-align: center;
+  margin: 0 5rpx;
+}
+.radio-group {
+  margin: 30rpx 0;  
+}
+.radio {
+  margin-right: 30rpx;
+}
+.pickercon {
+  position: relative;
+}
+.picker {
+  border: 1.5px #e5e5e5 solid;
+  border-radius: 10rpx;
+  font-size: 34rpx;
+  color: #666;
+  height: 70rpx;
+  padding: 0 10rpx;
+  
+}
+.picker_img {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  top: 25rpx;
+  right: 20rpx;
+}
+/* btn */
+.content > .case > .btn {
+  background: #367cb7;
+  color: #fff;
+  font-size: 30rpx;
+  margin: 40rpx 0 60rpx;
+}
+

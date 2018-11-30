@@ -1,0 +1,78 @@
+/* pages/notice/home/home.wxss */
+.search {
+  height: 120rpx;
+  background: #f7f7f7;
+  padding: 0 20rpx;
+  display: flex;
+}
+.search > .left {
+  background: #fff;
+  height: 80rpx;
+  display: flex;
+  width: 83%;
+  margin: 20rpx 0;
+  border-radius: 5rpx;
+}
+.search > .left > image {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 20rpx 15rpx;
+} 
+.search > .left > input {
+  height: 40rpx;
+  margin: 15rpx 0;
+  font-size: 28rpx;
+  color: #666;
+  width: 85%;
+}
+.placeholder {
+  font-size: 28rpx;
+  color: #666;
+}
+.search > .btn {
+  line-height: 120rpx;
+  font-size: 32rpx;
+  color: #444;
+  width: 17%;
+  text-align: center;
+}
+
+/* 内容 */
+.content {
+  padding: 15rpx 20rpx 10rpx;
+  border-bottom: 1px #e5e5e5 solid;
+}
+.content > .title {
+  color: #444;
+  font-size: 32rpx;
+  letter-spacing: 3rpx;
+  line-height: 1.5;
+  position: relative;
+}
+.content > .bot {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 2;
+}
+.content > .bot > .time {
+  position: absolute;
+  right: 20rpx;
+  text-align: right;
+}
+
+.name {
+    display: inline-block;
+}
+
+.none{
+    text-align: center;
+}
+.none image {
+    margin: 0 auto;
+    display: block;
+    width: 52%;
+}
+
+.none text{
+    color: darkgrey;
+}

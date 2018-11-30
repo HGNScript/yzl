@@ -1,0 +1,28 @@
+<!--pages/resources/home/home.wxml-->
+<!-- 搜索 -->
+<view class="search_input">
+  <view class="search_input_left">
+    <image src='/image/icon/answer/search.png'></image>
+    <input bindinput='getKeyword' placeholder="输入关键字" auto-focus/>
+  </view>
+  <view class="search_input_right" bindtap='fuzzQuery'> 搜索 </view>
+</view>
+
+<!-- 内容 -->
+<view class="block_all" bindtap='bind_resources_details' wx:for="{{shareData}}" wx:key="" data-id="{{item.share_id}}">
+  <image class="resources_img" src="{{item.share_img}}" />
+  <view class="resources_content_box">
+    <view class="resources_content">
+      <rich-text class='resources_title' nodes="{{item.share_title}}"></rich-text>
+      <view class="resources_cont">
+        <rich-text class="resources_cont" nodes="{{item.share_content}}"></rich-text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 没有 -->
+<view class='none' wx:if="{{!shareData.length}}">
+    <image src='/image/null.png'></image>
+    <text>暂时找不到数据</text>
+</view>

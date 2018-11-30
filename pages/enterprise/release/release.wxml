@@ -1,0 +1,64 @@
+<!--pages/enterprise/release/release.wxml-->
+<!-- 标题 -->
+<view class='header'>
+    <image src='/image/zp.png'></image>
+    <text>发布招聘</text>
+</view>
+<form bindsubmit="formSubmit">
+<!-- 招聘岗位： -->
+<view class='content'>
+  <view class='con_title'>招聘岗位：</view>
+  <input name="recruit_post" type='text' class='con_input1' placeholder='请输入招聘岗位' placeholder-class='placeholder'></input>
+</view>
+<!-- 学历要求： -->
+<view class='content'>
+  <view class='con_title'>学历要求：</view>
+  <input name="recruit_demand" type='text' class='con_input1' placeholder='请输入学历要求' placeholder-class='placeholder'></input>
+</view>
+<!-- 招聘人数： -->
+<view class='content'>
+  <view class='con_title'>招聘人数：</view>
+  <input name="recruit_number" type='text' class='con_input1' placeholder='请输入招聘人数' placeholder-class='placeholder'></input>
+</view>
+<!-- 工资待遇： -->
+<view class='content'>
+  <view class='con_title'>工资待遇：</view>
+  <input name="recruit_wages" type='number' class='con_input1' placeholder='请输入工资待遇' placeholder-class='placeholder'></input>
+</view>
+<!-- 联系人： -->
+<view class='content'>
+  <view class='con_title'>联系姓名：</view>
+  <input name="contact_name" type='text' class='con_input1' placeholder='请输入联系人姓名' placeholder-class='placeholder'></input>
+</view>
+<!-- 联系电话： -->
+<view class='content'>
+  <view class='con_title'>联系电话：</view>
+  <input name="contact_number" type='number' class='con_input1' placeholder='请输入联系人电话' placeholder-class='placeholder'></input>
+</view>
+
+<view class='content1'>
+  <view class='con_title'>招聘详情：</view>
+  <textarea name="recruit_detailed" placeholder='请输入招聘详情' placeholder-class='placeholder'></textarea>
+</view>
+
+<!-- 上传图片 -->
+<view class='pic'>
+  <!-- 上传图片按钮 -->
+  <view class='upload' bindtap='upload'>
+    <image src='/image/icon/circle/pic.png'></image>
+  </view>
+  <!-- 图片 -->
+  <view class='pic_box'>
+    <view class='image' wx:for="{{imgurl}}" wx:key="id" wx:key="key"  wx:for-index="idx">
+      <image class='imgurl' src='{{item}}'></image>
+      <image class='del' src='/image/icon/circle/del.png' bindtap='delete' data-index="{{idx}}" data-url="{{item}}"></image>
+    </view>
+  </view>
+  <!-- 消除浮动 -->
+  <view class='remove'></view>
+</view>
+
+<view class='hr3'></view>
+
+<button class='btn' form-type='submit'>发布信息</button>
+</form>

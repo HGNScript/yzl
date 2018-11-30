@@ -1,0 +1,62 @@
+<!--pages/questionnaire/answer/answer.wxml 答卷-->
+<view class='header'>
+    <view class='title'>{{book_name}}</view>
+    <view class='details'>
+        <view class='name'>发起人：{{launch_name}}</view>
+        <view class='day'>发起日期：{{create_time}}</view>
+    </view>
+    <view class='abstract'>{{book_summary}}</view>
+</view>
+
+<!-- 题目内容 -->
+<view class='content'>
+
+    <block wx:for="{{arr}}" wx:for-item="arrItem" wx:for-index="arrIndex" wx:key="key">
+        <!-- 单选 -->
+
+        <view class='subject' wx:for="{{radio}}" wx:key="id" wx:if="{{arrItem.subject_type == '单选题' && arrItem.subject_id == item.id}}">
+            <view class='title'>
+                {{item.title}}
+                <text class='prompt'>[单选题] <text class='isnull' wx:if="{{item.notnull == '是' }}">*</text></text>
+            </view>
+            <view class='radio'>
+                <radio-group bindchange="raioM" data-title="{{item.title}}" data-id="{{item.id}}">
+                    <label class="options" wx:for='{{item.radiovalue}}' wx:key="id" wx:for-item="list">
+                        <radio value="{{list.value}}" />
+                        <text class='value'>{{list.value}}</text>
+                    </label>
+                </radio-group>
+            </view>
+        </view>
+
+        <!-- 多选 -->
+        <view class='subject' wx:for="{{checkbox}}" wx:key="id" wx:if="{{arrItem.subject_type == '多选题' && arrItem.subject_id == item.id}}">
+            <view class='title'>
+                {{item.title}}
+                <text class='prompt'>[多选题]<text class='isnull' wx:if="{{item.notnull == '是' }}">*</text></text>
+            </view>
+            <view class='checkbox'>
+                <checkbox-group bindchange="checkboxM" data-title="{{item.title}} " data-id="{{item.id}}">
+                    <label class="options" wx:for="{{item.checkboxvalue}}" wx:key="id" wx:for-item="list">
+                        <checkbox value="{{list.value}}" />
+                        <text class='value'>{{list.value}}</text>
+                    </label>
+                </checkbox-group>
+            </view>
+        </view>
+
+        <!-- 问答题 -->
+        <view class='subject' wx:for='{{answer}}' wx:if="{{arrItem.subject_type == '问答题' && arrItem.subject_id == item.id}}">
+            <view class='title'>
+                {{item.title}}
+                <text class='prompt'>[问答题]<text class='isnull' wx:if="{{item.notnull == '是' }}">*</text></text>
+            </view>
+            <textarea bindinput="bindTextAreaBlur" data-title="{{item.title}}" data-id="{{item.id}}" class='answer' placeholder='请输入答案' placeholder-class='placeholder'></textarea>
+        </view>
+
+    </block>
+
+
+    <!-- 提交按钮 -->
+    <button class='btn' bindtap='submit' wx:if="{{flag === 'true'}}">提交</button>
+</view>

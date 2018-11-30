@@ -1,0 +1,218 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.3.0",
+	"appid": "wx6b736d80a7c50cd0",
+	"projectname": "%E7%8C%BF%E5%91%A8%E7%8E%873.0",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 28,
+			"list": [
+				{
+					"id": -1,
+					"name": "小猿圈",
+					"pathName": "pages/circle/home/home",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "小猿圈发布",
+					"pathName": "pages/circle/release/release",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "小猿圈内容详情",
+					"pathName": "pages/circle/detailed/detailed",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "小猿圈添加评论",
+					"pathName": "pages/circle/evaluation/evaluation",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "应用",
+					"pathName": "pages/apply/apply",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "实习系统",
+					"pathName": "pages/internship/home/home",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "实习系统-日志反馈",
+					"pathName": "pages/internship/logfeedback/logfeedback",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "实习系统-公共文件",
+					"pathName": "pages/internship/template/template",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "实习系统-修改密码",
+					"pathName": "pages/internship/changepassword/changepassword",
+					"query": ""
+				},
+				{
+					"id": 9,
+					"name": "实习系统-实习信息",
+					"pathName": "pages/internship/interninfo/interninfo",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "实习系统-实习月记录",
+					"pathName": "pages/internship/practicenote/practicenote",
+					"query": ""
+				},
+				{
+					"id": 11,
+					"name": "实习系统-查看日志",
+					"pathName": "pages/internship/log/log",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "问卷-首页",
+					"pathName": "pages/questionnaire/home/home",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "问卷-发起问卷",
+					"pathName": "pages/questionnaire/initiate/initiate",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "问卷-填写问卷",
+					"pathName": "pages/questionnaire/write/write",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "问卷-用户答题",
+					"pathName": "pages/questionnaire/answer/answer",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "问卷-提交成功",
+					"pathName": "pages/questionnaire/success/success",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "问卷-提交失败",
+					"pathName": "pages/questionnaire/failure/failure",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "问卷-手动导入",
+					"pathName": "pages/questionnaire/manual/manual",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "问卷-问卷管理",
+					"pathName": "pages/questionnaire/management/management",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "聊吧",
+					"pathName": "pages/chat/chat",
+					"query": ""
+				},
+				{
+					"id": 21,
+					"name": "跳蚤市场发布",
+					"pathName": "pages/fleamarket/release/release",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "跳蚤",
+					"pathName": "pages/fleamarket/home/home",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "跳蚤-详情",
+					"pathName": "pages/fleamarket/details/details",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "企业信息",
+					"pathName": "pages/personal/personal",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的帖子",
+					"pathName": "pages/Mypost/Mypost",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人",
+					"pathName": "pages/personal/personal",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "企业信息",
+					"pathName": "pages/secret/details/details",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "企业信息",
+					"pathName": "pages/enterprise/release/release",
+					"query": ""
+				}
+			]
+		}
+	}
+}

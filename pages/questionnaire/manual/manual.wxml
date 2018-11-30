@@ -1,0 +1,76 @@
+<!--pages/questionnaire/manual/manual.wxml 手动导入-->
+<form class='form' bindsubmit='getAnswer'>
+
+    <view class='headline'>
+        <view class='title'>问卷标题：</view>
+        <input class='input1' type='text' placeholder='请输入问卷标题' placeholder-class='placeholder' name="title"></input>
+        <view class='title'>发起人：</view>
+        <input class='input1' type='text' placeholder='请输入问卷发起人姓名' placeholder-class='placeholder' name="launch_name"></input>
+        <view class='title'>简介：</view>
+        <textarea class='textarea1' placeholder='请输入问卷简介' placeholder-class='placeholder' maxlength='-1' name="book_summary"></textarea>
+    </view>
+
+    <!-- 题目 -->
+    <view class='content'>
+        <view class='title'>创建题目：</view>
+
+        <view class='answer' wx:for="{{objectArray}}" wx:key="unique" wx:for-index="id" bindlongtap='longTap' data-id='{{id}}' >
+            <view class='subject'>
+                <!-- 题目 -->
+                <text style='color:#666;font-size:34rpx;'>{{id+1}}.</text>
+                <textarea class='title' type='text' placeholder='请输入题目' placeholder-class='placeholder' maxlength='-1' bindinput="getTitleValue" data-id="{{id}}"></textarea>
+                <!-- 题目分类选择 -->
+                <view class='case'>
+                    <view class='select_box'>
+                        <view class='select' catchtap='selectTap' data-caseid='{{id}}' >
+                            <text class='select_text'>{{item.selectData[item.index1]}}</text>
+                            <image class='select_img {{item.show&&"select_img_rotate"}}' src='/image/icon/answer/down.png'></image>
+                        </view>
+                        <view class='option_box' style="height:{{item.show?(item.selectData.length>5?300:item.selectData.length*82):0}}rpx;">
+                            <text class='option' style='{{item.index1==item.selectData.length-1&&"border:0;"}}' wx:for='{{item.selectData}}' wx:for-item='i' wx:for-index="index1" wx:key='this' data-index1='{{index1}}' catchtap='optionTap' data-caseid='{{id}}' data-value='{{i}}'>{{i}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <!-- 答案 -->
+            <view class='result'>
+                <!-- 单选、多选题 -->
+                <view class="con1 {{item.index1!==2?'con1_show':'con1_hiden'}}">
+                    <!-- <view class='con1'> -->
+                    <view class='options' wx:for="{{item.answer}}"  wx:for-index="i">
+                        <input type='text' placeholder='请输入选项' placeholder-class='placeholder' bindinput="getAnswerValue" data-id="{{id}}" data-option="{{i}}"></input>
+                        <image src='/image/icon/answer/del.png' class='del' bindtap='clickTap' data-id="{{id}}" data-index='{{i}}'></image>
+                    </view>
+                    <button type='button' class='addbtn' bindtap='addbtn' data-ind='{{id}}'>
+                        <image src='/image/icon/answer/add.png'></image>
+                        <text>添加选项</text>
+                    </button>
+                    <radio-group class="radio-group radio" bindchange="radioChange" data-id="{{id}}">
+                            <label class="radio" wx:for="{{radio}}">
+                                <radio value="{{item.value}}" checked="{{item.checked}}" />{{item.name}}
+                            </label>
+                    </radio-group>
+                </view>
+
+                <!-- 问答题 -->
+                <view class="con2 {{item.index1==2?'con1_show':'con1_hiden'}}">
+                    <!-- <textarea class='con2_answer' placeholder='请输入答案' placeholder-class='placeholder' maxlength='-1'></textarea> -->
+                    <radio-group class="radio-group radio" bindchange="radioChange" data-id="{{id}}">
+                            <label class="radio" wx:for="{{radio}}">
+                                <radio value="{{item.value}}" checked="{{item.checked}}" />{{item.name}}
+                            </label>
+                    </radio-group>
+                </view>
+
+            </view>
+        </view>
+
+        <!-- 添加题目按钮 -->
+        <view class='append' bindtap='addToFront' data-addid='{{id}}'>
+            <image src='/image/icon/answer/append.png'></image>
+        </view>
+    </view>
+
+    <button class='btn' form-type='submit'>创建问卷</button>
+
+</form>

@@ -1,0 +1,51 @@
+<!--pages/internship/practicenote/practicenote.wxml-->
+
+<view bindtap='focus'>
+<import src="../template/template.wxml" />
+<template is="header" data="{{headData}}"></template>
+
+<!-- 选项栏 -->
+<view class='options'>
+  <view class='home' bindtap='home'>首页</view>
+  <view class='task'>提交记录</view>
+  <view class='null'></view>
+</view>
+
+<!-- 内容 -->
+<view class='content'>
+  <view class='title'>实习(月)记录</view>
+  <!-- <view class='upload'>
+    <view class='no' bindtap='upload' wx:if="{{!imgurl}}">
+      <image src='/image/icon/internship/image.png'></image>
+      <view class='text'>上传图片</view>
+    </view>
+    <view class='yes' wx:if="{{imgurl}}">
+      <image class='image' src='{{imgurl}}'></image>    
+      <image bindtap='delete' class='delete' src='/image/icon/internship/delete.png'></image>
+    </view>
+  </view> -->
+   <view class='pic'>
+
+    <!-- 上传图片按钮 -->
+    <view class='upload' bindtap='upload'>
+      <image src='/image/icon/circle/pic.png'></image>
+    </view>
+
+    <!-- 图片 -->
+    <view class='pic_box' wx:for="{{imgurl}}" wx:key="key"  wx:for-index="idx">
+      <view class='image'>
+        <image class='imgurl' src='{{item}}' bindtap='img' data-imgurl="{{item}}" data-imgurls="{{imgurl}}"></image>
+        <image class='del' src='/image/icon/circle/del.png' bindtap='delete' data-index="{{idx}}" data-url="{{item.url}}"></image>
+      </view>
+    </view>
+    
+    <!-- 消除浮动 -->
+    <view class='remove'></view>
+  </view>
+  <button class='btn' bindtap="submitdata">提交</button>
+</view>
+
+
+<template is="footer2"></template>
+
+</view>

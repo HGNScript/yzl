@@ -1,0 +1,292 @@
+/* pages/parttimejob/details/details.wxss */
+.box:last-child{
+  border-bottom: none;
+}
+.block {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20rpx 40rpx;
+}
+.block_content{
+  margin-top: 10rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.userinfo {
+  margin-top: 10rpx;
+  width:76%;
+  display: flex;
+  height: 100rpx;
+}
+.userinfo > .username {
+  max-width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 100rpx;
+  letter-spacing: 2rpx;
+  font-size: 34rpx;
+  color: #444;
+}
+.userinfo > image {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 35rpx 10rpx;
+}
+/* 内容 */
+.details {
+  width: 76%;
+  display: block;
+  margin-left: 150rpx;
+}
+.box_con {
+  color: #555;
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+.box_con > .text {
+  width: 100%;
+  word-wrap:break-word;
+}
+.box_con > .list > .list_label {
+  color: #1c5c91;
+}
+.box_con > .list > .list_name {
+  word-wrap: break-word;
+}
+
+.details_img {
+  margin: 20rpx 0 10rpx;
+}
+.details_img .image {
+  width: 31%;
+  height: 170rpx;
+  margin-top: 0;
+  border-radius: 0;
+  margin: 5rpx 5rpx;
+  float: left;
+}
+.block .price {
+  margin-top: 30rpx;
+}
+.block > .price > image{
+  width: 50rpx;
+  height: 50rpx;
+}
+/* 地址同行 */
+.add_all{
+  position: relative;
+  display: flex;
+}
+.add_all .time{
+  font-size: 24rpx;
+  padding-top: 10rpx;
+  color: #666;
+}
+.add_all .add{
+  position: absolute;
+  right: 0rpx;
+  top: 10rpx;
+  color: #555;
+  font-size: 24rpx;
+  width: 320rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* 功能 */
+.details_like{
+  padding: 20rpx;
+  position: relative;
+  display: flex;
+  font-size: 13px;
+  flex-direction: row;
+}
+.details_like>.asd{
+  position: absolute;
+  right: 20rpx;
+  display: flex;
+}
+.details_like>.asd>text{
+  color: #666;
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+.details_like>.asd>image{
+  height: 40rpx;
+  width: 40rpx;
+  padding: 0 15rpx;
+}
+.details_like_text{
+  vertical-align: middle;
+  margin-right: 210px;
+  padding-left: 50rpx;
+  color: #555;
+  font-size: 26rpx;
+}
+
+/* 评论 */
+.comments {
+    margin-bottom: 100rpx;
+}
+.comments > .header {
+  position: relative;
+  display: flex;
+  padding: 0 30rpx;
+  height: 100rpx;
+  border-bottom: 1px solid #e5e5e5;
+}
+.comments > .header > .title {
+  font-size: 34rpx;
+  color: #444;
+  line-height: 100rpx;
+} 
+.comments > .header > .num {
+  font-size: 34rpx;
+  line-height: 100rpx;
+  color: #666;
+}
+.comments > .header > .combtn {
+  border: 1.5px #e5e5e5 solid;
+  border-radius: 45rpx;
+  position: absolute;
+  right: 30rpx;
+  top: 20rpx;
+  height: 60rpx;
+  padding: 0 20rpx;
+}
+.comments > .header > .combtn > image {
+  width: 30rpx;
+  height: 30rpx;
+  line-height: 60rpx;
+}
+.comments > .header > .combtn > .text {
+  font-size: 28rpx;
+  line-height: 60rpx;
+  color: #666;
+  padding: 0 10rpx;
+}
+
+.comments > .centre {
+  padding: 20rpx 30rpx;
+  border-bottom: 1px #f2f2f2 solid;
+}
+.comments > .centre:last-child {
+  border-bottom: none;
+}
+.comments > .centre > .user {
+  display: flex;
+}
+.comments > .centre > .user > image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+.comments > .centre > .user > .name {
+  display: flex;
+  margin-left: 15rpx;
+}
+.comments > .centre > .user > .name > .text {
+  position: relative;
+  color: #666;
+  font-size: 32rpx;
+  line-height: 100rpx;
+  max-width: 250rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.comments > .centre > .user > .name > image {
+  width: 30rpx;
+  height: 30rpx;
+  padding: 0 10rpx;
+  margin-top: 35rpx;
+}
+.comments > .centre > .user > .day {
+  color: #666;
+  font-size: 24rpx;
+  line-height: 100rpx;
+}
+.comments > .centre > .text {
+  padding-left: 100rpx; 
+  font-size: 30rpx;
+  color: #444;
+  letter-spacing: 3rpx;
+  line-height: 1.7;
+}
+.comments > .centre > .reply {
+  padding-left: 100rpx;
+  margin: 20rpx 0;
+}
+.comments > .centre > .reply > .btn {
+  background: #f2f2f2;
+  height: 60rpx;
+  font-size: 30rpx;
+  color: #2196f3;
+  line-height: 60rpx;
+  padding: 0 20rpx;
+  margin-bottom: 10rpx;
+  border-radius: 5rpx;
+}
+.comments > .centre > .reply > .reply_box {
+  background: #f2f2f2;
+  border-radius: 5rpx;
+  color: #666;
+  font-size: 28rpx;
+  line-height: 1.5;
+  letter-spacing: 5rpx;
+  padding: 15rpx 20rpx;
+}
+.comments > .centre > .reply > .reply_box > .box > .back1 {
+  padding: 8rpx 0;
+}
+.comments > .centre > .reply > .reply_box > .box > .back1 .user {
+  color: #2196f3;
+}
+.comments > .centre > .reply > .reply_box > .box > .back1 > .huifu {
+  color: #444;
+  margin: 0 10rpx;
+}
+
+/* 评论输入框 */
+.input_null{
+  color: #C9C9C9;
+} 
+.release{ 
+  display: flex;
+  align-items: flex-end; /*底部对齐*/
+  justify-content: space-between; /*两端对齐*/
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 18rpx 0 18rpx 30rpx;
+  background-color: #F7F8F7;
+  font-size: 28rpx;
+  z-index: 999;
+}
+.release .text{
+  width: 504rpx;
+  min-height: 34rpx;
+  max-height: 102rpx; /*最多显示三行*/
+  border-width: 15rpx 20rpx; /*使用padding与预期留白不一致，故使用border*/
+  border-style: solid;
+  border-color: #ffffff;
+  line-height: 34rpx;
+  font-size: 28rpx;
+  background-color: #ffffff;
+  border-radius: 4rpx;
+}
+.release .submit{
+  width: 116rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 24rpx;
+  background: #2196f3;
+}

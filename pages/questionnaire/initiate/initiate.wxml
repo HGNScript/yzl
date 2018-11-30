@@ -1,0 +1,9 @@
+<!--pages/questionnaire/initiate/initiate.wxml 发起问卷-->
+<view class='content'>
+  <view class='case' wx:for="{{case}}">
+    <navigator url="{{item.url}}" open-type="navigate"  hover-class="none">
+      <image class='image' src='{{item.image}}'></image>
+      <view class='title'>{{item.title}}</view>
+    </navigator>
+  </view>
+</view>

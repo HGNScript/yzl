@@ -1,0 +1,71 @@
+/* pages/gzysr/gzysr.wxss */
+.title {
+  text-align:  center;
+  line-height: 4;
+  font-size: 40rpx;
+  color: #333;
+}
+.con {
+  padding: 0 20rpx;
+}
+.con > .label {
+  font-size: 32rpx;
+  color: #19b4ed;
+}
+.con > .text {
+  font-size: 30rpx;
+  color: #555;
+  text-indent: 2em;
+  line-height: 1.5;
+  letter-spacing: 2rpx;
+  padding: 15rpx 0;
+}
+.box1 {
+  display: inline-block;
+  width: 50%;
+}
+.business {
+  display: flex;
+  height: 60rpx;
+  margin: 20rpx 50rpx;
+}
+.business > .img {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 10rpx;
+}
+.business > .name {
+  font-size: 32rpx;
+  color: #444;
+  line-height: 60rpx;
+}
+.list {
+  display: flex;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  color: #555;
+  margin: 10rpx 0;
+}
+.list > image {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 15rpx 20rpx;
+}
+.ewm {
+  color: #666;
+  font-size: 28rpx;
+  text-align: center;
+}
+.ewm > image {
+  width: 250rpx;
+  height: 250rpx;
+  display: block;
+  margin: 20rpx auto;
+}
+.ewm > .text {
+  letter-spacing: 2rpx;
+}
+.con {
+  padding-bottom: 50rpx;
+}

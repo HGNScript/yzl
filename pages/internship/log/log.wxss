@@ -1,0 +1,75 @@
+/* pages/internship/log/log.wxss */
+@import "../template/template.wxss";
+
+/* 选项卡 */
+.options {
+  margin: 20rpx 40rpx;
+  display: flex;
+  color: #444;
+  font-size: 34rpx;
+}
+.options > .home {
+  width: 25%;
+  line-height: 2.5;
+  border-bottom: 1.5px #e5e5e5 solid;
+  text-align: center;
+}
+.options > .task {
+  width:35%;
+  border:1.5px #e5e5e5 solid;
+  border-bottom: 0px;
+  border-radius: 8rpx 8rpx 0 0;
+  line-height: 2.5;
+  text-align: center;
+  padding: 0 20rpx;
+}
+.options > .null {
+  width: 40%;
+  border-bottom: 1.5px #e5e5e5 solid;  
+}
+
+/* 内容 */
+.content {
+  padding: 0 40rpx;
+  margin-bottom: 100rpx;
+  
+}
+.content > .title {
+  color: #3b8bca;
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-left: 40rpx;
+}
+.content > .title2 {
+  margin-top: 50rpx;
+  margin-bottom: 20rpx;
+}
+.content > .check {
+  border: 1.5px #e5e5e5 solid;
+  border-radius: 10rpx;
+  padding: 50rpx 30rpx;
+  margin: 30rpx 0;
+}
+.content > .check > image {
+  width: 80%;
+  height: 350rpx;
+  display: block;
+  margin: 0 auto;
+}
+.content > .list {
+  margin-left: 40rpx;
+  font-size: 30rpx;
+  line-height: 1.5;
+}
+.content > .list > .head {
+  color: #444;
+  font-weight: bold;
+}
+.content > .list > .text {
+  color: #666;
+}
+
+/* 页脚 */
+.footer {
+  margin-top: 160rpx;
+}

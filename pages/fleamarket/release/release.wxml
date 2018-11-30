@@ -1,0 +1,106 @@
+<!--pages/fleamarket/release/release.wxml 发布-->
+<!-- 标题 -->
+<view class='header'>
+    <image src='/image/icon/flea/items.png'></image>
+    <text>投放物品</text>
+</view>
+
+<!-- 产品详情 -->
+<view class='message'>
+  <view class='message_box'>
+    <text class='title'>名称：</text>
+    <input type='text' class='input1' placeholder='如：电脑、自行车等' placeholder-class='placeholder' bindinput='setTitle'></input>
+  </view>
+  <view class='message_box'>
+    <text class='title'>数量：</text>
+    <input type='number' class='input1' value='1' placeholder='请输入数量' placeholder-class='placeholder' bindinput='setNumber'></input>
+  </view>
+  <view class='message_box'>
+    <view class='title'>分类：</view>
+    <picker class='picker_box' bindchange="bindPickerChange" value="{{cate[isCate].fleamarketCate_id}}" range="{{cate}}" range-key="{{'fleamarketCate_name'}}">
+      <view class="picker">{{cate[isCate].fleamarketCate_name}}</view>
+      <image class='right_img' src='/image/icon/answer/right.png'></image>
+    </picker>
+  </view>
+  <view class='textarea'>
+    <textarea placeholder='请对你的产品进行简单的介绍' placeholder-class='placeholder' bindinput='setContent'></textarea>
+
+    <!-- 上传图片 -->
+  <view class='pic'>
+
+    <!-- 上传图片按钮 -->
+    <view class='upload' bindtap='uploadImg'>
+      <image src='/image/icon/circle/pic.png'></image>
+    </view>
+
+    <!-- 图片 -->
+    <view class='pic_box' wx:for="{{imgurl}}" wx:key="id" wx:for-index="idx">
+      <view class='image'>
+        <image class='imgurl' src='{{item.url}}'></image>
+        <image class='del' src='/image/icon/circle/del.png'bindtap='delImg' data-index="{{idx}}" data-url="{{item.url}}"></image>
+      </view>
+    </view>
+    
+    <!-- 消除浮动 -->
+    <view class='remove'></view>
+  </view>
+
+  </view>
+</view>
+<view class='hr2'></view>
+
+<!--导航条-->
+<view class="navbar">
+  <text wx:for="{{navbar}}" wx:key="key" data-idx="{{index}}" class="item active" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+</view>
+
+<view>
+  <view class='message_box'>
+    <text class='title'>售价：</text>
+    <input type='number' class='input1' bindinput='setPrice' placeholder='请输入售价' placeholder-class='placeholder'></input>
+  </view>
+  <view class='message_box'>
+    <text class='title'>原价(选填)：</text>
+    <input type='number' class='input1' bindinput='setCostprice' placeholder='请输入原价' placeholder-class='placeholder'></input>
+  </view>
+  <view class='way'>
+    <view class='title'>发货方式：（可多项选择）</view>
+    <checkbox-group bindchange="theDelivery">
+      <view class="checkbox" wx:for="{{delivery}}" index="index" wx:key="key">
+        <checkbox checked="{{item.checked}}" value='{{item.value}}'/>{{item.value}}
+      </view>
+    </checkbox-group>
+
+
+    <view class='title'>收款方式：</view>
+    <radio-group  bindchange="collection">
+      <view class="checkbox" wx:for="{{collection}}" wx:key="key">
+        <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.value}}
+      </view>
+      
+    </radio-group>
+  </view>
+</view>
+
+<view class='hr2'></view>
+
+<!-- 复选定位 -->
+<view class='checkbox_box'>
+  <checkbox-group bindchange="getAddress">
+    <checkbox class='checkbox' value='1'></checkbox>
+    <view class='text'>定位</view>
+  </checkbox-group>
+</view>
+
+<view class='hr2'></view>
+
+<view class='contact'>
+  <view class='message_box message_box2'>
+    <text class='title'>联系方式：</text>
+    <input type='number' bindinput='setPhone' class='input1' placeholder='请输入联系人手机号' placeholder-class='placeholder'></input>
+  </view>
+</view>
+
+<view class='hr3'></view>
+
+<button class='btn' bindtap='submit'>发布内容</button>

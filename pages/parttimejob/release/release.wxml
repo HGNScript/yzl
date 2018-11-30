@@ -1,0 +1,37 @@
+<!--pages/parttimejob/release/release.wxml-->
+<!-- 标题 -->
+<view class='header'>
+    <image src='/image/zp.png'></image>
+    <text>我要兼职</text>
+</view>
+<form bindsubmit="subjobdata">
+
+<!-- 招聘岗位： -->
+<view class='content'>
+  <view class='con_title'>兼职意向：</view>
+  <input type='text' class='con_input1' placeholder='*如服务员、派发传单...' placeholder-class='placeholder' name="job_post"></input>
+</view>
+<!-- 意向地点：、 -->
+<view class='content'>
+  <view class='con_title'>意向地点：</view>
+  <input type='text' class='con_input1' placeholder='*学校附近...' placeholder-class='placeholder' name="job_adress"></input>
+</view>
+<!-- 时间要求： -->
+<view class='content'>
+  <view class='con_title'>兼职时间：</view>
+  <input type='text' class='con_input1' placeholder='请输入兼职时间' placeholder-class='placeholder' name="job_time"></input>
+</view>
+<!-- 联系电话： -->
+<view class='content'>
+  <view class='con_title'>联系电话：</view>
+  <input type='number' class='con_input1' placeholder='请输入联系人电话' placeholder-class='placeholder' name="job_phone"></input>
+</view>
+<!-- 招聘详情 -->
+<view class='content1'>
+  <view class='con_title'>备注信息：</view>
+  <textarea placeholder='请输入备注信息' placeholder-class='placeholder' name="job_text" ></textarea>
+</view>
+
+<button class='btn' form-type='submit'>发布信息</button>
+
+</form>

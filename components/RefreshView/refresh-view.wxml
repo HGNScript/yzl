@@ -1,0 +1,11 @@
+<!--components/RefreshLayout/refresh-layout.wxml-->
+<view style='height:{{dynamicHeight}}rpx;' class="refresh-container">
+  <view class='refresh-layout refresh_box' style='height:{{refreshHeight}}rpx;'>
+    <view class="refresh-loading" hidden="{{0!=pullState}}"></view>
+    <text class="refresh-tips">{{pullState==1?'下拉刷新...':pullState==0?'正在刷新...':'松开刷新...'}}</text>
+    <view class='refresh-tips company'>
+        <view class='name'>广州猿始人技术提供</view>
+        <view class='url'>www.gzysr.cn</view>
+    </view>
+  </view>
+</view> 

@@ -1,0 +1,129 @@
+/* pages/questionnaire/write/write.wxss */
+/* 搜索 */
+.search {
+  width: 100%;
+  padding: 15rpx 20rpx;
+  display: flex;
+  border-bottom: 2px #f5f5f5 solid;
+}
+.search > input {
+  height: 80rpx;
+  width: 78%;
+  background: #f9f9f9;
+  border-radius: 6rpx;
+  padding: 0 10rpx;
+  font-size: 30rpx;
+}
+.search > image {
+  width: 60rpx;
+  height: 60rpx;
+  margin-top: 10rpx;
+  margin-left:  30rpx;
+}
+.placeholder {
+  font-size: 30rpx;
+}
+
+/* 导航 */
+.navbar{
+  width: 100%;
+  font-size: 30rpx;
+  flex: none;
+  display: flex;
+  color: rgb(99, 88, 88);
+  background: #fff;
+}
+.navbar .item{
+  position: relative;
+  flex: auto;
+  text-align: center;
+  line-height: 100rpx;
+}
+.navbar .item.active{
+  background: rgba(249, 249, 249, 0.3);
+  color:#333;
+}
+.navbar .item.active:after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4rpx;
+  width: 100%;
+  margin:0 auto;
+  background:#f0f0f0;
+}
+
+/* 问卷 */
+.roll {
+  position: relative;
+  padding: 20rpx 30rpx;
+  display: flex;
+  background: rgba(249, 249, 249, 0.3);
+  border-bottom: 1.5px #f0f0f0 solid;
+}
+.roll > .con {
+    width: 100%;
+}
+.roll > .con > .con_box1 {
+    position: relative;
+    display: flex;
+    /* background: #f00; */
+    height: 50rpx;
+}
+.roll > .con > .con_box1 >.title {
+  font-size: 38rpx;
+  font-weight: 500;
+  line-height: 50rpx;
+  color: #444;
+  width: 500rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.roll > .con > .con_box1 > .num {
+    font-size: 24rpx;
+    line-height: 50rpx;
+    position: absolute;
+    right: 0;
+    color: #666;
+}
+.roll > .con > .details {
+  display: flex;
+  margin-top: 20rpx;
+  position: relative;
+  width: 100%;
+}
+.roll > .con > .details > .name {
+  color: #666;
+  line-height: 1;
+  font-size: 34rpx;
+}
+.roll > .con > .details > .time {
+  color: #666;
+  font-size: 30rpx;
+  line-height: 1;
+  text-align: right;
+  position: absolute;
+  right: 0;
+}
+.roll > .rightimg {
+  position: absolute;
+  right: 30rpx;
+  top: 45rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.none{
+    text-align: center;
+}
+.none image {
+    margin: 0 auto;
+    display: block;
+}
+
+.none text{
+    color: darkgrey;
+}

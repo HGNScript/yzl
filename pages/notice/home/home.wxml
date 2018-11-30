@@ -1,0 +1,22 @@
+<!-- search -->
+<view class='search'>
+  <view class='left'>
+    <image src='/image/icon/answer/search.png'></image>
+    <input type='text' bindinput='getKeyword' placeholder='输入关键字' placeholder-class='placeholder'></input>
+  </view>
+  <view class='btn' bindtap='fuzzQuery'>搜索</view>
+</view>
+
+<!-- 内容 -->
+<view class='content' wx:for="{{content}}" wx:key="id" bindtap='details' data-id="{{item.notice_id}}">
+  <rich-text class='title' nodes="{{item.notice_text}}"></rich-text>
+  <view class='bot'>
+    <rich-text class='name' nodes="{{item.notice_title}}"></rich-text>
+    <text class='time'>{{item.create_time}}</text>
+  </view>
+</view>
+<!-- 没有 -->
+<view class='none' wx:if="{{!content.length}}">
+    <image src='/image/null.png'></image>
+    <text>暂时找不到数据</text>
+</view>

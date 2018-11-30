@@ -1,0 +1,300 @@
+/* pages/fleamarket/home/home.wxss */
+
+/* pages/market/market.wxss */
+
+page {
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    height: 80rpx;
+    position: relative;
+    display: flex;
+}
+
+.nav {
+    height: 80rpx;
+    width: 85%;
+    box-sizing: border-box;
+    overflow: hidden;
+    line-height: 80rpx;
+    background: #f7f7f7;
+    font-size: 26rpx;
+    white-space: nowrap;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    color: #666;
+}
+
+.nav-item {
+    position: relative;
+    width: 18%;
+    display: inline-block;
+    text-align: center;
+}
+
+.nav-item.active {
+    color: #000;
+}
+
+.nav-item.active:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5rpx;
+    width: 100%;
+    margin: 0 auto;
+    background: #19b4ed;
+}
+
+.search_icon {
+    z-index: 100;
+    width: 15%;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.search_icon>image {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+/* 内容 */
+
+.box {
+    border-bottom: 16rpx #f9f9f9 solid;
+}
+
+.box:last-child {
+    border-bottom: none;
+}
+
+.block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20rpx 40rpx;
+}
+
+.block_content {
+    position: relative;
+    display: flex;
+    width: 85%;
+}
+
+.block image {
+    margin-top: 10rpx;
+    width: 15%;
+    height: 100rpx;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    margin-right: 20rpx;
+}
+
+.details {
+    width: 100%;
+    /* background: #f00; */
+}
+
+.details  .details_things {
+    width: 60%;
+    color: #444;
+    font-size: 34rpx;
+    padding-top: 20rpx;
+    letter-spacing: 3rpx;
+    line-height: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.details .details_name {
+    font-size: 26rpx;
+    letter-spacing: 2rpx;
+    color: #555;
+}
+
+.details_name>image {
+    width: 25rpx;
+    height: 25rpx;
+    margin-left: 5rpx;
+}
+
+.details .details_content {
+    font-size: 28rpx;
+    line-height: 1.6;
+    color: #444;
+    margin-top: 20rpx;
+    word-wrap: break-word;
+}
+
+.details_img {
+    margin: 20rpx 0 10rpx;
+}
+
+.details_img .image {
+    width: 31%;
+    height: 170rpx;
+    margin-top: 0;
+    border-radius: 0;
+    margin: 5rpx 5rpx;
+    float: left;
+}
+
+.block > .block_content > .details > .price {
+    padding-top: 20rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.to_price {
+    color: red;
+    font-size: 34rpx;
+}
+
+.original_price {
+    color: #666;
+    font-size: 24rpx;
+    text-decoration: line-through;
+}
+
+/* 地址同行 */
+
+.add_all {
+    position: relative;
+    display: flex;
+}
+
+.add_all .time {
+    font-size: 24rpx;
+    padding-top: 10rpx;
+    color: #666;
+}
+
+.add_all .add {
+    position: absolute;
+    right: 0rpx;
+    top: 10rpx;
+    color: #555;
+    font-size: 24rpx;
+    width: 320rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 功能 */
+
+.details_like {
+    padding-bottom: 20rpx;
+    position: relative;
+    display: flex;
+    font-size: 13px;
+    flex-direction: row;
+}
+
+.details_like>.asd {
+    display: flex;
+    position: absolute;
+    right: 50rpx;
+}
+
+.details_like>.asd>.asd_box {
+    display: flex;
+    margin-right: 18px;
+}
+
+.details_like>.asd>.asd_box>image {
+    height: 20px;
+    width: 20px;
+}
+
+.details_like>.asd>.asd_box>.num {
+    color: #666;
+    margin: 0 10rpx;
+    margin-top: 8rpx;
+}
+
+.details_like>.asd>.asd_box2>.sc {
+    height: 20px;
+    width: 20px;
+}
+
+.details_like_text {
+    vertical-align: middle;
+    margin-right: 210px;
+    padding-left: 50rpx;
+    color: #555;
+    font-size: 26rpx;
+}
+
+/* 收起 */
+
+.checked_none {
+    height: 100rpx;
+    overflow: hidden;
+}
+
+/* 下拉收起 */
+
+.check {
+    margin: 20rpx 0;
+    width: 20%;
+}
+
+.check > .text {
+    color: #1c5c91;
+    font-size: 30rpx;
+}
+
+/* 添加 */
+
+.append > image {
+    position: fixed;
+    right: 20rpx;
+    bottom: 50rpx;
+    width: 100rpx;
+    height: 100rpx;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
+.none {
+    text-align: center;
+}
+
+.none image {
+    margin: 0 auto;
+    display: block;
+    width: 52%;
+}
+
+.none text {
+    color: darkgrey;
+}
+
+.bottom {
+    text-align: center;
+    margin: 20rpx;
+    height: 100rpx;
+}
+
+.bottom>text {
+    font-size: 22rpx;
+    color: #555;
+}

@@ -1,0 +1,34 @@
+<!--pages/internship/template/template.wxml-->
+<!-- header -->
+<template name="header">
+  <view class='header'>
+    <!-- <image class='logo' src='/image/logo2.png'></image> -->
+    <view class='return'>
+      <button bindtap='return'>返回</button>
+    </view>
+    <view class='name'>{{headData.username}}</view>
+    <view class='btn'>
+      <button catchtap='menu'>菜单<view wx:if="{{headData.sigintype == 0 || headData.logstype == 0}}" class='badge'></view></button>
+  
+    </view>
+    <view class='menu'>
+      <view bindtap='Signin' data-id='{{headData.stu_id}}' class="{{headData.open?'display_show':'display_none'}}">签到<view wx:if="{{headData.sigintype == 0}}" class='badge1'></view></view>
+      <view bindtap='feedback' data-id='{{headData.logs_id}}' class="{{headData.open?'display_show':'display_none'}} ">日志反馈<view wx:if="{{headData.logstype == 0}}" class='badge2'></view></view>
+    </view>
+    
+  </view>
+</template>
+
+<!-- footer -->
+<template name="footer">
+  <view class='footer'>Copyright 2018 广州猿始人科技有限公司 All Rights Reserved</view>
+</template>
+
+<template name="footer2">
+  <view class='footer2'>Copyright 2018 广州猿始人科技有限公司 All Rights Reserved</view>
+</template>
+
+<!-- 显示 -->
+<template is="header" data="{{open}}"></template>
+<template is="footer"></template>
+<template is="footer2"></template>

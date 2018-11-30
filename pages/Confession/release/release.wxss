@@ -1,0 +1,115 @@
+page{
+  background: #fff;
+  }
+/* 表白对象 */
+.item > .item-head{
+  display: flex;
+  width: 85%;
+  height: 80rpx;
+  background: #f2f2f2;
+  line-height: 80rpx;
+  margin: 30rpx auto;
+  border-radius: 10rpx;
+  padding: 0 20rpx;
+}
+.item > .item-head > .theyName{
+  color: #444;
+  font-size: 30rpx;
+}
+.item > .item-head > input{
+  padding-left: 10rpx;
+  margin:18rpx 0 0 10rpx;
+  width: 75%;
+  font-size: 30rpx;
+  color: #666;
+}
+.placeholder {
+  font-size: 30rpx;
+  color: #666;
+}
+/* 表白内容 */
+.item-content{
+  position: relative;
+  width: 85%;
+  height: 520rpx;
+  background: #f2f2f2;
+  line-height: 80rpx;
+  margin: 30rpx auto;
+  border-radius: 10rpx;
+  padding: 0 20rpx;
+}
+.item-content .item-title {
+  color: #444;
+  font-size: 30rpx;
+}
+.item-content > .item-section{
+  display: block;
+  width: 95%;
+  height: 400rpx;
+  padding: 10rpx;
+  font-size: 30rpx;
+  color: #666;  
+  margin: 0 auto;
+  line-height: 1.5;
+}
+.currentWordNumber{
+  font-size: 28rpx;
+  color: gray;
+  position: absolute;
+  right: 10rpx;
+}
+/* 匿名 */
+.item > .anonymous{
+  position: relative;
+  display: flex;
+  width: 85%;
+  height: 85rpx;
+  background: #f2f2f2;
+  line-height: 80rpx;
+  margin: 30rpx auto;
+  border-radius: 10rpx;
+  padding: 0 20rpx;
+}
+.item > .anonymous > .meName{
+  color: #444;
+  font-size: 30rpx;
+}
+switch{
+  position: absolute;
+  right: 20rpx;
+}
+/* 添加相片 */
+.addPhoto{
+  width:25%;
+  height:160rpx;
+  margin-left: 38rpx;
+  position: relative;
+}
+.item > .addPhoto > image{
+  width: 100%;
+  height: 160rpx;
+  margin: 0 8rpx;
+}
+#deletePhoto{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  top: -15rpx;
+  right: -33rpx;
+  border-radius: 50%;
+  
+}
+
+
+/* 发布 */
+.foot{
+  margin: 80rpx 20rpx auto;
+}
+.release{
+  display: block;
+  background: #19b4ed;
+  color: #fff;
+  width: 95%;
+  height: 80rpx;
+  line-height: 80rpx;
+}

@@ -1,0 +1,130 @@
+<!--pages/parttimejob/details/details.wxml-->
+
+<view id="page">
+<view class="box">
+    <view class="block">
+        <image class="block_content" src="{{jobData.user.company['company_state'] == 2?jobData.user.company.company_logo:jobData.user.imageUrl}}" bindtap='userimg' data-id="{{jobData.user.id}}"></image>
+        <view class='userinfo'>
+            <view class='username'>{{jobData.user.company['company_state'] == 2?jobData.user.company.company_name:jobData.user.user_name}}</view>
+            <image wx:if="{{jobData.user.gender == '男'}}" src='/image/icon/circle/nan.png'></image>
+                    <image  wx:elif="{{jobData.user.gender == '女'}}" src='/image/icon/circle/nv.png'></image>
+        </view>
+        <view class="price">
+            <image src='/image/icon/apply/parttime.png'></image>
+        </view>
+    </view>
+
+
+    <view class="details">
+        <!-- 内容 -->
+        <view class="box_con {{checked?'checked_show':'checked_none'}}" bindtap='bind_market_details'>
+            <view class='list'>
+                <text class='list_label'>兼职意向：</text>
+                <text class='list_name'>{{jobData.job_post}}</text>
+            </view>
+            <view class='list'>
+                <text class='list_label'>意向地点：</text>
+                <text class='list_name'>{{jobData.job_adress}}</text>
+            </view>
+            <view class='list'>
+                <text class='list_label'>兼职时间：</text>
+                <text class='list_name'>{{jobData.job_time}}</text>
+            </view>
+            <view class='list'>
+                <text class='list_label'>联系电话：</text>
+                <text class='list_name'>{{jobData.job_phone}}</text>
+            </view>
+            <view class='list'>
+                <text class='list_label'>备注信息：</text>
+                <text class='list_name'>{{jobData.job_text}}</text>
+            </view>
+        </view>
+        <!-- 时间 -->
+        <view class='add_all'>
+            <view class='time'>{{item.time}}</view>
+        </view>
+    </view>
+
+
+
+    <!-- 页脚功能 -->
+    <view class="details_like">
+        <text class="details_like_text">浏览量:{{jobData.job_flow}}</text>
+        <view class='asd'>
+            <image src='/image/icon/circle/zan2.png' wx:if="{{jobData.goodFlag}}" bindtap='good' data-index="{{index}}"></image>
+            <image src='/image/icon/circle/zan1.png' wx:else bindtap='good' data-index="{{index}}"></image>
+            <text wx:if="{{ jobData.job_good != 0 }}">{{jobData.job_good}}</text>
+            <image src='/image/icon/circle/sc2.png' wx:if="{{jobData.collectFlag}}" bindtap='coller' data-index="{{index}}"></image>
+            <image src='/image/icon/circle/sc1.png' wx:else bindtap='coller' data-index="{{index}}"></image>
+        </view>
+    </view>
+</view>
+
+
+<view class='hr'></view>
+<!-- 评论 -->
+<view class='comments'>
+    <view class='header'>
+        <!-- 评论次数 -->
+        <view class='title'>评论:</view>
+        <text class='num'>{{comment.length}}</text>
+        <!-- 评论按钮 -->
+        <!-- <view class='combtn' bindtap='bindReply'>
+      <image src='/image/icon/circle/com.png'></image>
+      <text class='text'>评论</text>
+    </view> -->
+    </view>
+
+    <!-- 用户评论 -->
+    <!-- 用户评论 -->
+    <view class='centre' wx:for="{{comment}}" wx:key="key" wx:for-index="idx">
+        <view class='user'> 
+            <image src="{{item['comuser']['company']['company_state'] == 2?item.comuser.company.company_logo:item.comuser.imageUrl}}" bindtap='userimg' data-id="{{item.comuser.id}}"></image>
+            <view class='name'>
+                <view class='text'>{{item['comuser']['company']['company_state'] == 2?item.comuser.company.company_name:item.comuser.user_name}}</view>
+                <image wx:if="{{item.comuser.gender == '男'}}" src='/image/icon/circle/nan.png'></image>
+                <image wx:elif="{{item.comuser.gender == '女'}}" src='/image/icon/circle/nv.png'></image>
+            </view>
+            <view class='day'>{{item.create_time}}</view>
+        </view>
+
+        <view class='text' bindtap='replyComment' data-pname="{{item['comuser']['company']['company_state'] == 2?item.comuser.company.company_name:item.comuser.user_name}}" data-pid="{{item.comment_id}}">
+            {{item.comment_content}}
+        </view>
+
+        <view class='reply'>
+            <!-- <view class='btn' bindtap='reply' data-index="{{idx}}" wx:if="{{item.son.length != 0}}" >查看全部({{item.son.length}})条评论 ></view> -->
+
+            <view class='reply_box' wx:if="{{item.son.length != 0}}">
+                <view class='box'>
+
+                    <!-- 回复 -->
+                    <view class='back1' wx:for="{{item.son}}" wx:for-item="list" wx:key="d">
+                        <view wx:if="{{list.puser == null}}">
+                            <text class='user'  bindtap='userimg' data-id="{{list.comuser.id}}">{{list['comuser']['company']['company_state'] == 2?list.comuser.company.company_name:list.comuser.user_name}}：</text>
+                            <text class='text' data-pname="{{list['comuser']['company']['company_state'] == 2?list.comuser.company.company_name:list.comuser.user_name}}" data-pid="{{item.comment_id}}" data-uid="{{list.comuser.id}}" data-index="{{idx}}" bindtap='replyComment'>{{list.comment_content}}</text>
+                        </view>
+
+                        <view wx:else>
+                            <text class='user' bindtap='userimg' data-id="{{list.comuser.id}}">{{list.comuser.company['company_state'] == 2?list.comuser.company.company_name:list.comuser.user_name}}</text>
+                            <text class='huifu'>回复</text>
+                            <text class='user' bindtap='userimg' data-id="{{list.puser.id}}">{{list.puser.company['company_state'] == 2?list.puser.company.company_name:list.puser.user_name}}:</text>
+                            <text class='text' data-pname="{{list.comuser.company['company_state'] == 2?list.comuser.company.company_name:list.comuser.user_name}}" data-pid="{{item.comment_id}}" data-uid="{{list.comuser.id}}" data-index="{{idx}}" bindtap='replyComment'>{{list.comment_content}}</text>
+
+                        </view>
+                    </view>
+
+                </view>
+            </view>
+        </view>
+
+    </view>
+</view>
+
+<!-- 评论框 -->
+<view class="release">
+    <textarea class="text" placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" placeholder="{{textValue}}" bindinput='comment' value='{{addComment}}' bindblur='textFocus' focus='{{textFlag}}' bindconfirm='submit' data-id="{{jobData.job_id}}"></textarea>
+    <button class="submit" bindtap='submit' data-id="{{jobData.job_id}}">发送</button>
+</view>
+
+</view>

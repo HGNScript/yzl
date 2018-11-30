@@ -1,0 +1,29 @@
+/* pages/notice/details/details.wxss */
+.content {
+  padding: 15rpx 20rpx;
+}
+.content > .title {
+  font-size: 36rpx;
+  color: #333;
+  letter-spacing: 2rpx;
+  line-height: 1.5;
+}
+.content > .box {
+  margin: 30rpx 0;
+  display: flex;
+  color: #666;
+  font-size: 28rpx;
+  position: relative;
+}
+.content > .box > .time {
+  position: absolute;
+  right: 0;
+}
+.content > .text {
+  text-indent: 2em;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  color: #555;
+  letter-spacing: 3rpx;
+  line-height: 1.5;
+}

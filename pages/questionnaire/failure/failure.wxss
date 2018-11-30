@@ -1,0 +1,26 @@
+/* pages/questionnaire/failure/failure.wxss */
+.failure {
+  margin: 50rpx 0;
+}
+.failure > image {
+  width: 500rpx;
+  height: 400rpx;
+  display: block;
+  margin: 0 auto;
+}
+.failure > .text {
+  text-align: center;
+  padding: 30rpx 0;
+  font-size: 46rpx;
+}
+.btn1,
+.btn2 {
+  display: block;
+  background: #4caf50;
+  color: #fff;
+  width: 80%;
+  margin: 20rpx auto;
+}
+.btn1 {
+  background: #f44336;
+}

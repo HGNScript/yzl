@@ -1,0 +1,73 @@
+/* pages/questionnaire/management/management.wxss */
+/* 没有问卷 */
+.none {
+  margin-top: 50%;
+}
+.none > image {
+  width: 400rpx;
+  height: 350rpx;
+  display: block;
+  margin: 0 auto;
+}
+.none > .text {
+  text-align: center;
+  padding: 20rpx;
+  color: #666;
+  font-size: 40rpx;
+}
+
+/* 有问卷 */
+.roll {
+  position: relative;
+  padding: 20rpx 30rpx;
+  display: flex;
+  background: rgba(249, 249, 249, 0.3);
+  border-bottom: 1.5px #f0f0f0 solid;
+  /* height: 150rpx; */
+}
+.roll > .con > .title {
+  font-size: 38rpx;
+  color: #444;
+  width: 500rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  margin-top:10rpx;
+  font-weight: bold;
+  
+}
+.roll > .con > .details {
+  display: flex;
+  margin-top: 40rpx;
+}
+.roll > .con > .details > .name {
+  color: #666;
+  line-height: 1;
+  font-size: 34rpx;
+}
+.roll > .con > .details > .time {
+  color: #666;
+  font-size: 30rpx;
+  line-height: 1;
+  margin-top: 5rpx;
+}
+.roll > .button {
+  margin-left:60rpx;
+  z-index: 999;
+}
+.roll > .button > .download {
+  background: #4caf50;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  color: #fff;
+  margin: 5rpx 0;
+}
+.roll > .button > .delete {
+  background: #f44336;
+  font-size: 30rpx;
+  margin: 5rpx 0;
+  color: #fff;  
+  height: 70rpx;
+  line-height: 70rpx;
+}

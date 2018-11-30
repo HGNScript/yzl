@@ -1,0 +1,31 @@
+<view class='item'>
+<!-- 表白对象 -->
+  <view class='item-head'>
+    <text class='theyName'>心里的ta:</text>
+    <input type='text' placeholder='' placeholder-class='placeholder'
+    bindinput='objtext'></input>
+  </view>
+  <!-- 表白内容 -->
+  <view class='item-content'>
+    <text class='item-title'>想对ta说:</text>
+    <text class="currentWordNumber">{{currentWordNumber|0}}/{{max}}</text>
+    <textarea class="item-section" placeholder='我欲与君相知' minlength="{{min}}" maxlength="{{max}}" bindinput="content"> 
+    </textarea>
+  </view>
+  <!-- 匿名 -->
+  <view class='anonymous'>
+    <text class='meName'>是否匿名:</text>
+    <switch bindchange='sliderBindchange'></switch> 
+  </view>
+  <!-- 添加相片 -->
+  <view class='addPhoto'>
+    <image wx:if="{{imgurl==null}}" src='../../../image/photo.png' bindtap="select"></image>
+    <image wx:if="{{imgurl!=null}}" src='{{imgurl.url}}'bindtap="select"></image>
+    <image wx:if="{{imgurl!=null}}" src='/image/icon/circle/del.png' id='deletePhoto' bindtap='delImg' data-url="{{imgurl.url}}" indtap='delImg'></image>
+
+  </view>
+  <!-- 发布 -->
+  <view class='foot'>
+    <button class='release' bindtap='AddFb'>发布</button>
+  </view>
+</view>

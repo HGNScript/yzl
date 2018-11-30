@@ -1,0 +1,75 @@
+<!-- 小猿圈 -->
+<!-- +按钮 -->
+<refresh-view id='refreshView' bind:onRefresh="onPullDownRefresh" bind:onPullState="_pullState" />
+
+<view bindtouchstart='handletouchstart' bindtouchmove='handletouchmove' bindtouchend='handletouchend' bindtouchcancel='handletouchcancel'>
+
+
+
+<view class='fabu' bindtap="anniu">
+    <image src='/image/icon/circle/an.png'></image>
+</view>
+
+<!--导航条-->
+<view class="navbar">
+    <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap" data-where="{{item.value}}">{{item.name}}</text>
+</view>
+
+<!-- 内容 -->
+<!-- <view hidden="{{currentTab!==0}}"> -->
+<view class='content'>
+    <view class="con" wx:for="{{matter}}" wx:key="id">
+        <view class='user'>
+            <image class='topimg' src="{{item.user.company['company_state'] == 2?item.user.company.company_logo:item.user.imageUrl}}" bindtap='userimg' data-uid="{{item.user.id}}"></image>
+            <view class='name'>
+                <view class='text'>{{item.user.company['company_state'] == 2?item.user.company.company_name:item.user.user_name}}</view>
+                <image wx:if="{{item.user.gender == '男'}}" src='/image/icon/circle/nan.png'></image>
+                <image  wx:elif="{{item.user.gender == '女'}}" src='/image/icon/circle/nv.png'></image>
+            </view>
+            <image class='face' wx:if="{{item.circle_faceUrl != 0}}" src='{{item.circle_faceUrl}}' wx:if="{{item.circle_faceUrl != 0}}"></image>
+        </view>
+        <!-- 文本内容 -->
+        <view class='matter'>
+            <view class="text_box {{item.checked?'checked_none':'checked_show'}}" wx:if="{{item.circle_content}}"  bindtap='bindundetails' data-id="{{item.circle_id}}">
+                <view class='text'>{{item.circle_content}}</view>
+            </view>
+            <!-- 按钮 -->
+            <view class='check'>
+                <view class='text' wx:if="{{item.checked && item.checkedFlag}}" catchtap='check' data-index='{{index}}' >全部</view>
+                <view class='text' wx:if="{{!item.checked}}" catchtap='check' data-index='{{index}}'>收起</view>
+            </view>
+
+            <!-- img  -->
+            <view class='matter_img' wx:for="{{item.img}}" wx:for-item="list" wx:key="id">
+                <image src='{{list.img_url}}' bindtap='img' data-imgurl="{{list.img_url}}" data-imgurls="{{item.img}}"></image>
+            </view>
+            <view class='address' wx:if="{{item.circle_addresss != 0}}">{{item.circle_addresss}}</view>
+            <view class='address' wx:else></view>
+            <view class='day'>{{item.create_time}}</view>
+        </view>
+
+        <!-- 页脚 -->
+        <view class='con_footer'>
+            <view class='browse'>浏览量：{{item.circle_flow}}</view>
+            <view class='btn'>
+                <image src='/image/icon/circle/pl.png' bindtap='bindundetails' data-id="{{item.circle_id}}" data-bind='{{bindid}}'></image><text wx:if="{{item.comment.length}}">{{item.comment.length}}</text>
+                <block>
+                    <image src='/image/icon/circle/zan2.png' wx:if="{{item.goodFlag}}" bindtap='good' data-index="{{index}}"></image>
+                    <image src='/image/icon/circle/zan1.png' wx:else bindtap='good' data-index="{{index}}"></image>
+                    <text wx:if="{{ item.circle_good != 0 }}">{{item.circle_good}}</text>
+                </block>
+            </view>
+        </view>
+
+       
+    </view>
+</view>
+
+
+<view class='none' wx:if="{{!matter.length}}">
+    <image src='/image/null.png'></image>
+    <text>暂时找不到数据</text>
+</view>
+
+
+</view>

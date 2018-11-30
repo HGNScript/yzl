@@ -1,0 +1,19 @@
+/* pages/questionnaire/home/home.wxss */
+.content {
+  padding: 60rpx 0;
+}
+.content > .case {
+  padding: 60rpx 0;
+}
+.content > .case > navigator > .image {
+  width: 150rpx;
+  height: 150rpx;
+  display: block;
+  margin: 0 auto;
+}
+.content > .case > navigator > .title {
+  text-align: center;
+  color: #444;
+  font-size: 34rpx;
+  line-height: 2;
+}

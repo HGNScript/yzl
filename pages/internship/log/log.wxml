@@ -1,0 +1,40 @@
+<!--pages/internship/log/log.wxml-->
+<view bindtap='focus'>
+<import src="../template/template.wxml" />
+<template is="header" data="{{headData}}"></template>
+
+
+<!-- 选项栏 -->
+<view class='options'>
+  <view class='home' bindtap='home'>首页</view>
+  <view class='task'>查看日志</view>
+  <view class='null'></view>
+</view>
+
+<!-- 内容 -->
+<view class='content'>
+  <view class='title'>日志</view>
+ 
+    <view class='check'  wx:for="{{logsData.logs_content}}" wx:key="">
+     <image src='{{item}}' bindtap='img' data-imgurl="{{item}}" data-imgurls="{{logsData.logs_content}}"></image>
+    </view>
+  
+ 
+
+  <view class='title title2'>教师指导意见</view>
+  <view class='list'>
+    <text class='head'>评价：</text>
+    <text class='text' wx:if="{{logsData.replay_val != null}}">{{logsData.replay_val}}</text>
+    <text class='text' wx:if="{{logsData.replay_val == null}}">暂无评价</text>
+  </view>
+  <view class='list'>
+    <text class='head' >意见：</text>
+    <text class='text' wx:if="{{logsData.logs_reply != 0}}">{{logsData.logs_reply}}</text>
+     <text class='text' wx:if="{{logsData.logs_reply == 0}}">暂无意见</text>
+  </view>
+</view>
+
+<template is="footer2"></template>
+
+</view>
+

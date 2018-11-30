@@ -1,0 +1,120 @@
+<!--pages/fleamarket/personal/personal.wxml-->
+<!-- 头部 -->
+<view class="head">
+  <view class="head_block">
+    <view class="head_block_content">
+      <image src="{{checkuser.company.company_state == 2?checkuser.company.company_logo:checkuser.imageUrl}}"></image>
+      <view class="head_block_details">
+        <view class="head_block_details_name">{{checkuser.company.company_state == 2?checkuser.company.company_name:checkuser.user_name}}
+        <image src="/image/icon/circle/nan.png"  wx:if="{{checkuser.gender == '男'}}"></image>
+        <image src="/image/icon/circle/nv.png" wx:elif="{{item.user.gender == '女'}}"></image>
+        </view>
+        <view class='head_block_details_school' wx:if="school">{{school}}</view>
+      </view>      
+    </view>
+  </view>
+</view>
+<!-- 块 -->
+<view class="navbar">
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}"
+   wx:key="unique" bindtap="navbarTap">{{item}}</text>
+</view>
+
+<view hidden="{{currentTab!=0}}">
+  <!-- 第一块 -->
+  <view class="block_all" wx:for="{{checkuser.circle}}" wx:key="id">
+    <view class="block"  bindtap='detailed' data-id="{{item.circle_id}}">
+        <view class="block_content">
+          <image src="{{checkuser.company.company_state == 2?checkuser.company.company_logo:checkuser.imageUrl}}"></image>
+          <view class="details">
+            <view class="details_things">{{checkuser.company.company_state == 2?checkuser.company.company_name:checkuser.user_name}}
+             <image src="/image/icon/circle/nan.png"  wx:if="{{checkuser.gender == '男'}}"></image>
+        <image src="/image/icon/circle/nv.png" wx:else></image>
+            </view>
+            <view class="details_name">{{item.create_time}}</view>
+            <view class='details_content'>{{item.circle_content}}</view>
+          </view>      
+        </view>
+    </view>
+
+    <view class="details_like">
+      <text class="details_like_text" wx:if="{{item.circle_flow != 0}}">浏览量{{item.circle_flow}}</text>
+      <!-- <view class='asd'>
+        <image  src="/image/icon/circle/zan1.png"></image>
+        <image  src="/image/icon/circle/sc1.png"></image>
+      </view> -->
+    </view>
+   </view>
+</view>
+
+<view hidden="{{currentTab!=1}}">
+<!-- 主体内容 -->
+  <view class='section_all'>
+    <view class='section' bindtap='fmdetailed' data-id="{{item.fleamarket_id}}" wx:for="{{checkuser.fm}}" wx:key="id">
+      <image src="{{item.img[0].img_url}}"></image>
+      <view class='to_price'>￥{{item.fleamarket_price}}
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<!-- 企业招聘 -->
+<view hidden="{{currentTab!=2}}">
+  <!-- 有内容 -->
+  <view class='con_box' wx:for="{{checkuser.recruit}}" wx:key="id" bindtap='conbox' data-id='{{item.recruit_id}}'>
+    <!-- header -->
+    <view class='con_head'>
+      <image class='con_userimg' src='{{checkuser.company.company_state == 2?checkuser.company.company_logo:checkuser.imageUrl}}'></image>
+      <view class='con_userbox'>
+        <view class='con_username'>
+          <text>{{checkuser.company.company_state == 2?checkuser.company.company_name:checkuser.user_name}}</text>
+          <image src='/image/qy.png'></image>
+        </view>
+        <view class='con_useradd'></view>
+      </view>
+    </view>
+    <!-- content -->
+    <view class='con_cen'>
+    {{item.recruit_detailed}}
+    </view>
+    <!-- footer -->
+    <view class='con_foot'>
+        <view class='con_num'>浏览量：{{item.recruit_flow}}</view>
+    </view>
+  </view>
+</view>
+
+<view class='info_box' hidden="{{currentTab != 3 }}">
+  <view class='information' wx:key="id">
+    <view class='info_title'>企业名称：</view>
+    <view class='info_con'>{{checkuser.company.company_name}}</view>
+  </view>
+  <view class='information' wx:key="id">
+    <view class='info_title'>企业类型：</view>
+    <view class='info_con'>{{checkuser.company.companytype.type_name}}</view>
+  </view>
+  <view class='information' wx:key="id">
+    <view class='info_title'>企业简介：</view>
+    <view class='info_con'>{{checkuser.company.company_synopsis}}</view>
+  </view>
+  <view class='information' wx:key="id">
+    <view class='info_title'>法人代表：</view>
+    <view class='info_con'>{{checkuser.company.corporation_name}}</view>
+  </view>
+  <view class='information' wx:key="id">
+    <view class='info_title'>联系电话：</view>
+    <view class='info_con'>{{checkuser.company.company_phone}}</view>
+  </view>
+  <view class='information' wx:key="id">
+    <view class='info_title'>企业地址：</view>
+    <view class='info_con'>{{checkuser.company.company_address}}</view>
+  </view>
+</view>
+
+
+
+<view class='none' wx:if="{{(currentTab == 0 && checkuser.circle.length == 0) || (currentTab == 1 && checkuser.fm.length == 0) || (currentTab == 1 && checkuser.fm.length == 0)|| (currentTab == 2 && checkuser.recruit.length == 0)}}">
+    <image src='/image/null.png'></image>
+    <text>暂时找不到数据</text>
+</view>

@@ -1,0 +1,18 @@
+<view class='title'>意见与建议：</view>
+<view class='textbox'>
+  <textarea placeholder='请留下你宝贵的意见...' placeholder-style='font-size:28rpx;color:#666;letter-spacing: 2rpx;' maxlength='-1' bindinput='feedbackContent'></textarea>
+</view>
+
+<view class='title'>图片上传：</view>
+<view class='upload'>
+  <view class='upbtn' bindtap='uploadImg'>
+    <image src='/image/photo.png'></image>
+    <view class='text'>(最多上传3张)</view>
+  </view>
+  <view class='upimg' wx:for="{{imgurl}}" wx:key="id">
+    <image class='image' src='{{item.url}}'></image>
+    <image class='delimg' src='/image/icon/circle/del.png' bindtap='delImg' data-url="{{item.url}}" data-index="{{index}}"></image>
+  </view>
+</view>
+
+<button class='submit' bindtap='submit' type='warn'>提交</button>

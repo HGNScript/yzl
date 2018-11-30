@@ -1,0 +1,149 @@
+<!--pages/Mycollection/Mycollection.wxml-->
+<!--导航条-->
+<view class="navbar">
+    <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+</view>
+
+<!-- 帖子内容、 -->
+<view class='post' wx:for="{{Mycollection}}" wx:key="id" wx:if="{{currentTab == 0}}">
+    <view class='con'>
+        <!-- 用户信息 -->
+        <view class='user'>
+            <image src="{{item.user.company['company_state'] == 2?item.user.company.company_logo:item.user.imageUrl}}" class='userimg' bindtap='user' data-id="{{item.user.id}}"></image>
+            <view class='user_box'>
+                <view class='name'>{{item.user.company['company_state'] == 2?item.user.company.company_name:item.user.user_name}}</view>
+                <image src='{{item.gender}}' class='gender'></image>
+            </view>
+            <view class='day'>{{item.create_time}}</view>
+        </view>
+        <!-- 文字内容 -->
+        <view class='text' bindtap='post' data-id="{{item.fleamarket_id}}">{{item.fleamarket_content}}</view>
+    </view>
+    <!-- 图片 -->
+    <!-- <view class='image' wx:for="{{item.img}}" wx:key="id" wx:for-item="list">
+    <image src='{{list.img_url}}' bindtap='img'></image>
+  </view> -->
+
+    <view class='remove'></view>
+    <!-- 点赞、删除 -->
+    <view class='function'>
+        <view class='fun_box' bindtap='post'>
+        </view>
+        <view class='fun_box'>
+        </view>
+        <image class='del' src='/image/icon/circle/sc2.png' bindtap='delect' id='{{item.collect[0].collect_id}}' data-index="{{index}}"></image>
+    </view>
+    <view class='hr'></view>
+</view>
+
+
+
+<view class='post' wx:for="{{Mycollection}}" wx:key="id" wx:if="{{currentTab == 1}}">
+    <view class='con' bindtap='post1' data-id="{{item.recruit_id}}">
+        <!-- 用户信息 -->
+        <view class='user'>
+            <image src="{{item.user.company['company_state'] == 2?item.user.company.company_logo:item.user.imageUrl}}" class='userimg' bindtap='user' data-id="{{item.user.id}}"></image>
+            <view class='user_box'>
+                <view class='name'>{{item.user.company['company_state'] == 2?item.user.company.company_name:item.user.user_name}}</view>
+                <image src='{{item.gender}}' class='gender'></image>
+            </view>
+            <view class='day'>{{item.create_time}}</view>
+        </view>
+        <!-- 文字内容 -->
+        <view class="box_con" bindtap='bind_market_details' data-id="{{item.recruit_id}}">
+            <view class='text'>{{item.recruit_detailed}}</view>
+            <view class='list'>
+                <text class='list_label'>招聘岗位：</text>
+                <text class='list_name'>{{item.recruit_post}}</text>
+            </view>
+            <view class='list'>
+                <text class='list_label'>学历要求：</text>
+                <text class='list_name'>{{item.recruit_demand}}</text>
+            </view>
+            <view class='list'>
+                <text class='list_label'>招聘人数：</text>
+                <text class='list_name'>{{item.recruit_number}}人</text>
+            </view>
+            <view class='list'>
+                <text class='list_label'>工资待遇：</text>
+                <text class='list_name'>{{item.recruit_wages}}元</text>
+            </view>
+            <view class='list'>
+                <text class='list_label'>地址：</text>
+                <text class='list_name'>{{item.user.company.company_address}}</text>
+            </view>
+        </view>
+    </view>
+    <!-- 图片 -->
+    <view class='image' wx:for="{{item.img}}" wx:key="id" wx:for-item="list">
+        <image src='{{list.img_url}}' bindtap='img'></image>
+    </view>
+    <view class='remove'></view>
+    <!-- 点赞、删除 -->
+    <view class='function'>
+        <view class='fun_box' bindtap='post'>
+        </view>
+        <view class='fun_box'>
+        </view>
+        <image class='del' src='/image/icon/circle/sc2.png' bindtap='delect' id='{{item.collect[0].collect_id}}' data-index="{{index}}"></image>
+    </view>
+    <view class='hr'></view>
+</view>
+
+
+
+
+
+<view class='post' wx:for="{{Mycollection}}" wx:key="id" wx:if="{{currentTab == 2}}">
+    <view class='con' bindtap='post2' data-id="{{item.job_id}}">
+        <!-- 用户信息 -->
+        <view class='user'>
+            <image src="{{item.user.company['company_state'] == 2?item.user.company.company_logo:item.user.imageUrl}}" class='userimg' bindtap='user'></image>
+            <view class='user_box'>
+                <view class='name'>{{item.user.company['company_state'] == 2?item.user.company.company_name:item.user.user_name}}</view>
+                <image src='{{item.gender}}' class='gender'></image>
+            </view>
+            <view class='day'>{{item.create_time}}</view>
+        </view>
+        <!-- 文字内容 -->
+        <view class="box_con" bindtap='JobUrl' data-id="{{item.job_id}}">
+            <view class='list'>
+                <text class='list_label'>兼职意向：</text>
+                <text class='list_name'>{{item.job_post}}</text>
+            </view>
+            <view class='list'>
+                <text class='list_label'>意向地点：</text>
+                <text class='list_name'>{{item.job_adress}}</text>
+            </view>
+            <view class='list'>
+                <text class='list_label'>兼职时间：</text>
+                <text class='list_name'>{{item.job_time}}</text>
+            </view>
+            <view class='list'>
+                <text class='list_label'>联系电话：</text>
+                <text class='list_name'>{{item.job_phone}}</text>
+            </view>
+            <view class='list'>
+                <text class='list_label'>备注信息：</text>
+                <text class='list_name'>{{item.job_text}}</text>
+            </view>
+        </view>
+    </view>
+    <view class='remove'></view>
+    <!-- 点赞、删除 -->
+    <view class='function'>
+        <view class='fun_box' bindtap='post'>
+        </view>
+        <view class='fun_box'>
+        </view>
+        <image class='del' src='/image/icon/circle/sc2.png' bindtap='delect' id='{{item.collect[0].collect_id}}' data-index="{{index}}"></image>
+    </view>
+    <view class='hr'></view>
+</view>
+
+
+<!-- 没有数据 -->
+<view class='none' wx:if="{{!Mycollection.length}}">
+    <image src='/image/null.png'></image>
+    <text>暂时找不到数据</text>
+</view>

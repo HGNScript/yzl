@@ -1,0 +1,46 @@
+
+<!-- header -->
+<view class='header'>
+  <image class='userimg' src='{{information.company_logo}}'></image>
+  <view class='user_box'>
+    <view class='user_name'>
+      <text>{{information.company_name}}</text>
+      <image src='/image/qy.png'></image>
+    </view>
+    <view class='user_add'>{{information.company_address}}</view>
+  </view>
+</view>
+
+<!-- 选项卡 -->
+<view class='navbar'>
+  <text wx:for="{{navbar}}" data-ind='{{index}}' class="nav {{currenttab==index ? 'active' : '' }}" wx:key="navid" bindtap='navbarbtn' >{{item}}</text>
+</view>
+
+
+<!-- 企业信息 -->
+<view class='info_box' hidden="{{currenttab ==1 }}">
+  <view class='information' wx:key="id">
+    <view class='info_title'>企业名称：</view>
+    <view class='info_con'>{{information.company_name}}</view>
+  </view>
+  <view class='information' wx:key="id">
+    <view class='info_title'>企业类型：</view>
+    <view class='info_con'>{{information.companytype.type_name}}</view>
+  </view>
+  <view class='information' wx:key="id">
+    <view class='info_title'>企业简介：</view>
+    <view class='info_con'>{{information.company_synopsis}}</view>
+  </view>
+  <view class='information' wx:key="id">
+    <view class='info_title'>法人代表：</view>
+    <view class='info_con'>{{information.corporation_name}}</view>
+  </view>
+  <view class='information' wx:key="id">
+    <view class='info_title'>联系电话：</view>
+    <view class='info_con'>{{information.company_phone}}</view>
+  </view>
+  <view class='information' wx:key="id">
+    <view class='info_title'>企业地址：</view>
+    <view class='info_con'>{{information.company_address}}</view>
+  </view>
+</view>

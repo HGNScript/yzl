@@ -1,0 +1,47 @@
+<!--pages/personal/personal.wxml 个人中心-->
+<!-- 用户信息 -->
+<view class='user'>
+  <button class='btnuser' wx:if="{{user}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" plain="true" ><image class='newbtn' src='/image/new.png'></image> </button>
+    <view class="userinfo">
+    
+        <button class='userbtn' wx:if="{{!hasUserInfo}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 立即登录 </button>
+        <block wx:else>
+            <image class="userAvatarUrl" wx:if="{{user}}" src="{{user.company.company_state == 2?user.company.company_logo:user.imageUrl}}" mode="cover"></image>
+          
+            <text class="userNickName" wx:if="{{user}}" >{{user.company.company_state == 2?user.company.company_name:user.user_name}}</text>
+        </block>
+    </view>
+</view>
+
+<view class='hr4'></view>
+
+<!-- 内容应用 -->
+<view class='content'>
+    <view class='navigator' wx:for="{{common1}}" wx:key="id">
+        <navigator url='{{item.url}}'>
+            <image class='image' src='{{item.imgurl}}'></image>
+            <view class='list'>{{item.list}}</view>
+        </navigator>
+    </view>
+
+    <view class='navigator'>
+        <button open-type="contact" bindcontact="handleContact">
+            <image class='image' src='/image/icon/personal/kf.png'></image>
+            <view class='list'>客服小猿</view>
+        </button>
+    </view>
+
+</view>
+
+<view class='hr4'></view>
+
+<!-- 内容长 -->
+<view class='content'>
+    <view class='con_box2' wx:for="{{common2}}" wx:key="id">
+        <navigator class='navigator2' url='{{item.url}}' hover-class="none" open-type="navigate">
+            <image class='image2' src='{{item.imgurl}}'></image>
+            <text class='list2'>{{item.list}}</text>
+            <image class='rightimg' src='/image/icon/answer/right.png'></image>
+        </navigator>
+    </view>
+</view>

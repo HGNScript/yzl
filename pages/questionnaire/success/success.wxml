@@ -1,0 +1,7 @@
+<!--pages/questionnaire/success/success.wxml-->
+<view class='success'>
+  <image src='/image/icon/answer/success.png'></image>
+  <view class='text'>提交成功</view>
+</view>
+
+<button class='btn' bindtap='submit'>返回</button>

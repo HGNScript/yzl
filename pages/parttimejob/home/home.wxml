@@ -1,0 +1,87 @@
+<!--pages/parttimejob/home/home.wxml-->
+<refresh-view id='refreshView' bind:onRefresh="onPullDownRefresh" bind:onPullState="_pullState" />
+
+<view bindtouchstart='handletouchstart' bindtouchmove='handletouchmove' bindtouchend='handletouchend' bindtouchcancel='handletouchcancel'>
+<!--内容--> 
+<view class="box" wx:for="{{homeData}}" wx:key="id">
+  <view class="block">
+
+        <image class="block_content" src="{{item.user.company.company_state == 2?item.user.company.company_logo :item.user.imageUrl}}" bindtap='userimg' data-id="{{item.user.id}}"></image>
+
+        <view class='userinfo'>
+            <view class='username'>{{item.user.company.company_state == 2?item.user.company.company_name :item.user.user_name}}</view>
+                    <image wx:if="{{item.user.gender == '男'}}" src='/image/icon/circle/nan.png'></image>
+                    <image wx:else src='/image/icon/circle/nv.png'></image>
+        </view>
+        <view class="price">
+            <image src='/image/icon/apply/parttime.png'></image>
+        </view>
+        
+    </view>
+
+    
+    <view class="details">
+        <view class="box_con {{checked?'checked_show':'checked_none'}}" bindtap='bind_market_details' data-id="{{item.job_id}}">
+            <view class='list'>
+                <text class='list_label'>兼职意向：</text>
+                <text class='list_name'>{{item.job_post}}</text>
+            </view>
+            <view class='list'>
+                <text class='list_label'>意向地点：</text>
+                <text class='list_name'>{{item.job_adress}}</text>
+            </view>
+            <view class='list'>
+                <text class='list_label'>兼职时间：</text>
+                <text class='list_name'>{{item.job_time}}</text>
+            </view>
+            <view class='list'>
+                <text class='list_label'>联系电话：</text>
+                <text class='list_name'>{{item.job_phone}}</text>
+            </view>
+            <view class='list'>
+                <text class='list_label'>备注信息：</text>
+                <text class='list_name'>{{item.job_text}}</text>
+            </view>
+        </view>
+
+
+
+        <view class='add_all'>
+            <view class='time'>{{item.create_time}}</view>
+        </view>
+
+    </view>
+
+
+
+  <!-- 页脚功能 -->
+  <view class="details_like">
+    <text class="details_like_text">浏览量：{{item.job_flow}}</text>
+    <view class='asd'>
+      <image src="/image/icon/circle/pl.png" bindtap='bind_market_details' data-id="{{item.job_id}}"></image>
+      <text wx:if="{{item.comment.length}}">{{item.comment.length}}</text>
+      <image src='/image/icon/circle/zan2.png' wx:if="{{item.goodFlag}}" bindtap='good' data-index="{{index}}"></image>
+      <image src='/image/icon/circle/zan1.png' wx:else bindtap='good' data-index="{{index}}"></image>
+      <text wx:if="{{ item.job_good != 0 }}">{{item.job_good}}</text>
+      <image src='/image/icon/circle/sc2.png' wx:if="{{item.collectFlag}}" bindtap='coller' data-index="{{index}}"></image>
+      <image src='/image/icon/circle/sc1.png' wx:else bindtap='coller' data-index="{{index}}"></image>
+    </view>
+  </view>
+</view>
+
+<view class='bottom' wx:if="{{homeData.length != 0}}">
+        <text>数据加载完毕~</text>
+</view>
+
+<!-- 添加发布 -->
+<view class='append' bindtap='append'>
+  <image src='/image/icon/flea/jia.png'></image>
+</view>
+
+<view class='none' wx:if="{{!homeData.length}}">
+    <image src='/image/null.png'></image>
+    <text>暂时找不到数据</text>
+</view>
+
+</view>
+

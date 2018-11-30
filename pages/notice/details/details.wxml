@@ -1,0 +1,8 @@
+<view class='content'>
+  <view class='title'>{{content.notice_text}}</view>
+  <view class='box'>
+    <view class='name'>{{content.notice_title}}</view>
+    <view class='time'>{{content.time}}</view>
+  </view>
+  <view class='text'>{{content.create_time}}</view>
+</view>

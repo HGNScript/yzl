@@ -1,0 +1,119 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/apply/apply",
+        "pages/chat/chat",
+        "pages/personal/personal",
+        "pages/logs/logs",
+        "pages/circle/home/home",
+        "pages/circle/release/release",
+        "pages/circle/detailed/detailed",
+        "pages/circle/evaluation/evaluation",
+        "pages/internship/home/home",
+        "pages/internship/template/template",
+        "pages/internship/logfeedback/logfeedback",
+        "pages/internship/changepassword/changepassword",
+        "pages/internship/interninfo/interninfo",
+        "pages/internship/practicenote/practicenote",
+        "pages/internship/log/log",
+        "pages/questionnaire/home/home",
+        "pages/questionnaire/initiate/initiate",
+        "pages/questionnaire/Excel/Excel",
+        "pages/questionnaire/manual/manual",
+        "pages/questionnaire/write/write",
+        "pages/questionnaire/answer/answer",
+        "pages/questionnaire/management/management",
+        "pages/questionnaire/success/success",
+        "pages/questionnaire/failure/failure",
+        "pages/questionnaire/dowload/dowload",
+        "pages/fleamarket/home/home",
+        "pages/fleamarket/release/release",
+        "pages/fleamarket/details/details",
+        "pages/fleamarket/personal/personal",
+        "pages/fleamarket/search/search",
+        "pages/student/certification/certification",
+        "pages/student/registered/registered",
+        "pages/student/information/information",
+        "pages/Mypost/Mypost",
+        "pages/Mycollection/Mycollection",
+        
+        "pages/enterprise/certification/certification",
+        "pages/enterprise/home/home",
+        "pages/enterprise/details/details",
+        "pages/enterprise/personal/personal",
+        "pages/enterprise/release/release",
+        "pages/enterprise/search/search",
+
+        "pages/parttimejob/home/home",
+        "pages/parttimejob/release/release",
+        "pages/parttimejob/details/details",
+            
+        "pages/Confession/index/inde",
+        "pages/Confession/release/release",
+        "pages/secret/home/home",
+        "pages/secret/details/details",
+
+        "pages/turntable/list/list",
+        "pages/turntable/home/home",
+        "pages/turntable/edit/edit",
+
+        "pages/notice/home/home",
+        "pages/notice/details/details",
+
+        "pages/resources/home/home",
+        "pages/resources/details/details",
+
+        "pages/instructions/instructions",
+        "pages/gzysr/gzysr",
+        "pages/schoolmap/schoolmap",
+
+        "pages/feedback/feedback"
+
+
+
+        
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#19b4ed",
+        "navigationBarTitleText": "猿周率",
+        "navigationBarTextStyle": "white"
+    },
+    "tabBar": {
+        "color": "#bfbfbf",
+        "selectedColor": "#19b4ed",
+        "backgroundColor": "#fff",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "image/icon/tabbar/index1.png",
+                "selectedIconPath": "image/icon/tabbar/index2.png"
+            },
+            {
+                "pagePath": "pages/apply/apply",
+                "text": "应用",
+                "iconPath": "image/icon/tabbar/apply1.png",
+                "selectedIconPath": "image/icon/tabbar/apply2.png"
+            },
+            {
+                "pagePath": "pages/circle/home/home",
+                "text": "小猿圈",
+                "iconPath": "image/icon/tabbar/circle1.png",
+                "selectedIconPath": "image/icon/tabbar/circle2.png"
+            },
+            {
+                "pagePath": "pages/chat/chat",
+                "text": "聊吧",
+                "iconPath": "image/icon/tabbar/chat1.png",
+                "selectedIconPath": "image/icon/tabbar/chat2.png"
+            },
+            {
+                "pagePath": "pages/personal/personal",
+                "text": "个人",
+                "iconPath": "image/icon/tabbar/personal1.png",
+                "selectedIconPath": "image/icon/tabbar/personal2.png"
+            }
+        ]
+    }
+}

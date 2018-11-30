@@ -1,0 +1,338 @@
+/* pages/detailed/detailed.wxss */
+page {
+  padding-bottom: 100rpx;
+}
+
+
+/* 没有用户评价 */
+
+.no {
+    padding-top: 150rpx;
+    color: #999;
+    text-align: center;
+    font-size: 34rpx;
+}
+
+/* .content {
+  padding-bottom: 60rpx;
+} */
+
+.con {
+    padding: 30rpx;
+    border-bottom: 1.5px #e5e5e5 solid;
+}
+
+.con:last-child {
+    border-bottom: none;
+}
+
+.con > .user {
+    display: flex;
+    position: relative;
+}
+
+.con > .user > .topimg {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+}
+
+.con > .user > .name {
+    display: flex;
+    margin-left: 15rpx;
+}
+
+.con > .user > .name > .text {
+    position: relative;
+    color: #666;
+    font-size: 32rpx;
+    line-height: 100rpx;
+    max-width: 250rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.con > .user > .name > image {
+    width: 30rpx;
+    height: 30rpx;
+    padding: 0 10rpx;
+    margin-top: 35rpx;
+}
+
+.con > .user > .face {
+    width: 120rpx;
+    height: 120rpx;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+/* 内容 */
+
+.con > .matter {
+    margin: 30rpx 50rpx;
+}
+
+.con > .matter > .text_box > .text {
+    font-size: 30rpx;
+    color: #444;
+    letter-spacing: 3rpx;
+    line-height: 1.7;
+    word-wrap: break-word;
+}
+
+
+.con > .matter > .matter_img {
+    margin: 30rpx 0 0;
+}
+
+.con > .matter > .matter_img > image {
+    width: 31%;
+    height: 200rpx;
+    padding: 0 6rpx 10rpx;
+    float: left;
+}
+
+.con > .matter > .address {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 26rpx;
+    color: #666;
+}
+
+.con > .matter > .day {
+    font-size: 26rpx;
+    color: #666;
+    line-height: 1.8;
+}
+
+/* 下拉收起 */
+
+.con > .matter > .check {
+    margin: 20rpx 0;
+    width: 20%;
+}
+
+.con > .matter > .check > .text {
+    color: #1c5c91;
+    font-size: 30rpx;
+}
+
+/* 内容页脚 */
+
+.con > .con_footer {
+    position: relative;
+    height: 40rpx;
+}
+
+.con > .con_footer > .browse {
+    font-size: 26rpx;
+    color: #666;
+    line-height: 40rpx;
+}
+
+.con > .con_footer > .btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+}
+
+.con > .con_footer > .btn > image {
+    width: 40rpx;
+    height: 40rpx;
+    margin: 0 10rpx;
+}
+
+/* 评论 */
+
+.comments > .header {
+    position: relative;
+    display: flex;
+    padding: 0 30rpx;
+    height: 100rpx;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.comments > .header > .title {
+    font-size: 34rpx;
+    color: #444;
+    line-height: 100rpx;
+}
+
+.comments > .header > .num {
+    font-size: 34rpx;
+    line-height: 100rpx;
+    color: #666;
+}
+
+.comments > .header > .combtn {
+    border: 1.5px #e5e5e5 solid;
+    border-radius: 45rpx;
+    position: absolute;
+    right: 30rpx;
+    top: 20rpx;
+    height: 60rpx;
+    padding: 0 20rpx;
+}
+
+.comments > .header > .combtn > image {
+    width: 30rpx;
+    height: 30rpx;
+    line-height: 60rpx;
+}
+
+.comments > .header > .combtn > .text {
+    font-size: 28rpx;
+    line-height: 60rpx;
+    color: #666;
+    padding: 0 10rpx;
+}
+
+.comments > .centre {
+    padding: 20rpx 30rpx;
+    border-bottom: 1px #f2f2f2 solid;
+}
+
+.comments > .centre:last-child {
+    border-bottom: none;
+}
+
+.comments > .centre > .user {
+    display: flex;
+}
+
+.comments > .centre > .user > image {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+}
+
+.comments > .centre > .user > .name {
+    display: flex;
+    margin-left: 15rpx;
+}
+
+.comments > .centre > .user > .name > .text {
+    position: relative;
+    color: #666;
+    font-size: 32rpx;
+    line-height: 100rpx;
+    max-width: 250rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.comments > .centre > .user > .name > image {
+    width: 30rpx;
+    height: 30rpx;
+    padding: 0 10rpx;
+    margin-top: 35rpx;
+}
+
+.comments > .centre > .user > .day {
+    color: #666;
+    font-size: 24rpx;
+    line-height: 100rpx;
+}
+
+.comments > .centre > .text {
+    padding-left: 100rpx;
+    font-size: 30rpx;
+    color: #444;
+    letter-spacing: 3rpx;
+    line-height: 1.7;
+    word-wrap: break-word;
+}
+
+.comments > .centre > .reply {
+    padding-left: 100rpx;
+    margin: 20rpx 0;
+    margin-bottom: 5%;
+}
+
+.comments > .centre > .reply > .btn {
+    background: #f2f2f2;
+    height: 60rpx;
+    font-size: 30rpx;
+    color: #2196f3;
+    line-height: 60rpx;
+    padding: 0 20rpx;
+    margin-bottom: 10rpx;
+    border-radius: 5rpx;
+}
+
+.comments > .centre > .reply > .reply_box {
+    background: #f2f2f2;
+    border-radius: 5rpx;
+    color: #666;
+    font-size: 28rpx;
+    line-height: 1.5;
+    letter-spacing:3rpx;
+    padding: 15rpx 20rpx;
+}
+.comments > .centre > .reply > .reply_box .text {
+    word-wrap: break-word;
+}
+
+.comments > .centre > .reply > .reply_box > .box > .back1 {
+    padding: 8rpx 0;
+}
+
+.comments > .centre > .reply > .reply_box > .box > .back1 > view > .user {
+    color: #2196f3;
+}
+
+.comments > .centre > .reply > .reply_box > .box > .back1 > view > .huifu {
+    color: #444;
+    white-space: nowrap;
+    margin: 0 10rpx;
+}
+
+/* 评论输入框 */
+
+.input_null {
+    color: #c9c9c9;
+}
+
+.release {
+    display: flex;
+    align-items: flex-end; /*底部对齐*/
+    justify-content: space-between; /*两端对齐*/
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    bottom: 0; 
+    width: 100%;
+    padding: 18rpx 0 18rpx 30rpx;
+    background-color: #f7f8f7;
+    font-size: 28rpx;
+    z-index: 999;
+}
+
+.release .text {
+    width: 504rpx;
+    min-height: 34rpx;
+    max-height: 102rpx; /*最多显示三行*/
+    border-width: 15rpx 20rpx; /*使用padding与预期留白不一致，故使用border*/
+    border-style: solid;
+    border-color: #fff;
+    line-height: 34rpx;
+    font-size: 28rpx;
+    background-color: #fff;
+    border-radius: 4rpx;
+}
+
+.release .submit {
+    width: 116rpx;
+    height: 64rpx;
+    line-height: 64rpx;
+    text-align: center;
+    color: #fff;
+    font-size: 24rpx;
+    background: #2196f3;
+}

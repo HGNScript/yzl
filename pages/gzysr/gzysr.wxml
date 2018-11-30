@@ -1,0 +1,57 @@
+<!--pages/gzysr/gzysr.wxml-->
+<view class='title'>
+  广州猿始人科技有限公司
+</view>
+<view class='con'>
+  <view class='label'>公司简介：</view>
+  <view class='text'>猿始人科技有限公司是一家以信息技术服务为主导、立足于科技领域的前沿，专业致力于计算机网站开发及小程序应用的科技企业。本着“质量第一、诚信为本”的朴素经营理念，严格按照现代企业模式进行管理运营，以务实创新的精神不断进行开拓实践和探索进取。</view>
+  <view class='label'>业务介绍：</view>
+  <view class='box1'>
+    <view class='business'>
+      <image class='img' src='/image/yw.png'></image>
+      <view class='name'>网页开发</view>
+    </view>
+  </view>
+  <view class='box1'>
+    <view class='business'>
+      <image class='img' src='/image/yw.png'></image>
+      <view class='name'>微信小程序</view>
+    </view>
+  </view>
+  <view class='box1'>
+    <view class='business'>
+      <image class='img' src='/image/yw.png'></image>
+      <view class='name'>平面设计</view>
+    </view>
+  </view>
+  <view class='box1'>
+    <view class='business'>
+      <image class='img' src='/image/yw.png'></image>
+      <view class='name'>网络建设</view>
+    </view>
+  </view>
+  <view class='box1' >
+    <view class='business'>
+      <image class='img' src='/image/yw.png'></image>
+      <view class='name'>SEO引擎优化</view>
+    </view>
+  </view>
+
+  <view class='label'>联系方式：</view>
+  <view class='list'>
+    <image src='/image/yx.png'></image>
+    <view class='info'>2199373237@qq.com</view>
+  </view>
+  <view class='list'>
+    <image src='/image/sj.png'></image>
+    <view class='info'>135-3971-6913</view>
+  </view>
+  <view class='list'>
+    <image src='/image/wx.png'></image>
+    <view class='info'>135-3971-6913</view>
+  </view>
+  <view class='ewm'>
+    <image src='{{url}}personal/lx/ewm.png' bindtap='img' data-url="{{url}}personal/lx/ewm.png"></image>
+    <view class='text'>（微信扫一扫）</view>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+<!-- 添加评论 -->
+<view class="Block">
+  <view class="textarea">
+    <textarea placeholder="请输入您要评论的内容！" />
+  </view>
+</view>
+<button class='btn' bindtap='submit' >发 送</button>

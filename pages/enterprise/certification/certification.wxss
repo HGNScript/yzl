@@ -1,0 +1,122 @@
+/* pages/enterprise/certification/certification.wxss */
+/* pages/student/registered/registered.wxss */
+page {
+  padding-bottom: 150rpx;
+}
+.options {
+  position: relative;
+  border-bottom: 1.5px #e5e5e5 solid;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 20rpx;
+  color: #666;
+  font-size: 34rpx;
+}
+.options > .right {
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  right: 0;
+  top: 20rpx;
+}
+.options > .input1 {
+  height: 70rpx;
+  position: absolute;
+  top: 15rpx;
+  width: 90%;
+  font-size: 34rpx;
+  color: #666;
+}
+.options2 {
+  border-bottom: 1.5px #e5e5e5 solid;
+  padding: 0 20rpx;
+}
+.options2 > .textarea {
+  /* background: #f00; */
+  height: 150rpx;
+  width: 100%;
+  padding: 20rpx 0;
+  font-size: 34rpx;
+  color: #666;
+}
+.placeholder {
+  font-size: 34rpx;
+  color: #666;
+}
+
+/* 上传 */
+.upload {
+  padding: 0 20rpx;
+}
+.upload > .title {
+  line-height: 100rpx;
+  font-size: 34rpx;
+  color: #666;
+}
+.upload > .upload_box {
+  border: 3px #e5e5e5 dashed;
+  border-radius: 20rpx;
+  padding: 25rpx 0;
+}
+.upload > .upload_box > .img_box {
+  width: 100%;
+  position: relative;
+}
+.upload > .upload_box > .img_box > .img {
+  width: 80%;
+  height: 500rpx;
+  display: block;
+  margin: 0 auto;
+}
+.upload > .upload_box > .img_box > .del {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  top: -15rpx;
+  right: 50rpx;
+}
+.upload > .upload_box > .upload_btn {
+  padding: 50rpx 0;
+}
+.upload > .upload_box > .upload_btn > image {
+  width: 100rpx;
+  height: 75rpx;
+  display: block;
+  margin: 0 auto;
+}
+.upload > .upload_box > .upload_btn > .text {
+  font-size: 34rpx;
+  color: #666;
+  text-align: center;
+  line-height: 2;
+}
+
+.btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 0;
+  color: #fff;
+  background: #19b4ed;
+  letter-spacing: 5rpx;
+  font-size: 40rpx;
+}
+
+.con  {
+  margin-top: 30%;
+}
+.con > image {
+  width: 300rpx;
+  height: 300rpx;
+  display: block;
+  margin: 0 auto;
+}
+.con > .text {
+  font-size: 30rpx;
+  color: #666;
+  text-align: center;
+  line-height: 3;
+}
+
+

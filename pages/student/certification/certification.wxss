@@ -1,0 +1,56 @@
+/* pages/student/certification/certification.wxss */
+.options {
+  position: relative;
+  border-bottom: 1.5px #e5e5e5 solid;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 20rpx;
+  color: #666;
+  font-size: 34rpx;
+}
+.options > .right {
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  right: 0;
+  top: 20rpx;
+}
+.options > .input1 {
+  height: 70rpx;
+  position: absolute;
+  top: 15rpx;
+  width: 90%;
+  font-size: 34rpx;
+  color: #666;
+}
+.placeholder {
+  font-size: 34rpx;
+  color: #666;
+}
+
+.btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 0;
+  color: #fff;
+  background: #19b4ed;
+  letter-spacing: 5rpx;
+  font-size: 40rpx;
+}
+.con  {
+  margin-top: 30%;
+}
+.con > image {
+  width: 300rpx;
+  height: 300rpx;
+  display: block;
+  margin: 0 auto;
+}
+.con > .text {
+  font-size: 30rpx;
+  color: #666;
+  text-align: center;
+  line-height: 3;
+}
