@@ -107,14 +107,14 @@ Page({
                                     })
                                 }
                             })
-
-                            console.log(1)
                         }
                     } else {
                         var res = that.data.Mycollection.concat(res)
                         that.setData({
                             Mycollection: res
                         })
+                        that.setonReachBottom(true)
+                        
                     }
 
                 } else {
@@ -136,10 +136,11 @@ Page({
                         that.setData({
                             Mycollection: res
                         })
+                        that.setonReachBottom(true)
+                        
                     }
 
                 }
-                that.setonReachBottom(true)
 
             } else {
                 if (that.data.pStart > 1) {
@@ -189,6 +190,8 @@ Page({
                         that.setData({
                             Mycollection: res
                         })
+                        that.setonReachBottom(true)
+                        
                     }
 
 
@@ -211,6 +214,8 @@ Page({
                         that.setData({
                             Mycollection: res
                         })
+                        that.setonReachBottom(true)
+                        
                     }
                 }
 
@@ -262,6 +267,8 @@ Page({
                         that.setData({
                             Mycollection: res
                         })
+                        that.setonReachBottom(true)
+                        
                     }
                     
                 } else {
@@ -283,11 +290,12 @@ Page({
                         that.setData({
                             Mycollection: res
                         })
+                        that.setonReachBottom(true)
+                        
                     }
                     
                 }
 
-                that.setonReachBottom(true)
                 
 
             } else {

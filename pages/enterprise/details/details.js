@@ -22,15 +22,26 @@ Page({
 
     onLoad: function(option) {
         var that = this
-        app.checkUser(function () {
-            that.setData({
-                id: option.recruit_id,
-            })
-            that._loadData(option.recruit_id);
-        })
-        
-        
+        app.getH(this)
 
+        that.setData({
+            id: option.recruit_id,
+        })
+
+        if (option.share) {
+            this.setData({
+                share: option.share
+            })
+            app.share(this, function(flag){
+                if(flag){
+                    that._loadData(option.recruit_id);
+                }
+            })
+        } else {
+            app.checkUser(function () {
+                that._loadData(option.recruit_id);
+            })
+        }
     },
     _loadData: function(recruit_id, fn) {
         var that = this;
@@ -134,10 +145,8 @@ Page({
             if (res.comment_id) {
                 that._loadData(that.data.id, function () {
                     if (that.data.buttomFlag) {
-                        app.bottom(function () {
-                            that.setData({
-                                buttomFlag: false
-                            })
+                        that.setData({
+                            toViewRt: 't1'
                         })
                     }
                 })
@@ -282,13 +291,24 @@ Page({
 
     onShareAppMessage: function () {
         return {
-            path: '/pages/enterprise/details/details?recruit_id=' + this.data.id
+            path: '/pages/enterprise/details/details?recruit_id=' + this.data.id + '&share=' + true
         }
     },
 
     onUnload: function() {
         app.changeParentData(null, this.data.recruitData)
-    }
+    },
+
+    //登录
+    getUserInfo: function (e) {
+        var that = this
+
+        app.shareLogin(this, e, function () {
+            that._loadData(that.data.id);
+        })
+
+    },
+    
 
     
 })

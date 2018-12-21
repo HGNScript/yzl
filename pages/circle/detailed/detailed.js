@@ -24,6 +24,9 @@ Page({
             pname: null,
             user_name: null,
         },
+        loginFlag: false,
+        id: null,
+
     },
 
     // 点击头像
@@ -55,18 +58,40 @@ Page({
 
     onLoad: function(e, fn) {
         var that = this
-        app.checkUser(function(){
-            var id = e.id
 
-            that.setData({
-                id: id
-            })
-            that.getComment(id, function () {
-                fn && fn()
-            })
-            that.setIncFlow(id)
+        app.getH(this)
+
+        var id = e.id
+
+        that.setData({
+            id: id
         })
-       
+
+        
+
+        if (e.share) {
+            this.setData({
+                share: e.share
+            })
+
+            app.share(that, function (flag) {
+                if(flag) {
+                    that.getComment(that.data.id, function () {
+                        fn && fn()
+                    })
+                    that.setIncFlow(that.data.id)
+                }
+            })
+
+        } else {
+            app.checkUser(function() {
+
+                that.getComment(id, function() {
+                    fn && fn()
+                })
+                that.setIncFlow(id)
+            })
+        }
 
     },
 
@@ -90,7 +115,7 @@ Page({
                 comment: res,
             })
             fn && fn()
-            
+
         })
     },
 
@@ -162,7 +187,6 @@ Page({
     //提交评论
     submit: function(e) {
 
-
         var that = this
         var info_id = e.currentTarget.dataset['id']
         var user_id = app.user['id']
@@ -206,10 +230,8 @@ Page({
                     id: that.data.id
                 }, function() {
                     if (that.data.buttomFlag) {
-                        app.bottom(function() {
-                            that.setData({
-                                buttomFlag: false
-                            })
+                        that.setData({
+                            toViewRt: 't1'
                         })
                     }
                 })
@@ -230,7 +252,7 @@ Page({
             var data = {
                 id: that.data.id
             }
-            that.getCircle(id)
+            that.getCircle(that.data.id)
         })
     },
 
@@ -255,15 +277,16 @@ Page({
     },
 
 
-    // 点赞
+    // 点赞事件
     good: function(e) {
+
         var that = this
         var info_id = this.data.matter['circle_id']
 
         if (!this.data.matter['goodFlag']) {
             this.data.matter['goodFlag'] = !this.data.matter['goodFlag']
             this.data.matter['circle_good'] = parseInt(this.data.matter['circle_good']) + 1
-            
+
             var user_id = app.user['id']
 
             detailed.good(user_id, info_id, function(res) {
@@ -285,12 +308,38 @@ Page({
         }
     },
 
-    onShareAppMessage: function () {
+
+    onShareAppMessage: function() {
         return {
             title: '猿周率',
-            path: '/pages/circle/detailed/detailed?id=' + this.data.id
+            path: '/pages/circle/detailed/detailed?id=' + this.data.id + '&share=' + true
         }
     },
+
+    //登录
+    getUserInfo: function(e) {
+        var that = this
+
+        app.shareLogin(this, e, function(){
+            that.getComment(that.data.id, function () {
+                fn && fn()
+            })
+            that.setIncFlow(that.data.id)
+        })
+
+        
+    },
+
+
+
+    csole: function() {
+        // this.setData({
+        //     loginFlag: false,
+        // })
+
+    }
+
+
 
 
 })

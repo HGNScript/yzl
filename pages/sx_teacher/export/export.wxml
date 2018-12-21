@@ -1,0 +1,94 @@
+<!-- 普通管理员 -->
+<view class='content' hidden='true'>
+  <view class='title'>文件导出</view>
+  <view class='tabel'>
+    <view class='studentname'>
+      <view class='title'>班级名称</view>
+      <view class="list {{index%2 == 1 ?'list2':''}}" wx:for="{{classname}}" bindtap='model1btn'>{{item}}</view>
+    </view>
+    <view class='studentslide '>
+      <view class='th'>
+        <view class="thbox box150">年级</view>
+        <view class='thbox box350'>教研室名称</view>
+        <view class='thbox box350'>专业名称</view>
+        <view class='thbox box200'>班级人数</view>
+        <view class='thbox box450'>操作</view>
+      </view>
+      <view class="tr" wx:for="{{export}}" wx:key="id" bindtap='model1btn'>
+        <view class="td box150 {{index%2 == 1 ?'td2':''}}"> 
+          <view class='text'>{{item.grade}}</view>
+        </view>
+        <view class="td box350 {{index%2 == 1 ?'td2':''}}">
+          <view class='text'>{{item.section}}</view>
+        </view>
+        <view class="td box350 {{index%2 == 1 ?'td2':''}}">
+          <view class='text'>{{item.professional}}</view>
+        </view>
+        <view class="td box200 {{index%2 == 1 ?'td2':''}}">
+          <view class='text'>{{item.number}}</view>
+        </view>
+        <view class="td box450 {{index%2 == 1 ?'td2':''}}">
+          <view class='text'>
+            <text class='databtn'>学生数据</text>
+            <text class='databtn'>签到数据</text>
+            <text class='databtn'>日志数据</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='exportbox'>
+    <view class='btn1'>全体学生实习数据</view>
+    <view class='btn1'>全体学生签到数据</view>
+    <view class='btn1'>全体学生日志数据</view>
+    <view class='btn1'>未填写实习信息的学生数据</view>
+  </view>
+</view>
+
+<!-- 超级管理员 -->
+<view class='content'>
+  <view class='title'>文件导出</view>
+
+  <view class='tabel' hidden='true'>
+    <view class='studentname'>
+      <view class='title'>班级名称</view>
+      <view class="list {{index%2 == 1 ?'list2':''}}" wx:for="{{classname}}" bindtap='model1btn'>{{item}}</view>
+    </view>
+    <view class='studentslide '>
+      <view class='th'>
+        <view class="thbox box150">年级</view>
+        <view class='thbox box350'>教研室名称</view>
+        <view class='thbox box350'>专业名称</view>
+        <view class='thbox box200'>班级人数</view>
+        <view class='thbox box450'>操作</view>
+      </view>
+      <view class="tr" wx:for="{{export}}" wx:key="id" bindtap='model1btn'>
+        <view class="td box150 {{index%2 == 1 ?'td2':''}}"> 
+          <view class='text'>{{item.grade}}</view>
+        </view>
+        <view class="td box350 {{index%2 == 1 ?'td2':''}}">
+          <view class='text'>{{item.section}}</view>
+        </view>
+        <view class="td box350 {{index%2 == 1 ?'td2':''}}">
+          <view class='text'>{{item.professional}}</view>
+        </view>
+        <view class="td box200 {{index%2 == 1 ?'td2':''}}">
+          <view class='text'>{{item.number}}</view>
+        </view>
+        <view class="td box450 {{index%2 == 1 ?'td2':''}}">
+          <view class='text'>
+            <text class='databtn'>学生数据</text>
+            <text class='databtn'>签到数据</text>
+            <text class='databtn'>日志数据</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='exportbox' hidden='true'>
+    <view class='btn1'>全体学生实习数据</view>
+    <view class='btn1'>全体学生签到数据</view>
+    <view class='btn1'>全体学生日志数据</view>
+    <view class='btn1'>未填写实习信息的学生数据</view>
+  </view>
+</view>

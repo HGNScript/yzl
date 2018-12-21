@@ -1,0 +1,11 @@
+page {
+  padding-bottom: 130rpx;
+}
+.content1 {
+ padding: 0 20rpx 40rpx;
+}
+.title1 {
+  line-height: 100rpx;
+  font-size: 36rpx;
+  letter-spacing: 2rpx;
+}

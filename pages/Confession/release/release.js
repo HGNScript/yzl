@@ -37,7 +37,7 @@ Page({
     //添加图片
     select: function() {
         var that = this
-        app.choose(this, function(res) {
+        app.choose(this, 1,function(res) {
 
             that.setData({
                 imgpath: res
@@ -87,6 +87,7 @@ Page({
             img_url: thar.data.imgurl,
             user_id: userid
         }
+       
         var url = 'whw/addwall'
         release.add(url, data, thar)
     },
@@ -119,25 +120,6 @@ Page({
                 so: 0
             })
         }
-    },
-
-    //刷新上一级页面数据
-    changeParentData: function() {
-
-        var pages = getCurrentPages(); //当前页面栈
-
-        if (pages.length > 1) {
-
-            var beforePage = pages[pages.length - 2]; //获取上一个页面实例对象
-
-            beforePage.changeData(); //触发父页面中的方法
-
-            wx.navigateBack({
-
-            })
-
-        }
-
     },
 
     // 删除图片

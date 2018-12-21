@@ -34,7 +34,7 @@
     </view>
 
     <view class='content-img'>
-        <image wx:if="{{item.img!=null}}" src='{{item.img.img_url}}' bindtap='Dj' data-url="{{item.img.img_url}}" mode='widthFix'></image>
+        <image wx:for="{{item.img}}" wx:for-item="imgItem" src='{{imgItem.img_url}}' bindtap='Dj' data-url="{{imgItem.img_url}}" mode='widthFix'></image>
     </view>
 
     <view class='foot'>
@@ -61,4 +61,11 @@
     <text>暂时找不到数据</text>
 </view>
 
+</view>
+
+<view class='model2'  bindtap='csole' wx:if="{{loginFlag}}">
+    <view class='box'>
+        <view class='title'>点击立即登录</view>
+        <button class='submit' open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+    </view>
 </view>

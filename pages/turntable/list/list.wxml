@@ -22,7 +22,7 @@
         </view>
 
         <view class="official_question_btn_box question_btn_box" style="display:{{index==item.num?'flex':'none'}};">
-          <button bindtap="officialQToRun" class="question_btn_cell btn_boder_right" data-id="{{item.id}}" data-index="{{index}}" hoverClass="none">
+          <button bindtap="officialQToRun" class="question_btn_cell btn_boder_right btnbox1" data-id="{{item.id}}" data-index="{{index}}" hoverClass="none">
             <image class="question_btn_icon" mode="scaleToFill" src="https://gamesdata.oss-cn-hangzhou.aliyuncs.com/xiaojueding/icon_list_index_60.png"></image>
             <view class="question_btn_title">转一圈</view>
           </button>
@@ -30,11 +30,11 @@
             <image class="question_btn_icon" mode="scaleToFill" src="https://gamesdata.oss-cn-hangzhou.aliyuncs.com/xiaojueding/icon_list_revise_60.png"></image>
             <view class="question_btn_title">编辑</view>
           </button> -->
-          <button bindtap="officialQToKeep" class="question_btn_cell btn_boder_right" data-index="{{index}}" hoverClass="none">
+          <button bindtap="officialQToKeep" class="question_btn_cell btn_boder_right btnbox1" data-index="{{index}}" hoverClass="none">
             <image class="question_btn_icon" mode="scaleToFill" src="https://gamesdata.oss-cn-hangzhou.aliyuncs.com/xiaojueding/icon_list_keep_60.png"></image>
             <view class="question_btn_title">收藏</view>
           </button>
-          <button class="question_btn_cell btn_boder_left" hoverClass="none" openType="share" data-id="{{item.id}}">
+          <button class="question_btn_cell btn_boder_left btnbox1" hoverClass="none" openType="share" data-id="{{item.id}}">
             <image class="question_btn_icon" mode="scaleToFill" src="https://gamesdata.oss-cn-hangzhou.aliyuncs.com/xiaojueding/icon_list_share_60.png"></image>
             <view class="question_btn_title">分享</view>
           </button>
@@ -79,4 +79,11 @@
 
 
   </view>
+</view>
+
+<view class='model2'  bindtap='csole' wx:if="{{loginFlag}}">
+    <view class='box'>
+        <view class='title'>点击立即登录</view>
+        <button class='submit' open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+    </view>
 </view>

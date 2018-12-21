@@ -59,7 +59,7 @@
 
                     <!-- image -->
                     <view wx:if="{{item.img}}" class="details_img" wx:for="{{item.img}}" wx:for-item="list" wx:key="id">
-                        <image class='image' src="{{list.img_url}}" bindtap='img' data-imgurl="{{list.img_url}}" data-imgurls="{{item.img}}"></image>
+                        <image class="{{item.img.length == 1?'image2':'image'}}" src="{{list.img_url}}" bindtap='img' data-imgurl="{{list.img_url}}" data-imgurls="{{item.img}}" mode="{{item.img.length == 1?'widthFix':''}}"></image>
                     </view>
                     <view class='remove'></view>
 
@@ -73,6 +73,8 @@
             <view class="price">
                 <image src='/image/qy.png'></image>
             </view>
+
+          
         </view>
 
         <!-- 页脚功能 -->
@@ -88,6 +90,11 @@
                 <image src='/image/icon/circle/sc1.png' wx:else bindtap='coller' data-index="{{index}}"></image>
             </view>
         </view>
+
+          <block wx:if="{{ (((index+1)/5)%1) === 0 }}">
+                <ad unit-id="adunit-c4842e001b737015"></ad>
+            </block>
+
     </view>
 
     <view class='bottom' wx:if="{{homeData.length != 0}}">
@@ -105,4 +112,11 @@
         <text>暂时找不到数据</text>
     </view>
 
+</view>
+
+<view class='model2'  bindtap='csole' wx:if="{{loginFlag}}">
+    <view class='box'>
+        <view class='title'>点击立即登录</view>
+        <button class='submit' open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+    </view>
 </view>

@@ -17,14 +17,12 @@ Page({
         cateid: 0,
         pStart: 1,
         limit: 5,
-        navData: [
-            {
-                text: '全部'
-            },
-        ],
+        navData: [{
+            text: '全部'
+        }, ],
     },
 
-    detailed: function (e) {
+    detailed: function(e) {
         var id = e.currentTarget.dataset['id']
         wx.navigateTo({
             url: '/pages/fleamarket/details/details?id=' + id
@@ -40,27 +38,46 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(option) {
+        var that = this
+        app.getW(this)
+
         this.refreshView = this.selectComponent("#refreshView")
-        
+
         this.getFmCate()
         var cateid = ''
-        
-        this.getAllFm(cateid, this.data.pStart, this.data.limit)
-        
+
+        if (option.share) {
+            this.setData({
+                share: option.share
+            })
+        } else {
+            if (app.user) {
+                this.getAllFm(cateid, this.data.pStart, this.data.limit)
+            }
+        }
+
+
     },
 
-    onShow: function(){
-        this.checkUser()
-    },
-
-    //查看是否登录，登录身份是学生还是游客
-    checkUser: function (e) {
+    onShow: function() {
         var that = this
-        app.checkUser()
+        if (this.data.share) {
+            app.share(this, function(flag) {
+                var cateid = ''
+
+                if (flag) {
+                    that.getAllFm(cateid, that.data.pStart, that.data.limit)
+                }
+            })
+        } else {
+            app.checkUser()
+        }
+
     },
+
 
     // 点击头像
-    userimg: function (e) {
+    userimg: function(e) {
         app.jump(e)
     },
 
@@ -82,7 +99,8 @@ Page({
         }
 
         //每个tab选项宽度占1/5
-        var singleNavWidth = this.data.windowWidth / 5;
+        var singleNavWidth = this.data.w / 5;
+
         //tab选项居中                            
         this.setData({
             navScrollLeft: (cur - 2) * singleNavWidth
@@ -98,16 +116,16 @@ Page({
 
             if (cateid) {
                 this.getAllFm(cateid, this.data.pStart, this.data.limit)
-            } else{
+            } else {
                 var cateid = ''
                 this.getAllFm(cateid, this.data.pStart, this.data.limit)
-                
+
             }
 
             this.setonReachBottom(true)
 
         }
-        
+
     },
 
     // 添加发布
@@ -118,13 +136,13 @@ Page({
     },
 
     // 图片预览
-    img: function (e) {
+    img: function(e) {
         var url = e.currentTarget.dataset['imgurl']
         var imgurls = e.currentTarget.dataset['imgurls']
 
         var urls = []
 
-        imgurls.forEach(function (item) {
+        imgurls.forEach(function(item) {
             urls.push(item.img_url)
         })
 
@@ -135,7 +153,7 @@ Page({
     },
 
     // 收起||全部
-    check: function (e) {
+    check: function(e) {
         var index = e.currentTarget.dataset['index']
 
         this.data.matter[index]['checked'] = !this.data.matter[index]['checked']
@@ -148,11 +166,36 @@ Page({
     },
     //刷新
     changeData: function(data) {
-        this.getAllFm(this.data.cateid, this.data.pStart, this.data.limit, null, data)
+        var that = this
+        if (data) {
+            that.data.matter.forEach(function(item, index) {
+                if (item.fleamarket_id == data.fleamarket_id) {
+                    var old = that.data.matter[index]
+
+                    that.data.matter[index] = data
+
+                    that.data.matter[index].checked = old['checked']
+
+                    that.data.matter[index].checkedFlag = old['checkedFlag']
+
+                    that.setData({
+                        matter: that.data.matter
+                    })
+                }
+            })
+
+
+
+        } else {
+            this.setData({
+                pStart: 1,
+            })
+            this.getAllFm(this.data.cateid, this.data.pStart, this.data.limit)
+        }
     },
 
     //获取跳蚤市场分类数据
-    getFmCate: function(){
+    getFmCate: function() {
         var that = this
         home.getFmCate(function(res) {
             res.unshift({
@@ -165,47 +208,22 @@ Page({
     },
 
     //获取跳蚤市场贴子数据
-    getAllFm: function (cateid, pStart, limit, fn, data) {
+    getAllFm: function(cateid, pStart, limit, fn, data) {
         var url = 'fm/getCateFms?cateid=' + cateid + '&pStart=' + pStart + '&limit=' + limit
         var that = this
-        home.getAllFm(url, function (res) {
+        home.getAllFm(url, function(res) {
             if (res.length > 0) {
                 if (that.data.pStart > 1) {
-                    if (data) {
 
-                        that.data.matter.forEach(function (item, index) {
-                            if (item.fleamarket_id == data.fleamarket_id) {
-                                that.data.matter[index] = data
-                                that.setData({
-                                    matter: that.data.matter
-                                })
-                            }
-                        })
-
-
-
-                    } else {
-                        res = that.data.matter.concat(res)
-                        that.setData({
-                            matter: res
-                        })
-                    }
+                    res = that.data.matter.concat(res)
+                    that.setData({
+                        matter: res
+                    })
                 } else {
-                    if (data) {
 
-                        that.data.matter.forEach(function (item, index) {
-                            if (item.fleamarket_id == data.fleamarket_id) {
-                                that.data.matter[index] = data
-                                that.setData({
-                                    matter: that.data.matter
-                                })
-                            }
-                        })
-                    } else {
-                        that.setData({
-                            matter: res
-                        })
-                    }
+                    that.setData({
+                        matter: res
+                    })
                 }
 
             } else {
@@ -224,7 +242,7 @@ Page({
     },
 
     //上拉触底 加载数据
-    onReachBottom: function () {
+    onReachBottom: function() {
         this.data.pStart = this.data.pStart + 1
 
         this.setData({
@@ -237,9 +255,9 @@ Page({
 
 
     //设置上拉事件
-    setonReachBottom: function (flag) {
+    setonReachBottom: function(flag) {
         if (flag) {
-            this.onReachBottom = function () {
+            this.onReachBottom = function() {
                 this.data.pStart = this.data.pStart + 1
 
                 this.setData({
@@ -250,7 +268,7 @@ Page({
 
             }
         } else {
-            this.onReachBottom = function () {
+            this.onReachBottom = function() {
                 // wx.showModal({
                 //     title: '提示',
                 //     content: '数据已加载完',
@@ -262,7 +280,7 @@ Page({
     },
 
     // 点赞
-    good: function (e) {
+    good: function(e) {
         //点赞
         var that = this
         var index = e.currentTarget.dataset['index']
@@ -277,11 +295,11 @@ Page({
             var user_id = app.user['id']
             var info_id = this.data.matter[index]['fleamarket_id']
 
-            home.good(user_id, info_id, function (res) {
+            home.good(user_id, info_id, function(res) {
 
                 that.data.matter[index]['goodid'] = res.msg['good_id']
 
-                
+
                 that.setData({
                     matter: that.data.matter
                 })
@@ -296,7 +314,7 @@ Page({
 
             this.data.matter[index]['fleamarket_good'] = parseInt(this.data.matter[index]['fleamarket_good']) - 1
 
-            home.delGood(id, function (res) {
+            home.delGood(id, function(res) {
                 that.setData({
                     matter: that.data.matter
                 })
@@ -306,7 +324,7 @@ Page({
     },
 
     // 收藏
-    coller: function (e) {
+    coller: function(e) {
         //点赞
         var that = this
         var index = e.currentTarget.dataset['index']
@@ -318,7 +336,7 @@ Page({
             var user_id = app.user['id']
             var info_id = this.data.matter[index]['fleamarket_id']
 
-            home.coller(user_id, info_id, function (res) {
+            home.coller(user_id, info_id, function(res) {
 
                 that.data.matter[index]['collectid'] = res.msg['collect_id']
 
@@ -335,7 +353,7 @@ Page({
             var id = this.data.matter[index]['collectid']
             this.data.matter[index]['collectFlag'] = !this.data.matter[index]['collectFlag']
 
-            home.delColler(id, function (res) {
+            home.delColler(id, function(res) {
                 that.setData({
                     matter: that.data.matter
                 })
@@ -346,46 +364,63 @@ Page({
 
 
     //触摸开始
-    handletouchstart: function (event) {
+    handletouchstart: function(event) {
         this.refreshView.handletouchstart(event)
     },
     //触摸移动
-    handletouchmove: function (event) {
+    handletouchmove: function(event) {
         this.refreshView.handletouchmove(event)
     },
     //触摸结束
-    handletouchend: function (event) {
+    handletouchend: function(event) {
         this.refreshView.handletouchend(event)
     },
     //触摸取消
-    handletouchcancel: function (event) {
+    handletouchcancel: function(event) {
         this.refreshView.handletouchcancel(event)
     },
     //页面滚动
-    onPageScroll: function (event) {
+    onPageScroll: function(event) {
         this.refreshView.onPageScroll(event)
     },
-    _pullState: function (event) {
+    _pullState: function(event) {
 
     },
 
-    onPullDownRefresh: function () {
+    onPullDownRefresh: function() {
         var that = this
         var cateid = this.data.cateid
-        this.getAllFm(this.data.cateid, this.data.pStart, this.data.limit, function(){
+        this.getAllFm(this.data.cateid, this.data.pStart, this.data.limit, function() {
             that.refreshView.stopPullRefresh()
         })
 
         this.setonReachBottom(true)
-       
+
     },
 
-    onShareAppMessage: function () {
-       
+    onShareAppMessage: function() {
+        return {
+            title: '猿周率',
+            path: '/pages/fleamarket/home/home?share=' + true
+        }
+    },
+
+    //登录
+    getUserInfo: function(e) {
+        var that = this
+
+        app.shareLogin(this, e, function() {
+            var cateid = ''
+
+
+            that.getAllFm(cateid, that.data.pStart, that.data.limit)
+        })
+
+
     },
 
 
-    
+
 
 
 

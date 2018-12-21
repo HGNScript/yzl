@@ -1,0 +1,144 @@
+/* pages/sx_teacher/export/export.wxss */
+.content {
+  padding: 0 20rpx;
+}
+.content > .title {
+  line-height: 100rpx;
+  font-size: 36rpx;
+  letter-spacing: 2rpx;
+  color: #444;
+}
+
+.tabel {
+  display: flex;
+  white-space: nowrap;
+}
+.studentname {
+  display:inline-block;
+  z-index: 999;
+}
+.studentname > .title {
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  background: #f2f6fc;
+  font-size: 34rpx;
+  color: #9b9b9e;
+  letter-spacing: 2rpx;
+  border: 1rpx #dadadd solid;
+}
+.studentname > .list {
+  position: relative;
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #666;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  letter-spacing: 2rpx;
+  border-left: 1px #dadadd solid;
+  border-right: 1px #dadadd solid;
+  border-bottom: 1px #dadadd solid;
+  background: #fff;
+}
+.studentname > .list2 {
+  background: #f9feff;
+}
+.studentslide {
+  display:inline-block;
+  /* width:calc(100% - 400rpx); */
+  /* width: calc(100% - 400rpx); */
+  overflow-x: auto;
+  margin-left: -4rpx;
+}
+.th {
+  white-space: nowrap;
+  display: flex;
+}
+.th > .thbox {
+  flex-shrink:0;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 20rpx;
+  background: #f2f6fc;
+  font-size: 34rpx;
+  color: #9b9b9e;
+  letter-spacing: 2rpx;
+  border-top: 1px #dadadd solid;
+  border-right: 1px #dadadd solid;
+  border-bottom: 1px #dadadd solid;
+}
+.btmimg {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 5rpx;
+}
+.th > .thbox:first-child, 
+.tr > .td:first-child {
+  border-left: 1px #dadadd solid;
+  margin-left:1px;
+}
+.tr {
+  position: relative;
+  display: flex;
+}
+.tr > .td {
+  flex-shrink:0;
+  position: relative;
+  display: block;
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #666;
+  padding-left: 20rpx;
+  letter-spacing: 2rpx;
+  background: #fff;
+  border-right: 1px #dadadd solid;
+  border-bottom: 1px #dadadd solid;
+}
+.tr > .td > .text, 
+.tr > .td2 > .text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #666;
+}
+.tr > .td > .text > .yestext {
+  background: #009688;
+  color: #fff;
+  padding: 5rpx 15rpx;
+  border-radius: 20rpx;
+}
+.tr > .td > .text > .notext {
+  background: #FF5722;
+  color: #fff;
+  padding: 5rpx 15rpx;
+  border-radius: 20rpx;
+}
+.tr > .td > .text > .databtn {
+  background: #009688;
+  font-size: 26rpx;
+  color: #fff;
+  padding: 5rpx 15rpx;
+  border-radius: 15rpx;
+  margin-right: 10rpx;
+}
+.tr > .td2 {
+  background: #f9feff;
+}
+
+.exportbox {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30rpx;
+}
+.exportbox > .btn1 {
+  background: #009688;
+  font-size: 30rpx;
+  color: #fff;
+  padding: 20rpx 30rpx;
+  border-radius: 8rpx;
+  margin: 10rpx 0;
+  margin-right: 20rpx;
+}

@@ -30,7 +30,7 @@ class Management extends Base{
         var parmes = {
             url: url,
             type: 'post',
-            data: [book_id],
+            data: { id: [book_id]},
             eCallback: function (res) {
                 Callback(res)
             }

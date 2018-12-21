@@ -27,6 +27,7 @@ Page({
             url: '/image/g.png',
             hoverUrl: '/image/lygif.gif'
         }, ],
+        authority: false,
     },
     bind_secret_details: function() {
         wx.navigateTo({
@@ -34,19 +35,57 @@ Page({
         })
     },
 
-    onLoad: function() {
+    onLoad: function(option) {
         var that = this
-        this.inspectTime(function(res) {
-            that.setData({
-                flag: res
+
+        if (option.share) {
+            this.setData({
+                share: option.share
             })
-        })
+
+            app.share(this, function(flag) {
+                if (flag) {
+                    that.inspectTime(function(res) {
+                        that.setData({
+                            flag: res
+                        })
+                    })
+                }
+
+            })
+        } else {
+            that.inspectTime(function(res) {
+                that.setData({
+                    flag: res
+                })
+            })
+
+        }
     },
 
     onShow: function() {
-        app.checkUser()
+        var that = this
+
+        if (!this.data.share) {
+            app.checkUser()
+        }
 
 
+
+    },
+
+    //查看权限
+    handler: function(e) {
+
+        if (e.detail.authSetting['scope.record']) {
+            this.setData({
+                authority: false
+            })
+        } else {
+            this.setData({
+                authority: true
+            })
+        }
     },
     //开始录制
     Start: function(e) {
@@ -58,7 +97,12 @@ Page({
                     if (!res.authSetting['scope.record']) {
                         wx.authorize({
                             scope: 'scope.record',
-                            success() {}
+                            success() {},
+                            fail: function() {
+                                that.setData({
+                                    authority: true
+                                })
+                            }
                         })
                     } else {
                         that.audio()
@@ -288,14 +332,36 @@ Page({
         }
     },
 
-    onUnload: function(){
+    onUnload: function() {
         if (recorderManager.start.arguments) {
             recorderManager.stop();
         }
     },
 
-    onShareAppMessage: function () {
+    onShareAppMessage: function() {
+        return {
+            path: 'pages/secret/home/home?share=' + true,
+        }
+    },
+
+    //登录
+    getUserInfo: function(e) {
+        var that = this
+
+        app.shareLogin(this, e, function() {
+            that.inspectTime(function(res) {
+                that.setData({
+                    flag: res
+                })
+            })
+        })
 
     },
+
+    csole: function(){
+        this.setData({
+            authority: false,
+        })
+    }
 
 })

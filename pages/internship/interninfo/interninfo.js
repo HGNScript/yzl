@@ -39,6 +39,8 @@ Page({
         ],
         introduce: '是',
         array: ['基本满意', '非常满意', '不满意'],
+        authority: false,
+        
     },
     onLoad: function(option) {
         var id = option.id;
@@ -136,44 +138,51 @@ Page({
             headData: that.data.headData
         })
         var id = e.currentTarget.dataset.id;
-        app.getAddress(that, (res) => {
-            var param = {
-                url: 'internship/signIn',
-                type: 'POST',
-                data: {
-                    stu_id: id,
-                    address: res
-                },
-                eCallback: function (res) {
-                    if (res.valid) {
-                        app.headData['open'] = false;
-                        app.headData['sigintype'] = 1
-                        that.setData({
-                            headData: app.headData
-                        })
-                        wx.showToast({
-                            title: res.msg,
-                            icon: 'success',
-                            duration: 2000,
-                            success: function () {
-                                setTimeout(function () {
-                                }, 2000)
-                            }
-                        })
+        app.getAddress(that, true, (res) => {
+            if (!res) {
+                that.setData({
+                    authority: true,
+                })
+            } else {
+                var param = {
+                    url: 'internship/signIn',
+                    type: 'POST',
+                    data: {
+                        stu_id: id,
+                        address: res
+                    },
+                    eCallback: function (res) {
+                        if (res.valid) {
+                            app.headData['open'] = false;
+                            app.headData['sigintype'] = 1
+                            that.setData({
+                                headData: app.headData
+                            })
+                            wx.showToast({
+                                title: res.msg,
+                                icon: 'success',
+                                duration: 2000,
+                                success: function () {
+                                    setTimeout(function () {
+                                    }, 2000)
+                                }
+                            })
 
-                        
 
-                    } else {
-                        wx.showModal({
-                            title: '提示',
-                            content: res.msg,
-                            showCancel: false,
-                        })
+
+                        } else {
+                            wx.showModal({
+                                title: '提示',
+                                content: res.msg,
+                                showCancel: false,
+                            })
+                        }
                     }
                 }
-            }
 
-            home.request(param);
+                home.request(param);
+            }
+           
         });
     },
 
@@ -210,6 +219,12 @@ Page({
     return: function() {
         wx.navigateBack({
             delta: 1
+        })
+    },
+
+    csole: function () {
+        this.setData({
+            authority: false
         })
     },
 

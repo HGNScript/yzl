@@ -1,0 +1,209 @@
+<!-- 班级、搜索 -->
+<view class='header'>
+  <view class='pickerbox'>
+    <picker class='pickerbox2' bindchange='bindPickerChange' value="{{pickerindex}}" range="{{pickerarray}}">
+      <view class='pickertext'>{{pickerarray[pickerindex]}}</view>
+    </picker>
+    <image class='pickerimg' src='/image/icon/teacher/bottom.png'></image>
+  </view>
+  <view class='search'>
+    <input class='input1' type='text' placeholder='请输入搜索内容' placeholder-class='placeholder'></input>
+    <view class='seaimgbox'>
+      <image class='searchimg' src='/image/icon/teacher/search1.png'></image>
+    </view>
+  </view>
+</view>
+<!-- 导航 -->
+<view class='navbar'>
+  <view class="navtitle {{navbarid == index ? 'navactive' : ''}}" wx:for="{{navbar}}" wx:key="id" data-navid='{{index}}' bindtap='navbarbtn'>{{item}}</view>
+</view>
+
+<!-- 内容 -->
+<view class='content'>
+  <!-- 签到详情 -->
+  <view hidden='{{navbarid !=0}}'>
+    <view class='screenbtn'>
+      <picker bindchange="screenbtnChange1" range="{{screenpicker1}}" value="{{screenindex1}}">
+        <text>{{screenpicker1[screenindex1]}}</text>
+        <image src='/image/icon/teacher/bottom.png' class='screenimg'></image>
+      </picker>
+    </view>
+    <view class='signin tabel'>
+      <view class='studentname signinstudent'>
+        <view class='title'>名称</view>
+        <view class="list {{index%2 == 1 ?'list2':''}}" wx:for="{{signinbox}}" bindtap='model1btn'>{{item}}</view>
+      </view>
+      <view class='studentslide '>
+        <view class='th'>
+          <view class="thbox box250">学号</view>
+          <view class='thbox box250'>
+            <picker range="{{signinpiacer}}">
+              签到状态
+              <image src='/image/icon/teacher/bottom.png' class='btmimg'></image>
+            </picker>
+          </view>
+        </view>
+        <view class="tr signintr" wx:for="{{signintext}}">
+          <view class="td box250 {{index%2 == 1 ?'td2':''}}" bindtap='model1btn'>
+            <view class='text'>{{item.userid}}</view>
+          </view>
+          <view class="td box250 {{index%2 == 1 ?'td2':''}}" bindtap='model1btn'>
+            <view class='text'>
+              <text class="{{item.state == '已签到' ? 'yestext': 'notext'}}">{{item.state}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 日志详情 -->
+  <view hidden='{{navbarid !=1}}'>
+    <view class='screenbtn'>
+      <picker bindchange="screenbtnChange2" range="{{screenpicker2}}" value="{{screenindex2}}">
+        <text>{{screenpicker2[screenindex2]}}</text>
+        <image src='/image/icon/teacher/bottom.png' class='screenimg'></image>
+      </picker>
+    </view>
+    <view class='journal tabel'>
+      <view class='studentname'>
+        <view class='title'>名称</view>
+        <view class="list {{index%2 == 1 ?'list2':''}}" wx:for="{{studentname}}" bindtap='model1btn'>{{item}}</view>
+      </view>
+      <view class='studentslide'>
+        <view class='th'>
+          <view class="thbox box220">学号</view>
+          <view class='thbox box350'>日志时间</view>
+          <view class='thbox box250'>日志摘要</view>
+          <view class='thbox box200'>
+            <picker range="{{journalpicker}}">
+              评阅状态
+              <image src='/image/icon/teacher/bottom.png' class='btmimg'></image>
+            </picker>
+          </view>
+          <view class='thbox box170'>评阅日志</view>
+        </view>
+        <view class="tr" wx:for="{{journal}}" wx:key="id" data-information='{{index}}'>
+          <view class="td box220 {{index%2 == 1 ?'td2':''}}" bindtap='model1btn'>
+            <view class='text'>{{item.studentid}}</view>
+          </view>
+          <view class="td box350 {{index%2 == 1 ?'td2':''}}" bindtap='model1btn'>
+            <view class='text'>{{item.time}}</view>
+          </view>
+          <view class="td box250 {{index%2 == 1 ?'td2':''}}">
+            <image class='journalimg' src='{{item.journalimg}}' bindtap='journalimgbtn'></image>
+          </view>
+          <view class="td box200 {{index%2 == 1 ?'td2':''}}" bindtap='model1btn'>
+            <view class='text'>
+              <text class="{{item.state == '已评阅' ? 'yestext': 'notext'}}">{{item.state}}</text>
+            </view>
+          </view>
+          <view class="td box170 {{index%2 == 1 ?'td2':''}}">
+            <image class='readbtn' src='/image/icon/teacher/py.png' bindtap='model2btn'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<!-- model1 -->
+<view class="infomodel1" hidden="{{model1}}">
+  <view class='model1con'>
+    <view class='model1title'>学生详细信息</view>
+    <!-- 学生资料/ -->
+    <view class='studentbox1'>
+      <view class='studenttitle1'>学生资料</view>
+      <view class='boxlist1' wx:for="{{studentbox1}}" wx:key="id">
+        <text class='boxlisttext'>{{item.label1}}：</text>
+        <text class='boxlisttext boxlisttext2'>{{item.listcon}}</text>
+      </view>
+    </view>
+    <!-- 实习资料 -->
+    <view class='studentbox1'>
+      <view class='studenttitle1'>实习资料</view>
+      <view class='boxlist1' wx:for="{{internship}}" wx:key="id">
+        <text class='boxlisttext'>{{item.label}}：</text>
+        <text class='boxlisttext boxlisttext2'>{{item.textcon}}</text>
+      </view>
+    </view>
+    <!-- 签到记录 -->
+    <view class='studentbox1'>
+      <view class='studenttitle1 studenttitle2'>签到记录</view>
+      <view class='title3box'>
+        <view class='title3box1'>签到时间</view>
+        <view class='title3box2'>签到地址</view>
+      </view>
+      <view class='boxlist2' wx:for="{{signin}}" wx:key="id">
+        <view class='list2text1'>{{item.time}}</view>
+        <view class='list2text2'>{{item.address}}</view>
+      </view>
+    </view>
+    <!-- 日志记录 -->
+    <view class='studentbox1'>
+      <view class='studenttitle1 studenttitle2'>日志记录</view>
+      <view class='title3box'>
+        <view class='title3box1'>日志时间</view>
+        <view class='title3box2'>日志摘要</view>
+      </view>
+      <view class='boxlist2' wx:for="{{journal2}}" wx:key="id">
+        <view class='list2text1'>{{item.time}}</view>
+        <view class='list2text2'>{{item.text}}</view>
+      </view>
+    </view>
+    <!-- 日志记录 -->
+    <view class='studentbox1'>
+      <view class='studenttitle1 studenttitle2'>走访记录</view>
+      <view class='list3box1'>暂无走访记录</view>
+    </view>
+  </view>
+  <image class='modeldelimg' src='/image/icon/teacher/delimg.png' bindtap='model1btn'></image>
+</view>
+
+
+
+<!-- model2 -->
+<view class='logmodel2' wx:if="{{model2}}">
+  <image class='modeldelimg' src='/image/icon/teacher/delimg.png' bindtap='model2btn'></image>
+  <view class='model2con'>
+    <view class='title'>甄林炬 2018-12-16</view>
+    <view class='logimg'>
+      <image src='/image/icon/teacher/dog.jpg' bindtap='journalimgbtn'></image>
+    </view>
+    <view class='title'>教师指导意见</view>
+    <view class='evaluationbox'>
+      <view class='label1'>评价：</view>
+      <radio-group class="radio-group">
+        <label class="radio" wx:for="{{model2radio}}">
+          <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+        </label>
+      </radio-group>
+    </view>
+    <view class='evaluationbox'>
+      <view class='label1'>意见：</view>
+      <input placeholder='点击此处编辑内容' placeholder-style='font-size:28rpx;color:#666;' maxlength="-1"></input>
+    </view>
+    <view class='submitbtn' bindtap='submitbtn'>提交意见</view>
+  </view>
+</view>
+
+<!-- tabbar -->
+<cover-view class='tabbarbox' hidden='{{model1 == false || model2 == true}}'>
+  <cover-view class='tabbarbox2' bindtap='tabbarsurveybtn'>
+    <cover-image class='tabbarimage' src='/image/icon/teacher/tabbar/gk1.png'></cover-image>
+    <cover-view class='tabbartitle'>实习概况</cover-view>
+  </cover-view>
+  <cover-view class='tabbarbox2' bindtap='tabbarclassbtn'>
+    <cover-image class='tabbarimage' src='/image/icon/teacher/tabbar/class1.png'></cover-image>
+    <cover-view class='tabbartitle'>班级详情</cover-view>
+  </cover-view>
+  <cover-view class='tabbarbox2' bindtap='tabbarstudentbtn'>
+    <cover-image class='tabbarimage' src='/image/icon/teacher/tabbar/student1.png'></cover-image>
+    <cover-view class='tabbartitle'>学生信息</cover-view>
+  </cover-view>
+  <cover-view class='tabbarbox2' bindtap='tabbarsigninbtn'>
+    <cover-image class='tabbarimage' src='/image/icon/teacher/tabbar/qd2.png'></cover-image>
+    <cover-view class='tabbartitle tabbaractive'>签到日志</cover-view>
+  </cover-view>
+</cover-view>

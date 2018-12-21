@@ -2,6 +2,8 @@ import {
     Base
 } from '../../../utils/base.js'
 
+var app = new getApp()
+
 class Release extends Base {
     constructor() {
         super()
@@ -20,17 +22,21 @@ class Release extends Base {
                     wx.showToast({
                         title: '成功',
                         icon: 'success',
-                        duration: 2000,
-                        success() {}
+                        duration: 1000,
+                        mask: true,
+                        success() {
+                            setTimeout(function() {
+                                app.changeParentData(function() {
+                                    wx.navigateBack({})
+                                })
+
+                            }, 1000)
+
+                        }
                     })
-                    setTimeout(function() {
-                        var pages = getCurrentPages();
-                        var currPage = pages[pages.length - 1]; //当前页面
 
-                    }, 3000)
-                    thar.changeParentData()
 
-                    
+
                 } else {
                     wx.showModal({
                         title: '提示',
@@ -53,7 +59,7 @@ class Release extends Base {
             data: {
                 url: imgurl
             },
-            eCallback: function (res) {
+            eCallback: function(res) {
                 Callback(res)
             }
         }

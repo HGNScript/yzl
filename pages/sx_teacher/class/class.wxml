@@ -1,0 +1,41 @@
+<view class='content1'>
+  <view class='title1'>旅游与酒店管理1班</view>
+  <canvas canvas-id="columnCanvas1" disable-scroll="true" class="canvas"></canvas>
+</view>
+
+<view class='content1'>
+  <view class='title1'>旅游与酒店管理2班</view>
+  <canvas canvas-id="columnCanvas2" disable-scroll="true" class="canvas"></canvas>
+</view>
+
+<view class='content1'>
+  <view class='title1'>计算机广告制作1班</view>
+  <canvas canvas-id="columnCanvas3" disable-scroll="true" class="canvas"></canvas>
+</view>
+
+<view class='content1'>
+  <view class='title1'>计算机广告制作2班</view>
+  <canvas canvas-id="columnCanvas4" disable-scroll="true" class="canvas"></canvas>
+</view>
+
+
+
+<!-- tabbar -->
+<cover-view class='tabbarbox'>
+  <cover-view class='tabbarbox2' bindtap='tabbarsurveybtn'>
+    <cover-image class='tabbarimage' src='/image/icon/teacher/tabbar/gk1.png'></cover-image>
+    <cover-view class='tabbartitle'>实习概况</cover-view>
+  </cover-view>
+  <cover-view class='tabbarbox2' bindtap='tabbarclassbtn'>
+    <cover-image class='tabbarimage' src='/image/icon/teacher/tabbar/class2.png'></cover-image>
+    <cover-view class='tabbartitle tabbaractive'>班级详情</cover-view>
+  </cover-view>
+  <cover-view class='tabbarbox2' bindtap='tabbarstudentbtn'>
+    <cover-image class='tabbarimage' src='/image/icon/teacher/tabbar/student1.png'></cover-image>
+    <cover-view class='tabbartitle'>学生信息</cover-view>
+  </cover-view>
+  <cover-view class='tabbarbox2' bindtap='tabbarsigninbtn'>
+    <cover-image class='tabbarimage' src='/image/icon/teacher/tabbar/qd1.png'></cover-image>
+    <cover-view class='tabbartitle'>签到日志</cover-view>
+  </cover-view>
+</cover-view>

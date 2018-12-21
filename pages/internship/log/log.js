@@ -12,42 +12,18 @@ var home = new Home();
 var app = getApp()
 Page({
     data: {
-        open: false
+        open: false,
+        authority: false,
     },
 
     onLoad: function(o) {
         var that = this
         var id = o.id;
-        this.getLogsData(id);
 
         var stunum = app.user.student.stu_number;
 
-        home.siginType(stunum, (data) => {
-            that.data.headData['sigintype'] = data
-            that.setData({
-                headData: that.data.headData
-            })
-
-            app.headData = that.data.headData
-
-        })
-
-        //日志消息提示
-        home.logsType(stunum, (data) => {
-            if (data != null) {
-                that.data.headData['logstype'] = 0
-                that.data.headData['logs_id'] = data.logs_id
-            } else {
-                that.data.headData['logstype'] = 1
-            }
-            that.setData({
-                headData: that.data.headData
-            })
-            app.headData = that.data.headData
-
-        })
-
-
+        this.getLogsData(id, stunum);
+        
     },
 
     onShow: function() {
@@ -56,14 +32,37 @@ Page({
         })
     },
 
-    getLogsData: function(id) {
+    getLogsData: function (id, stunum) {
         var that = this;
         var params = {
-            url: 'internship/logsData/' + id,
+            url: 'internship/logsData',
+            type: 'post',
+            data: { id: id },
             eCallback: function(data) {
                 that.setData({
                     logsData: data
                 })
+
+                app.changeParentData()
+
+                //日志消息提示
+                home.logsType(stunum, (data) => {
+                    if (data.length != 0) {
+                        that.data.headData['logstype'] = 0
+                        var arr = {}
+                        data.forEach(function (item, index) {
+                            arr[index] = item.logs_id
+                        })
+
+                        that.data.headData['logs_id'] = JSON.stringify(arr)
+                    } else {
+                        that.data.headData['logstype'] = 1
+                    }
+                    that.setData({
+                        headData: that.data.headData
+                    })
+                })
+                
             }
         }
         base.request(params);
@@ -102,43 +101,51 @@ Page({
             headData: that.data.headData
         })
         var id = e.currentTarget.dataset.id;
-        app.getAddress(that, (res) => {
-            var param = {
-                url: 'internship/signIn',
-                type: 'POST',
-                data: {
-                    stu_id: id,
-                    address: res
-                },
-                eCallback: function(res) {
-                    if (res.valid) {
-                        app.headData['open'] = false;
-                        app.headData['sigintype'] = 1
-                        that.setData({
-                            headData: app.headData
-                        })
-                        wx.showToast({
-                            title: res.msg,
-                            icon: 'success',
-                            duration: 2000,
-                            success: function() {
-                                setTimeout(function() {
-                                    that.onShow();
-                                }, 2000)
-                            }
-                        })
+        app.getAddress(that, true, (res) => {
 
-                    } else {
-                        wx.showModal({
-                            title: '提示',
-                            content: res.msg,
-                            showCancel: false,
-                        })
+            if (!res) {
+                that.setData({
+                    authority: true,
+                })
+            } else {
+                var param = {
+                    url: 'internship/signIn',
+                    type: 'POST',
+                    data: {
+                        stu_id: id,
+                        address: res
+                    },
+                    eCallback: function (res) {
+                        if (res.valid) {
+                            app.headData['open'] = false;
+                            app.headData['sigintype'] = 1
+                            that.setData({
+                                headData: app.headData
+                            })
+                            wx.showToast({
+                                title: res.msg,
+                                icon: 'success',
+                                duration: 2000,
+                                success: function () {
+                                    setTimeout(function () {
+                                        that.onShow();
+                                    }, 2000)
+                                }
+                            })
+
+                        } else {
+                            wx.showModal({
+                                title: '提示',
+                                content: res.msg,
+                                showCancel: false,
+                            })
+                        }
                     }
                 }
+
+                home.request(param);
             }
 
-            home.request(param);
         });
     },
 
@@ -170,6 +177,12 @@ Page({
     return: function() {
         wx.navigateBack({
             delta: 1
+        })
+    },
+
+    csole: function () {
+        this.setData({
+            authority: false
         })
     },
 })

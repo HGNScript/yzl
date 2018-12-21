@@ -87,7 +87,7 @@
 <!-- 复选定位 -->
 <view class='checkbox_box'>
   <checkbox-group bindchange="getAddress">
-    <checkbox class='checkbox' value='1'></checkbox>
+    <checkbox class='checkbox' value='1' checked="{{addressFlag}}"></checkbox>
     <view class='text'>定位</view>
   </checkbox-group>
 </view>
@@ -104,3 +104,10 @@
 <view class='hr3'></view>
 
 <button class='btn' bindtap='submit'>发布内容</button>
+
+<view class='model2'  bindtap='csole' wx:if="{{authority}}">
+    <view class='box'>
+        <view class='title'>授权失败</view>
+        <button class='submit' open-type="openSetting" bindopensetting='handler'>点击重新授权</button>
+    </view>
+</view>

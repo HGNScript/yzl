@@ -21,7 +21,7 @@ Page({
                 content: '只能上传三张图片',
             })
         } else {
-            app.choose(this, function(imgsrc) {
+            app.choose(this, 3,function(imgsrc) {
                 that.setData({
                     imgpath: imgsrc
                 })

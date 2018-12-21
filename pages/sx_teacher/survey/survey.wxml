@@ -1,0 +1,184 @@
+<!-- 教师信息 -->
+<view class='header'>
+  <view class='title1'>教师信息</view>
+  <view class='headbox'>
+    <view class='teachername'>
+      <image class='teacherimg' src='/image/icon/teacher/teacher.png'></image>
+      <text>向德美</text>
+    </view>
+    <view class='teachername'>
+      <image class='teacherimg' src='/image/icon/teacher/gh.png'></image>
+      <text>5990073</text>
+    </view>
+    <view class='teachername'>
+      <image class='teacherimg' src='/image/icon/teacher/phone.png'></image>
+      <text>13622202830</text>
+    </view>
+  </view>
+  <view class='exportbtn' bindtap='exportbtn'>文件导出</view>
+  <view class='setsignintimex' bindtap='setsignintimebtn' hidden='true'>实习签到时间设置</view>
+</view>
+
+<view class='jshr1'></view>
+
+<!-- 柱状图 -->
+<!-- 普通教师管理 -->
+<view class='chartbox' hidden='true'>
+  <view class='title1'>实习概况</view>
+  <canvas hidden='{{model1 == false}}' canvas-id="columnCanvas" disable-scroll="true" class="canvas"></canvas>
+</view>
+<!-- 超级教师管理员 -->
+<view class='chartbox'>
+  <view class='title1'>年级数据</view>
+  <canvas canvas-id="gradeData" disable-scroll="true" class="canvas"></canvas>
+</view>
+<view class='jshr1'></view>
+
+<!-- 学生变更信息 -->
+<view class='information' hidden='true'>
+  <view class='title1'>变更信息</view>
+  <view class='tabel'>
+    <view class='studentname'>
+      <view class='title'>名称</view>
+      <view class="list {{index%2 == 1 ?'list2':''}}" wx:for="{{studentname}}" bindtap='model1btn'>{{item}}</view>
+    </view>
+    <view class='studentslide '>
+      <view class='th'>
+        <view class="thbox box500">班级</view>
+        <view class='thbox box350'>原先内容</view>
+        <view class='thbox box350'>变更内容</view>
+      </view>
+      <view class="tr" wx:for="{{information}}" wx:key="id" bindtap='model1btn'>
+        <view class="td box500 {{index%2 == 1 ?'td2':''}}"> 
+          <view class='text'>{{item.class}}</view>
+        </view>
+        <view class="td box350 {{index%2 == 1 ?'td2':''}}">
+          <view class='text'>{{item.text}}</view>
+        </view>
+        <view class="td box350 {{index%2 == 1 ?'td2':''}}">
+          <view class='text'>{{item.text}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 超级管理员查看 -->
+<!-- 数据统计 -->
+<view class='information'>
+  <view class='title1'>数据统计</view>
+  <view class='tabel'>
+    <view class='studentname'>
+      <view class='title'>年级</view>
+      <view class="list {{index%2 == 1 ?'list2':''}}" wx:for="{{gradedata1}}">{{item}}</view>
+    </view>
+    <view class='studentslide '>
+      <view class='th'>
+        <view class="thbox box250">签到人数</view>
+        <view class='thbox box250'>未签到人数</view>
+        <view class='thbox box250'>日志填写人数</view>
+        <view class='thbox box300'>日志未填写人数</view>
+        <view class='thbox box250'>实习人数</view>
+        <view class='thbox box250'>未实习人数</view>
+        <view class='thbox box250'>年级总人数</view>
+      </view>
+      <view class="tr" wx:for="{{gradedata2}}" wx:key="id">
+        <view class="td box250 {{index%2 == 1 ?'td2':''}}"> 
+          <text class="text2">{{item.signin1}}({{item.signin2}}%)</text>
+        </view>
+        <view class="td box250 {{index%2 == 1 ?'td2':''}}">
+          <text class='text3'>{{item.nonesignin1}}({{item.nonesignin2}}%)</text>
+        </view>
+        <view class="td box250 {{index%2 == 1 ?'td2':''}}">
+          <text class='text2'>{{item.log1}}({{item.log2}}%)</text>
+        </view>
+        <view class="td box300 {{index%2 == 1 ?'td2':''}}">
+          <text class='text3'>{{item.nonelog1}}({{item.nonelog2}}%)</text>
+        </view>
+        <view class="td box250 {{index%2 == 1 ?'td2':''}}">
+          <text class='text2'>{{item.people1}}({{item.people2}}%)</text>
+        </view>
+        <view class="td box250 {{index%2 == 1 ?'td2':''}}">
+          <text class='text3'>{{item.nonepeople1}}({{item.nonepeople2}}%)</text>
+        </view>
+        <view class="td box250 {{index%2 == 1 ?'td2':''}}">
+          <text class='text2'>{{item.numberpeople}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<!-- model1 -->
+<view class="infomodel1" hidden="{{model1}}">
+  <view class='model1con'>
+    <view class='model1title'>学生详细信息</view>
+    <!-- 学生资料/ -->
+    <view class='studentbox1'>
+      <view class='studenttitle1'>学生资料</view>
+      <view class='boxlist1' wx:for="{{studentbox1}}" wx:key="id">
+        <text class='boxlisttext'>{{item.label1}}：</text>
+        <text class='boxlisttext boxlisttext2'>{{item.listcon}}</text>
+      </view>
+    </view>
+    <!-- 实习资料 -->
+    <view class='studentbox1'>
+      <view class='studenttitle1'>实习资料</view>
+      <view class='boxlist1' wx:for="{{internship}}" wx:key="id">
+        <text class='boxlisttext'>{{item.label}}：</text>
+        <text class='boxlisttext boxlisttext2'>{{item.textcon}}</text>
+      </view>
+    </view>
+    <!-- 签到记录 -->
+    <view class='studentbox1'>
+      <view class='studenttitle1 studenttitle2'>签到记录</view>
+      <view class='title3box'>
+        <view class='title3box1'>签到时间</view>
+        <view class='title3box2'>签到地址</view>
+      </view>
+      <view class='boxlist2' wx:for="{{signin}}" wx:key="id">
+        <view class='list2text1'>{{item.time}}</view>
+        <view class='list2text2'>{{item.address}}</view>
+      </view>
+    </view>
+    <!-- 日志记录 -->
+    <view class='studentbox1'>
+      <view class='studenttitle1 studenttitle2'>日志记录</view>
+      <view class='title3box'>
+        <view class='title3box1'>日志时间</view>
+        <view class='title3box2'>日志摘要</view>
+      </view>
+      <view class='boxlist2' wx:for="{{journal2}}" wx:key="id">
+        <view class='list2text1'>{{item.time}}</view>
+        <view class='list2text2'>{{item.text}}</view>
+      </view>
+    </view>
+    <!-- 日志记录 -->
+    <view class='studentbox1'>
+      <view class='studenttitle1 studenttitle2'>走访记录</view>
+      <view class='list3box1'>暂无走访记录</view>
+    </view>
+  </view>
+  <image class='modeldelimg' src='/image/icon/teacher/delimg.png' bindtap='model1btn'></image>
+</view>
+
+
+<!-- tabbar -->
+<cover-view class='tabbarbox' hidden='{{model1 == false}}'>
+  <cover-view class='tabbarbox2' bindtap='tabbarsurveybtn'>
+    <cover-image class='tabbarimage' src='/image/icon/teacher/tabbar/gk2.png'></cover-image>
+    <cover-view class='tabbartitle tabbaractive'>实习概况</cover-view>
+  </cover-view>
+  <cover-view class='tabbarbox2' bindtap='tabbarclassbtn'>
+    <cover-image class='tabbarimage' src='/image/icon/teacher/tabbar/class1.png'></cover-image>
+    <cover-view class='tabbartitle'>班级详情</cover-view>
+  </cover-view>
+  <cover-view class='tabbarbox2' bindtap='tabbarstudentbtn'>
+    <cover-image class='tabbarimage' src='/image/icon/teacher/tabbar/student1.png'></cover-image>
+    <cover-view class='tabbartitle'>学生信息</cover-view>
+  </cover-view>
+  <cover-view class='tabbarbox2' bindtap='tabbarsigninbtn'>
+    <cover-image class='tabbarimage' src='/image/icon/teacher/tabbar/qd1.png'></cover-image>
+    <cover-view class='tabbartitle'>签到日志</cover-view>
+  </cover-view>
+</cover-view>

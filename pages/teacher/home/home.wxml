@@ -1,0 +1,28 @@
+<!-- 工号 教师名 电话号 密码 -->
+<view class='content'>
+  <view class='list1'>
+    <input type='text' class='input1' placeholder='教师名称' placeholder-class='placeholder'></input>
+  </view>
+  <view class='list1'>
+    <input type='number' class='input1' placeholder='教师工号' placeholder-class='placeholder'></input>
+  </view>
+  <view class='list1'>
+    <input type='password' class='input1' placeholder='教师密码' placeholder-class='placeholder'></input>
+  </view>
+  <view class='list1'>
+    <input type='number' class='input1' placeholder='教师电话' placeholder-class='placeholder'></input>
+  </view>
+  <view>
+    <view class='title1'>教师类型：</view>
+    <radio-group class="radio-group" bindchange="radioChange">
+      <label class="radio" >
+        <radio value="" checked="true" />实习老师
+      </label>
+      <label class="radio" >
+        <radio value="" checked="" />学生管理老师
+      </label>
+    </radio-group>
+  </view>
+</view>
+
+<button class='btn'>提交</button>

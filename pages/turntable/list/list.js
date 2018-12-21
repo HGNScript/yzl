@@ -53,8 +53,7 @@ Page({
         home.del(id, function(res) {
             that.getTop()
             that.getUserData()
-            app.changeParentData(function () {
-            })
+            app.changeParentData(function() {})
         })
 
     },
@@ -63,11 +62,18 @@ Page({
 
 
     onLoad: function(options) {
+        var that = this
+        this.setData({
+            share: true
+        })
+        app.share(this, function(flag) {
+            console.log(flag)
+            if (flag) {
+                that.getTop()
 
-        this.getTop()
-
-        this.getUserData()
-
+                that.getUserData()
+            }
+        })
 
 
     },
@@ -177,7 +183,7 @@ Page({
     //热门决定的标题
     officialQToRun(e) {
         var that = this,
-        index = e.currentTarget.dataset.index;
+            index = e.currentTarget.dataset.index;
         app.globalData.defaultJueding = true;
 
         wx.setStorageSync('redirectTo', this.data.xiaojueding[index]);
@@ -204,25 +210,42 @@ Page({
 
     onShareAppMessage: function(e) {
         let that = this;
-        
-        home.flow(e.target.dataset.id, function () {
-            that.onLoad()
-        })
 
-        // mta.Event.stat("share", {
-        //     'time': '1'
-        // });
 
-        var picNum = Math.floor(Math.random() * 4 + 1); //获取1-4的随机数，用于随机展示分享图片
 
-        return {
-            title: util.isNull(app.globalData.shareTitle) ? ("一起来玩命运转盘吧") : app.globalData.shareTitle,
-            path: '/pages/turntable/home/home?id=' + e.target.dataset.id,
+        if (e.target.dataset.id) {
+            home.flow(e.target.dataset.id, function() {
+                that.onLoad()
+            })
+
+            return {
+                title: util.isNull(app.globalData.shareTitle) ? ("一起来玩命运转盘吧") : app.globalData.shareTitle,
+                path: '/pages/turntable/home/home?id=' + e.target.dataset.id,
+            }
+        } else {
+            return {
+                title: util.isNull(app.globalData.shareTitle) ? ("一起来玩命运转盘吧") : app.globalData.shareTitle,
+                path: '/pages/turntable/list/list?id=' + e.target.dataset.id + '&share=' + true,
+            }
         }
     },
 
-    changeData: function(){
+    changeData: function() {
         this.getTop()
         this.getUserData()
-    }
+    },
+
+    //登录
+    getUserInfo: function(e) {
+        var that = this
+
+        app.shareLogin(this, e, function() {
+            that.getTop()
+
+            that.getUserData()
+
+        })
+
+
+    },
 })

@@ -8,6 +8,7 @@ page {
   padding-bottom: 30rpx;
 }
 .header > .title {
+  position: relative;
   font-size: 42rpx;
   font-weight: bold;
   text-align: center;
@@ -21,6 +22,7 @@ page {
   color: #666;
   padding: 30rpx 0;
   text-align: left;
+  margin-top: 20rpx;
 }
 .header > .details > .name{
   line-height: 1.5;
@@ -105,4 +107,73 @@ page {
   background: #4caf50;
   color: #fff;
   margin: 100rpx 0 50rpx;
+}
+
+
+/*居中--弹性--竖向--中间*/
+.middle-flex-column-center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*居中--弹性--横向--中间*/
+.middle-flex-row-center{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.middle-box1 {
+  position:fixed;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.2);
+  z-index:10000;
+}
+.middle-box2 {
+  width:600rpx;
+  height:920rpx;
+  background:#ffffff;
+  border-radius:16rpx;
+}
+.middle-tis {
+  width:600rpx;
+  height:80rpx;
+  line-height:80rpx;
+  text-align:center;
+  font-size:28rpx;
+  color:#1078e7;
+}
+
+/* 保存后分享按钮 */
+.sharebtn {
+  margin:0 20rpx;
+  padding:0;
+  width:200rpx;
+  height:70rpx;
+  color: #1078e7;
+  border-radius: 15rpx;
+  border: 1px solid #1078e7;
+  background: none;
+  font-size: 28rpx;
+  text-align:center;
+  line-height:70rpx;
+}
+
+.share {
+    font-weight: 500;
+    font-size: 30rpx;
+    color: #ffffff;
+    position: absolute;
+    right: 0;
+    background: #1078e7;
+    padding: 8rpx 20rpx;
+    border-radius: 15rpx;
 }

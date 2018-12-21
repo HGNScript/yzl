@@ -2,6 +2,12 @@
 .box:last-child{
   border-bottom: none;
 }
+/*隐藏滚动条*/
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;    
+  color: transparent;
+}
 .block {
   display: flex;
   justify-content: space-between;

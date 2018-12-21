@@ -15,7 +15,9 @@ Page({
     data: {
         open: false,
         imgurl: [],
-        imgdata: []
+        imgdata: [],
+        authority: false,
+        
     },
     onLoad: function(o) {
         var id = o.id;
@@ -60,43 +62,50 @@ Page({
             headData: that.data.headData
         })
         var id = e.currentTarget.dataset.id;
-        app.getAddress(that, (res) => {
-            var param = {
-                url: 'internship/signIn',
-                type: 'POST',
-                data: {
-                    stu_id: id,
-                    address: res
-                },
-                eCallback: function (res) {
-                    if (res.valid) {
-                        app.headData['open'] = false;
-                        app.headData['sigintype'] = 1
-                        that.setData({
-                            headData: app.headData
-                        })
-                        wx.showToast({
-                            title: res.msg,
-                            icon: 'success',
-                            duration: 2000,
-                            success: function () {
-                                setTimeout(function () {
-                                    that.onShow();
-                                }, 2000)
-                            }
-                        })
+        app.getAddress(that, true, (res) => {
+            if (!res) {
+                that.setData({
+                    authority: true,
+                })
+            } else {
+                var param = {
+                    url: 'internship/signIn',
+                    type: 'POST',
+                    data: {
+                        stu_id: id,
+                        address: res
+                    },
+                    eCallback: function (res) {
+                        if (res.valid) {
+                            app.headData['open'] = false;
+                            app.headData['sigintype'] = 1
+                            that.setData({
+                                headData: app.headData
+                            })
+                            wx.showToast({
+                                title: res.msg,
+                                icon: 'success',
+                                duration: 2000,
+                                success: function () {
+                                    setTimeout(function () {
+                                        that.onShow();
+                                    }, 2000)
+                                }
+                            })
 
-                    } else {
-                        wx.showModal({
-                            title: '提示',
-                            content: res.msg,
-                            showCancel: false,
-                        })
+                        } else {
+                            wx.showModal({
+                                title: '提示',
+                                content: res.msg,
+                                showCancel: false,
+                            })
+                        }
                     }
                 }
-            }
 
-            home.request(param);
+                home.request(param);
+            }
+           
         });
     },
 
@@ -287,6 +296,11 @@ Page({
         var id = e.currentTarget.dataset.id;
         wx: wx.navigateTo({
             url: '/pages/internship/logfeedback/logfeedback?id=' + id,
+        })
+    },
+    csole: function () {
+        this.setData({
+            authority: false
         })
     },
 })

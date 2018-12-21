@@ -24,13 +24,31 @@ Page({
         app.jump(e)
     },
     onLoad: function(option) {
+        app.getH(this)
+        
         var that = this
-        app.checkUser(function(){
-            that.setData({
-                id: option.job_id,
-            })
-            that._loadData(option.job_id);
+
+        that.setData({
+            id: option.job_id,
         })
+
+        if (option.share) {
+            this.setData({
+                share: option.share
+            })
+            app.share(this, function (flag) {
+                if (flag) {
+                    that._loadData(option.job_id);
+                }
+            })
+
+        } else {
+            app.checkUser(function () {
+               
+                that._loadData(option.job_id);
+            })
+        }
+       
        
     },
 
@@ -150,10 +168,8 @@ Page({
 
                 that._loadData(that.data.id, function () {
                     if (that.data.buttomFlag) {
-                        app.bottom(function () {
-                            that.setData({
-                                buttomFlag: false
-                            })
+                        that.setData({
+                            toViewRt: 't1'
                         })
                     }
                 })
@@ -301,11 +317,21 @@ Page({
 
     onShareAppMessage: function(){
         return {
-            path: '/pages/parttimejob/details/details?job_id=' + this.data.id
+            path: '/pages/parttimejob/details/details?job_id=' + this.data.id + '&share=' + true,
         }
     },
 
     onUnload: function () {
         app.changeParentData(null, this.data.jobData)
-    }
+    },
+
+    //登录
+    getUserInfo: function (e) {
+        var that = this
+
+        app.shareLogin(this, e, function () {
+            that._loadData(that.data.id);
+        })
+
+    },
 })

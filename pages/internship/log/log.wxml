@@ -15,8 +15,8 @@
 <view class='content'>
   <view class='title'>日志</view>
  
-    <view class='check'  wx:for="{{logsData.logs_content}}" wx:key="">
-     <image src='{{item}}' bindtap='img' data-imgurl="{{item}}" data-imgurls="{{logsData.logs_content}}"></image>
+    <view class='check'  wx:for="{{logsData[0].logs_content}}" wx:key="">
+     <image src='{{item}}' bindtap='img' data-imgurl="{{item}}" data-imgurls="{{logsData[0].logs_content}}"></image>
     </view>
   
  
@@ -24,17 +24,24 @@
   <view class='title title2'>教师指导意见</view>
   <view class='list'>
     <text class='head'>评价：</text>
-    <text class='text' wx:if="{{logsData.replay_val != null}}">{{logsData.replay_val}}</text>
-    <text class='text' wx:if="{{logsData.replay_val == null}}">暂无评价</text>
+    <text class='text' wx:if="{{logsData[0].replay_val != null}}">{{logsData.replay_val}}</text>
+    <text class='text' wx:if="{{logsData[0].replay_val == null}}">暂无评价</text>
   </view>
   <view class='list'>
     <text class='head' >意见：</text>
-    <text class='text' wx:if="{{logsData.logs_reply != 0}}">{{logsData.logs_reply}}</text>
-     <text class='text' wx:if="{{logsData.logs_reply == 0}}">暂无意见</text>
+    <text class='text' wx:if="{{logsData[0].logs_reply != 0}}">{{logsData.logs_reply}}</text>
+     <text class='text' wx:if="{{logsData[0].logs_reply == 0}}">暂无意见</text>
   </view>
 </view>
 
 <template is="footer2"></template>
 
+</view>
+
+<view class='model2'  bindtap='csole' wx:if="{{authority}}">
+    <view class='box'>
+        <view class='title'>授权失败</view>
+        <button class='submit' open-type="openSetting" bindopensetting='handler'>点击重新授权</button>
+    </view>
 </view>
 

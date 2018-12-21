@@ -1,37 +1,277 @@
 /**app.wxss**/
+
 .container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  /* padding: 200rpx 0; */
-  box-sizing: border-box;
-} 
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
 
 /* hr间隔 */
+
 .hr {
-  width: 100%;
-  height: 15rpx;
-  background-color: #f8f8f8;
-}
-.hr2 {
-  width: 100%;
-  height: 30rpx;
-  background-color: #f8f8f8;
-}
-.hr3 {
-  height: 60rpx;
-  width: 100%;
-  background: #f8f8f8;
-}
-.hr4 {
-  width: 100%;
-  height: 18rpx;
-  background-color: #f8f8f8;
+    width: 100%;
+    height: 15rpx;
+    background-color: #f8f8f8;
 }
 
+.hr2 {
+    width: 100%;
+    height: 30rpx;
+    background-color: #f8f8f8;
+}
+
+.hr3 {
+    height: 60rpx;
+    width: 100%;
+    background: #f8f8f8;
+}
+
+.hr4 {
+    width: 100%;
+    height: 18rpx;
+    background-color: #f8f8f8;
+}
+
+
 /* 消除浮动 */
+
 .remove {
-  clear: both;
+    clear: both;
+}
+
+.model2 {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    animation: myfirst 1.5s;
+    z-index: 1000;
+}
+.model2 .box {
+    background: #fff;
+    width: 70%;
+    height: 24vh;
+    border-radius: 10rpx;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    margin: auto;
+    box-shadow: 3rpx 3rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+.model2 .box > .title {
+    text-align: center;
+    color: #666;
+    font-size: 34rpx;
+    line-height: 13vh;
+    letter-spacing: 2rpx;
+}
+.model2 .box > .submit {
+    width: 60%;
+    font-size: 32rpx;
+    background: #19b4ed;
+    padding: 0rpx 20rpx;
+    text-align: center;
+    color: #fff;
+    letter-spacing: 2rpx;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10rpx;
+}
+
+/* 实习教师端 */
+.jshr1 {
+  height: 15rpx;
+  background: #f8f8f8;
+}
+/* 柱状画布 */
+.canvas {
+  width: 100%;
+  height: 400rpx;
+}
+
+/* table */
+.box100 {width: 100rpx;}
+.box150 {width: 150rpx;}
+.box160 {width: 160rpx;}
+.box170 {width: 170rpx;}
+.box200 {width: 200rpx;}
+.box220 {width: 220rpx;}
+.box250 {width: 250rpx;}
+.box280 {width: 280rpx;}
+.box300 {width: 300rpx;}
+.box330 {width: 330rpx;}
+.box350 {width: 350rpx;}
+.box400 {width: 400rpx;}
+.box450 {width: 450rpx;}
+.box500 {width: 500rpx;}
+.box550 {width: 550rpx;}
+.box600 {width: 600rpx;}
+
+/* tabbar */
+.tabbarbox {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 110rpx;
+  border-top: 1rpx solid #f0f0f0;
+  display: flex;
+  background: #fff;
+  z-index: 9999;
+}
+.tabbarbox2 {
+  width: 25%;
+}
+.tabbarimage {
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  margin:  18rpx auto 0;
+}
+.tabbartitle {
+  text-align: center;
+  font-size: 22rpx;
+  color: #bfbfbf;
+  line-height: 1.8;
+}
+.tabbaractive {
+  color: #19b4ed;
+}
+
+/* model1 */
+.infomodel1 {
+  background: rgba(0, 0, 0, .5);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999999999;
+}
+.infomodel1 > .model1con {
+  position: relative;
+  width: 88vw;
+  height: 80vh;
+  background: #fff;
+  border-radius: 10rpx;
+  box-shadow: 5rpx 5rpx 15rpx rgba(0, 0, 0, .2);
+  display: block;
+  margin: 6vh auto;
+  padding: 20rpx;
+  overflow-y: scroll;
+}
+.infomodel1 > .model1con > .model1title{
+  line-height: 60rpx;
+  font-size: 36rpx;
+  letter-spacing: 2rpx;
+  color: #444;
+}
+.infomodel1 > .model1con > .studentbox1 {
+  border: 1px #e6e6e6 solid;
+  width: 98%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  margin-bottom: 50rpx;
+}
+.infomodel1 > .model1con > .studentbox1 > .studenttitle1 {
+  background: #f2f2f2;
+  font-size: 34rpx;
+  color: #666;
+  height: 90rpx;
+  line-height: 90rpx;
+  padding: 0 20rpx;
+  letter-spacing: 2rpx;
+  border-bottom: 1px #e6e6e6 solid;
+}
+.infomodel1 > .model1con > .studentbox1 > .boxlist1 {
+  padding: 20rpx 20rpx;
+  font-size: 30rpx;
+  color: #666;
+  display: flex;
+  border-bottom: 1px #e6e6e6 solid;
+}
+.infomodel1 > .model1con > .studentbox1 > .boxlist1 > .boxlisttext {
+  min-width: 3em;
+}
+.infomodel1 > .model1con > .studentbox1 > .boxlist1 > .boxlisttext2 {
+  margin-left: 20rpx;
+}
+.infomodel1 > .model1con > .studentbox1 > .boxlist1:last-child {
+  border-bottom: 0px #e6e6e6 solid;
+}
+.infomodel1 > .model1con > .studentbox1 > .studenttitle2 {
+  text-align: center;
+}
+.infomodel1 > .model1con > .studentbox1 > .title3box {
+  display: flex;
+  border-bottom: 1px #e6e6e6 solid;
+}
+.infomodel1 > .model1con > .studentbox1 > .title3box > .title3box1 {
+  width: 35%;
+  background: #f2f2f2;
+  font-size: 34rpx;
+  color: #666;
+  height: 90rpx;
+  line-height: 90rpx;
+  padding: 0 20rpx;
+  letter-spacing: 2rpx;
+  border-right: 1px #e6e6e6 solid;
+}
+.infomodel1 > .model1con > .studentbox1 > .title3box > .title3box2 {
+  width: 65%;
+  background: #f2f2f2;
+  font-size: 34rpx;
+  color: #666;
+  height: 90rpx;
+  line-height: 90rpx;
+  padding: 0 20rpx;
+  letter-spacing: 2rpx;
+}
+.infomodel1 > .model1con > .studentbox1 > .boxlist2 {
+  display: flex;
+  border-bottom: 1px #e6e6e6 solid;
+}
+.infomodel1 > .model1con > .studentbox1 > .boxlist2:last-child {
+  border-bottom: 0px #e6e6e6 solid;
+}
+.infomodel1 > .model1con > .studentbox1 > .boxlist2 > .list2text1 {
+  width: 35%;
+  font-size: 30rpx;
+  color: #666;
+  line-height: 1.5;
+  padding: 5rpx 20rpx;
+  border-right: 1px #e6e6e6 solid;
+}
+.infomodel1 > .model1con > .studentbox1 > .boxlist2 > .list2text2 {
+  width: 65%;
+  font-size: 30rpx;
+  padding: 3rpx 20rpx;
+  color: #666;
+  line-height: 1.5;
+}
+.infomodel1 > .model1con > .studentbox1 > .list3box1 {
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #666;
+  margin-top: 1px;
+}
+.modeldelimg {
+  width: 70rpx;
+  height: 70rpx;
+  position: absolute;
+  right: 0rpx;
+  left: 0;
+  bottom: 4vh;
+  margin: 0 auto;
+  z-index: 9999999999999;
 }

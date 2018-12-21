@@ -67,7 +67,16 @@
         "pages/gzysr/gzysr",
         "pages/schoolmap/schoolmap",
 
-        "pages/feedback/feedback"
+        "pages/feedback/feedback",
+
+        "pages/teacher/home/home",
+        "pages/teacher/infomation/infomation",
+
+        "pages/sx_teacher/survey/survey",
+        "pages/sx_teacher/class/class",
+        "pages/sx_teacher/student/student",
+        "pages/sx_teacher/signin/signin",
+        "pages/sx_teacher/export/export"
 
 
 

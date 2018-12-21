@@ -22,14 +22,14 @@ Page({
                 list: '我的收藏',
             },
             {
-                url: '/pages/turntable/home/home',
-                imgurl: '/image/icon/personal/zp.png',
-                list: '命运转盘',
-            },
-            {
                 url: '/pages/resources/home/home',
                 imgurl: '/image/icon/personal/na.png',
                 list: '爱拿不拿',
+            },
+            {
+              url: '/pages/teacher/home/home',
+              imgurl: '/image/icon/personal/js.png',
+              list: '教师认证',
             },
             {
                 url: '/pages/student/certification/certification',

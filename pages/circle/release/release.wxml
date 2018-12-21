@@ -6,7 +6,7 @@
 <view class="Block">
   <!-- 文本框 -->
   <view class="textarea">
-    <textarea placeholder="想说点什么呢！" bindinput='getContent' />
+    <textarea placeholder="想说点什么呢！" bindinput='getContent' maxlength="500 "/>
   </view>
   <!-- 上传图片 -->
   <view class='pic'>
@@ -53,10 +53,11 @@
 <!-- 复选定位 -->
 <view class='checkbox_box'>
   <checkbox-group bindchange="getAddress">
-    <checkbox class='checkbox' value='1'></checkbox>
+    <checkbox class='checkbox' value='1'  checked="{{addressFlag}}"></checkbox>
     <view class='text'>定位</view>
   </checkbox-group>
 </view>
+
 <!-- 单选按钮 -->
 <radio-group class="radio-group" bindchange="radioChange">
   <view class='radio_box' wx:for="{{radio}}" wx:key="name">
@@ -68,3 +69,11 @@
 
 <!-- btn -->
 <button class="btn" bindtap='submit' >发 布</button>
+
+
+<view class='model2'  bindtap='csole' wx:if="{{authority}}">
+    <view class='box'>
+        <view class='title'>授权失败</view>
+        <button class='submit' open-type="openSetting" bindopensetting='handler'>点击重新授权</button>
+    </view>
+</view>

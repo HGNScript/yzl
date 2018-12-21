@@ -16,7 +16,7 @@
    awardsConfig='{{awardsConfig}}'>
    </zhuanpan>
 
-   <view style='margin-top:60rpx'></view>
+   <view style='margin-top:20rpx'></view>
 
    <view class='juedinoption' wx:for='{{xiaojuedingArr}}' wx:key='key' wx:if='{{index<2 && share}}' bindtap='xiaojueding' data-idx='{{index}}'>{{item.option}} </view>
    <view class='share' wx:if='{{!share}}'>

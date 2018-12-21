@@ -1,0 +1,186 @@
+/* pages/sx_teacher/survey/survey.wxss */
+page {
+  padding-bottom: 130rpx;
+}
+.header, .chartbox, .information {
+  padding: 0 20rpx 40rpx;
+  position: relative;
+}
+.title1 {
+  line-height: 100rpx;
+  font-size: 36rpx;
+  letter-spacing: 2rpx;
+}
+
+.headbox {
+  border: 1px #e5e5e5 solid;
+  border-radius: 10rpx;
+}
+
+.teachername {
+  font-size: 34rpx;
+  letter-spacing: 2rpx;
+  line-height: 80rpx;
+  color: #666;
+  padding: 0 20rpx;
+  display: flex;
+  border-bottom: 1px #e5e5e5 solid;
+}
+.teacherimg {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 20rpx 0;
+  margin-right: 20rpx;
+}
+.teachername:last-child {
+  border-bottom: 0px #e5e5e5 solid;
+}
+.exportbtn {
+  background: #19b2ed;
+  color: #fff;
+  font-size: 30rpx;
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  padding: 10rpx 20rpx;
+  border-radius: 10rpx;
+  letter-spacing: 2rpx;
+}
+
+/* tabel */
+.tabel {
+  display: flex;
+  white-space: nowrap;
+}
+.studentname {
+  z-index: 999;
+  display: inline-block;
+}
+.studentname > .title {
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  background: #f2f6fc;
+  font-size: 34rpx;
+  color: #9b9b9e;
+  letter-spacing: 2rpx;
+  border: 1rpx #dadadd solid;
+}
+.studentname > .list {
+  position: relative;
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #666;
+  padding-right: 20rpx;
+  padding-left: 20rpx;
+  letter-spacing: 2rpx;
+  border-left: 1px #dadadd solid;
+  border-right: 1px #dadadd solid;
+  border-bottom: 1px #dadadd solid;
+  background: #fff;
+}
+.studentname > .list2 {
+  background: #f9feff;
+}
+.studentslide {
+  /* width:calc(100% - 150rpx); */
+  display: inline-block;
+  overflow-x: auto;
+  margin-left: -4rpx;
+}
+.th {
+  white-space: nowrap;
+  display: flex;
+}
+.th > .thbox {
+  flex-shrink:0;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 20rpx;
+  background: #f2f6fc;
+  font-size: 34rpx;
+  color: #9b9b9e;
+  letter-spacing: 2rpx;
+  border-top: 1px #dadadd solid;
+  border-right: 1px #dadadd solid;
+  border-bottom: 1px #dadadd solid;
+}
+.btmimg {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 5rpx;
+}
+.th > .thbox:first-child, 
+.tr > .td:first-child {
+  border-left: 1px #dadadd solid;
+  margin-left:1px;
+}
+.tr {
+  position: relative;
+  display: flex;
+}
+.tr > .td {
+  flex-shrink:0;
+  position: relative;
+  display: block;
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #666;
+  padding-left: 20rpx;
+  letter-spacing: 2rpx;
+  background: #fff;
+  border-right: 1px #dadadd solid;
+  border-bottom: 1px #dadadd solid;
+}
+.tr > .td > .text, 
+.tr > .td2 > .text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #666;
+}
+.tr > .td > .text > .yestext {
+  background: #009688;
+  color: #fff;
+  padding: 5rpx 15rpx;
+  border-radius: 20rpx;
+}
+.tr > .td > .text > .notext {
+  background: #FF5722;
+  color: #fff;
+  padding: 5rpx 15rpx;
+  border-radius: 20rpx;
+}
+.tr > .td2 {
+  background: #f9feff;
+}
+
+/* 超级管理员 */
+.tr > .td > .text2 {
+  color: #fff;
+  background: #009688;
+  padding: 8rpx 12rpx;
+  border-radius: 25rpx;
+}
+.tr > .td > .text3 {
+  color: #fff;
+  background: #FF5722;
+  padding: 8rpx 12rpx;
+  border-radius: 25rpx;
+}
+/* 实习签到时间设置按钮 */
+.setsignintimex {
+  font-size: 30rpx;
+  color: #fff;
+  background: #009688;
+  width: 280rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 15rpx;
+  margin-top: 30rpx;
+  letter-spacing: 1rpx;
+}

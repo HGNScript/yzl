@@ -8,17 +8,17 @@ page {
 }
 
 .navbar {
-    height: 80rpx;
+    height: 100rpx;
     position: relative;
     display: flex;
 }
 
 .nav {
-    height: 80rpx;
+    height: 100rpx;
     width: 85%;
     box-sizing: border-box;
     overflow: hidden;
-    line-height: 80rpx;
+    line-height: 100rpx;
     background: #f7f7f7;
     font-size: 26rpx;
     white-space: nowrap;
@@ -31,7 +31,7 @@ page {
 
 .nav-item {
     position: relative;
-    width: 18%;
+    width: 23%;
     display: inline-block;
     text-align: center;
 }
@@ -55,8 +55,8 @@ page {
 .search_icon {
     z-index: 100;
     width: 15%;
-    height: 80rpx;
-    line-height: 80rpx;
+    height: 100rpx;
+    line-height: 100rpx;
     text-align: center;
     background: #fff;
     position: fixed;
@@ -67,6 +67,7 @@ page {
 .search_icon>image {
     width: 40rpx;
     height: 40rpx;
+    margin: 30rpx 0;
 }
 
 /* 内容 */
@@ -112,7 +113,7 @@ page {
     font-size: 34rpx;
     padding-top: 20rpx;
     letter-spacing: 3rpx;
-    line-height: 1;
+    line-height: 1.5;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -145,6 +146,15 @@ page {
 .details_img .image {
     width: 31%;
     height: 170rpx;
+    margin-top: 0;
+    border-radius: 0;
+    margin: 5rpx 5rpx;
+    float: left;
+}
+
+.details_img .image2 {
+    width:65%;
+    max-height:400rpx;
     margin-top: 0;
     border-radius: 0;
     margin: 5rpx 5rpx;

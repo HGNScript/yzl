@@ -1,0 +1,48 @@
+.list1 {
+  position: relative;
+  border-bottom: 1px #e5e5e5 solid;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 20rpx;
+  color: #666;
+  font-size: 34rpx;
+}
+.input1 {
+  height: 70rpx;
+  position: absolute;
+  top: 15rpx;
+  font-size: 34rpx;
+  color: #666;
+  width: 90%;
+  letter-spacing: 2rpx;
+}
+.placeholder {
+  font-size: 34rpx;
+  letter-spacing: 2rpx;
+  color: #666;
+}
+.title1 {
+  line-height: 100rpx;
+  font-size: 34rpx;
+  color: #666;
+  padding: 0 20rpx;
+}
+.radio-group {
+  padding: 0 20rpx;
+}
+.radio {
+  margin: 0 20rpx;
+  font-size: 34rpx;
+  color: #666;
+}
+.btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 0;
+  color: #fff;
+  background: #19b4ed;
+  letter-spacing: 5rpx;
+  font-size: 40rpx;
+}

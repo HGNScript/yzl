@@ -107,6 +107,8 @@ Page({
                             CircleMy: res
                         })
                     }
+                    that.setonReachBottom(true)
+                    
                 } else {
                     if (that.data.pStart > 1) {
                         that.setData({
@@ -118,7 +120,6 @@ Page({
                         })
                     }
 
-                    that.setonReachBottom(true)
                 }
                 wx.stopPullDownRefresh()
             } else {
@@ -156,6 +157,8 @@ Page({
                             Recruit: res
                         })
                     }
+                    that.setonReachBottom(true)
+                    
                 } else {
                     if (that.data.pStart > 1) {
                         that.setData({
@@ -167,7 +170,6 @@ Page({
                         })
                     }
 
-                    that.setonReachBottom(true)
                 }
                 wx.stopPullDownRefresh()
             } else {
@@ -206,6 +208,9 @@ Page({
                             Fleamarket: res
                         })
                     }
+                    
+                    that.setonReachBottom(true)
+                    
                 } else {
                     if (that.data.pStart > 1) {
                         that.setData({
@@ -217,7 +222,6 @@ Page({
                         })
                     }
 
-                    that.setonReachBottom(true)
                 }
                 wx.stopPullDownRefresh()
             } else {

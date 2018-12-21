@@ -1,0 +1,307 @@
+/* pages/sx_teacher/student/student.wxss */
+page {
+  padding-bottom: 130rpx;
+}
+.page2 {
+  overflow: hidden;
+  height: 100vh;
+}
+.header {
+  display: flex;
+  height: 100rpx;
+  background: #f9f9f9;
+  border-bottom: 1px #f2f2f2 solid;
+}
+.pickerbox {
+  width: 42%;
+  padding: 0 10rpx;
+  display: flex;
+}
+.pickerbox2 {
+  width: calc(100% - 40rpx);
+}
+.pickerbox > .pickerimg {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 35rpx 10rpx;
+}
+.pickertext {
+  font-size: 30rpx;
+  color: #666;
+  line-height: 100rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.search {
+  width: 58%;
+  display: flex;
+  background: #fff;
+}
+.search > .input1 {
+  width: 77%;
+  font-size: 28rpx;
+  color: #666;
+  height: 70rpx;
+  margin: 15rpx 0;
+  padding: 0 10rpx;
+}
+.placeholder {
+  font-size: 28rpx;
+  color: #666;
+}
+.search > .seaimgbox {
+  width: 23%;
+  background: #009688;
+}
+.search > .seaimgbox > .searchimg {
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  margin: 30rpx auto;
+}
+/* 导航 */
+.navbar {
+  height: 100rpx;
+  border-bottom: 1rpx #e6e6e6 solid;
+}
+.navbar > .navtitle {
+  width: 50%;
+  display: inline-block;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 34rpx;
+  color: #444;
+  letter-spacing: 2rpx;
+}
+.navbar > .navactive {
+  color: #19b4ed;
+  border-bottom: 2px #19b4ed solid;
+}
+
+/* 内容 */
+.content {
+  padding: 30rpx 20rpx;
+}
+/* tabel2 表 */
+.tabel {
+  display: flex;
+  white-space: nowrap;
+}
+.studentname {
+  z-index: 999;
+  display: inline-block;
+}
+.studentname > .title {
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  background: #f2f6fc;
+  font-size: 34rpx;
+  color: #9b9b9e;
+  letter-spacing: 2rpx;
+  border: 1rpx #dadadd solid;
+}
+.studentname > .list {
+  position: relative;
+  font-size: 30rpx;
+  height: 180rpx;
+  line-height: 180rpx;
+  color: #666;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  letter-spacing: 2rpx;
+  border-left: 1px #dadadd solid;
+  border-right: 1px #dadadd solid;
+  border-bottom: 1px #dadadd solid;
+  background: #fff;
+}
+.studentname > .list2 {
+  background: #f9feff;
+}
+.studentslide {
+  display: inline-block;
+  overflow-x: auto;
+  margin-left: -4rpx;
+}
+.th {
+  white-space: nowrap;
+  display: flex;
+}
+.th > .thbox {
+  flex-shrink: 0;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 20rpx;
+  background: #f2f6fc;
+  font-size: 34rpx;
+  color: #9b9b9e;
+  letter-spacing: 2rpx;
+  border-top: 1px #dadadd solid;
+  border-right: 1px #dadadd solid;
+  border-bottom: 1px #dadadd solid;
+}
+.btmimg {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 5rpx;
+}
+.th > .thbox:first-child, 
+.tr > .td:first-child {
+  border-left: 1px #dadadd solid;
+}
+.tr {
+  position: relative;
+  white-space: nowrap;
+  display: flex;
+}
+.tr > .td {
+  position: relative;
+  flex-shrink: 0;
+  font-size: 30rpx;
+  height: 180rpx;
+  line-height: 180rpx;
+  color: #666;
+  padding-left: 20rpx;
+  letter-spacing: 2rpx;
+  border-right: 1px #dadadd solid;
+  border-bottom: 1px #dadadd solid;
+  background: #fff;
+}
+.signinstudent > .list,
+.signintr > .td {
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.tr > .td > .text, 
+.tr > .td2 > .text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #666;
+}
+.tr > .td > .text > .yestext {
+  background: #009688;
+  color: #fff;
+  padding: 5rpx 15rpx;
+  border-radius: 20rpx;
+}
+.tr > .td > .text > .notext {
+  background: #FF5722;
+  color: #fff;
+  padding: 5rpx 15rpx;
+  border-radius: 20rpx;
+}
+.tr > .td > .readbtn {
+  width: 60rpx;
+  height: 60rpx;
+  display: block;
+  margin: 60rpx auto;
+}
+.tr > .td2{
+  background: #f9feff;
+}
+.journalimg {
+  width: 90%;
+  height: 140rpx;
+  margin: 20rpx 0;
+}
+
+
+/* model2 */
+.logmodel2 {
+  background: rgba(0, 0, 0, .5);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999999;
+}
+.model2con {
+  position: relative;
+  width: 88vw;
+  height: 80vh;
+  background: #fff;
+  border-radius: 10rpx;
+  box-shadow: 5rpx 5rpx 15rpx rgba(0, 0, 0, .2);
+  display: block;
+  margin: 6vh auto;
+  padding: 20rpx;
+  overflow-y: auto;
+}
+.model2con > .title {
+  font-weight: bold;
+  font-size: 34rpx;
+  color: #444;
+}
+.model2con > .logimg {
+  margin: 20rpx 0;
+}
+.model2con > .logimg > image {
+  width: 100%;
+  height: 400rpx;
+}
+.evaluationbox {
+  margin-top: 30rpx;
+}
+.evaluationbox > .label1 {
+  font-size: 32rpx;
+  color: #555;
+}
+.evaluationbox > .radio-group {
+  margin-top: 20rpx;
+}
+.evaluationbox > .radio-group > .radio {
+  font-size: 30rpx;
+  color: #666;
+  margin: 0 15rpx;
+}
+.evaluationbox > input {
+  border-radius: 20rpx;
+  border: 1rpx #dadadd solid;
+  padding: 20rpx;
+  width: 90%;
+  display: block;
+  margin: 20rpx auto;
+  font-size: 30rpx;
+  color: #666;
+  letter-spacing: 1rpx;
+}
+.model2con > .submitbtn {
+  width: 80%;
+  height: 90rpx;
+  background: #009688;
+  color: #fff;
+  font-size: 30rpx;
+  line-height: 90rpx;
+  text-align: center;
+  display: block;
+  margin: 20rpx auto;
+  border-radius: 15rpx;
+}
+
+
+/* 筛选按钮 */
+.screenbtn > picker {
+  position: relative;
+  border: 1rpx solid #e6e6e6;
+  border-radius: 10rpx;
+  display: flex;
+  width: 230rpx;
+  height: 90rpx;
+  margin: 10rpx 0 30rpx;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  color: #666;
+  padding: 0 20rpx;
+  letter-spacing: 2rpx;
+}
+.screenimg {
+  position: absolute;
+  right: 20rpx;
+  width: 36rpx;
+  height: 36rpx;
+  margin: 27rpx 0rpx;
+}

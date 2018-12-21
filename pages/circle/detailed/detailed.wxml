@@ -1,5 +1,6 @@
 <!--pages/detailed/detailed.wxml 评论详情-->
 <!-- 没有用户评价 -->
+<scroll-view  scroll-y style='height:{{h}}px;' scroll-with-animation="true" scroll-into-view="{{toViewRt}}">
 <view id="page">
     <view class='no' style='display:none;'>
         暂无用户评价哦~
@@ -23,8 +24,8 @@
                 </view>
 
                 <!-- img  -->
-                <view class='matter_img' wx:for="{{matter.img}}" wx:for-item="list" wx:key="id">
-                    <image src='{{list.img_url}}' bindtap='img' data-imgurl="{{list.img_url}}" data-imgurls="{{matter.img}}"></image>
+                <view class='' wx:for="{{matter.img}}" wx:for-item="list" wx:key="id">
+                    <image class="{{matter.img.length == 1?'matter_img2':'matter_img'}}" src='{{list.img_url}}' bindtap='img' data-imgurl="{{list.img_url}}" data-imgurls="{{matter.img}}" mode="{{matter.img.length == 1?'widthFix':''}}"></image>
                 </view>
                 <view class='address' wx:if="{{matter.circle_addresss != 0}}">{{matter.circle_addresss}}</view>
                 <view class='address' wx:else></view>
@@ -112,8 +113,21 @@
 
     <!-- 评论框 -->
     <view class="release">
-        <textarea class="text" placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" placeholder="{{textValue}}" bindinput='comment' value='{{addComment}}' bindblur='textFocus' focus='{{textFlag}}' bindconfirm='submit' data-id="{{matter.circle_id}}"></textarea>
+        <textarea class="text" placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" placeholder="{{textValue}}" bindinput='comment' value='{{addComment}}' bindblur='textFocus' focus='{{textFlag}}'
+            bindconfirm='submit' data-id="{{matter.circle_id}}"></textarea>
         <button class="submit" bindtap='submit' data-id="{{matter.circle_id}}">发送</button>
     </view>
 
 </view>
+
+
+<view class='model2'  bindtap='csole' wx:if="{{loginFlag}}">
+    <view class='box'>
+        <view class='title'>点击立即登录</view>
+        <button class='submit' open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+    </view>
+</view>
+
+<view class='anchor' id="t1" style='height:40px;display: hidden'></view>
+
+</scroll-view>

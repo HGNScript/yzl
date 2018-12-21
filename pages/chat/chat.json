@@ -2,5 +2,6 @@
     "usingComponents": {
         "refresh-view": "/components/RefreshView/refresh-view"
     },
+    "navigationBarTitleText": "聊吧",
     "backgroundTextStyle": "dark"
 }
