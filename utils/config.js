@@ -4,7 +4,7 @@ class Config {
 
     }
 }
-var flag = false    
+var flag = true    
 
 if(flag) {
     Config.restUrl = 'http://yzl.top/api/v1/'
