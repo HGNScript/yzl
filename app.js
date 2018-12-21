@@ -6,7 +6,7 @@ import {
     Login
 } from 'utils/login.js'
 
-var QQMapWX = require('/libs/qqmap-wx-jssdk.min.js');
+// var QQMapWX = require('/libs/qqmap-wx-jssdk.min.js');
 
 var amapFile = require('/libs/amap-wx.js');
 
@@ -29,8 +29,8 @@ App({
 
     },
 
-    //获取当前地址经纬度
-    getAddress(that, fn) {
+    //配置高德地图
+    getAddress(that, detailed, fn) {
         var appthis = this;
 
 
@@ -44,26 +44,28 @@ App({
             mask: true,
 
         })
-        appthis.setAddress(that, fn)
+        appthis.setAddress(that, detailed, fn, )
 
     },
 
-
     // 高德
-    setAddress(that, fn) {
+    setAddress(that, detailed, fn) {
 
         this.myAmapFun.getRegeo({
             success: function(e) {
-                var address = e[0].regeocodeData.formatted_address;
+                if (detailed) {
+                    var address = e[0].regeocodeData.formatted_address;
+                } else {
+                    var address = e[0].desc + "·" + e[0].regeocodeData.addressComponent.district + "·" + e[0].regeocodeData.addressComponent.city;
+                }
                 fn(address)
             },
-            
+
             fail: function(res) {
-                wx.showToast({
-                    title: '解析地址错误,请检查网络是否通畅',
-                    icon: 'loading',
-                    duration: 1000
-                });
+                wx.hideLoading()
+                fn(false)
+
+
             }
 
         })
@@ -123,13 +125,17 @@ App({
         })
     },
 
-    //这里是选取图片的方法
-    choose: function(that, fn) {
+    //选取图片的方法
+    choose: function(that, number, fn) {
+
+        if (!number) {
+            number = 3
+        }
 
         var appthis = this,
             imgpath = this.imgpath;
         wx.chooseImage({
-            count: 9 - imgpath.length, // 最多可以选择的图片张数，默认9
+            count: number - imgpath.length, // 最多可以选择的图片张数，默认9
             sizeType: ['compressed'], // original 原图，compressed 压缩图，默认二者都有
             sourceType: ['album', 'camera'], // album 从相册选图，camera 使用相机，默认二者都有
             success: function(res) {
@@ -145,6 +151,7 @@ App({
         })
 
     },
+    //上传图片
     uploadImg: function(data, that) {
         var appthis = this,
             i = data.i ? data.i : 0, //当前上传的哪张图片
@@ -258,6 +265,173 @@ App({
             }
         })
     },
+
+    //分享入口进来的需要检测是否登录
+    share: function(that, fn) {
+        var appthis = this
+
+        if (that.data.share) {
+            if (!appthis.user) {
+                that.setData({
+                    loginFlag: true
+                })
+
+                fn && fn(false)
+            } else {
+                fn && fn(true)
+            }
+        } else {
+            fn && fn(true)
+        }
+    },
+
+
+    //分享登录
+    shareLogin: function(that, e, callback) {
+        var appthis = this
+
+        var fn = null
+
+        wx.showLoading({
+            title: '请稍等',
+        })
+
+        if (e.detail.userInfo != null) {
+            that.setData({
+                userInfo: {
+                    imageUrl: e.detail.userInfo.avatarUrl,
+                    user_name: e.detail.userInfo.nickName,
+                    gender: e.detail.userInfo.gender,
+                }
+            })
+            appthis.login(that, function() {
+
+                if (that.data.user) {
+                    that.setData({
+                        loginFlag: false,
+                    })
+
+                    callback && callback()
+
+
+                } else {
+                    wx.showModal({
+                        content: '登录失败，请检查网络是否连接',
+                        showCancel: false,
+                    })
+                }
+            })
+        }
+    },
+
+    getH: function(that) {
+        wx.getSystemInfo({
+            success: (options) => {
+                var h = options.windowHeight;
+                that.setData({
+                    h: h
+                })
+            }
+        })
+    },
+
+    getW: function(that) {
+        wx.getSystemInfo({
+            success: (options) => {
+                var w = options.windowWidth;
+                that.setData({
+                    w: w
+                })
+            }
+        })
+    },
+
+
+    getWXACodeUnlimit: function(data, Callback) {
+
+        var parmes = {
+            url: '/bc/qrcode',
+            type: 'post',
+            data: data,
+            eCallback: function(res) {
+                Callback(base.imgUrl + res.data.tuiguangimg)
+            }
+        }
+        base.request(parmes)
+    },
+
+    // 实习教师tabbar跳转
+    tabbarsurveybtn: function() {
+        wx.redirectTo({
+            url: '/pages/sx_teacher/survey/survey',
+        })
+    },
+    tabbarclassbtn: function() {
+        wx.redirectTo({
+            url: '/pages/sx_teacher/class/class',
+        })
+    },
+    tabbarstudentbtn: function() {
+        wx.redirectTo({
+            url: '/pages/sx_teacher/student/student',
+        })
+    },
+    tabbarsigninbtn: function() {
+        wx.redirectTo({
+            url: '/pages/sx_teacher/signin/signin',
+        })
+    },
+
+
+    //实习请求
+    practiceRequest: function(parmes) {
+        var url = parmes.url
+
+        if (!parmes.type) {
+            parmes.type = 'GET'
+        }
+        var that = this
+
+        wx.showLoading({
+            title: '请稍等',
+            mask: true,
+        })
+
+        wx.request({
+            url: base.practiceApiUrl + url,
+            data: parmes.data,
+            method: parmes.type,
+            header: {
+                'content-type': 'application/json',
+            },
+
+            success: function(res) {
+                wx.hideLoading();
+                parmes.eCallback && parmes.eCallback(res.data)
+
+            },
+            fail: function(err) {
+                wx.hideLoading();
+                console.log(err)
+            },
+        })
+    },
+
+
+    showErrorModal: function (error) {
+        wx.showModal({
+            content: error.msg,
+            showCancel: false,
+        })
+    },
+
+    percentage: function(num, sum){
+        return (num / sum) * 100
+    }
+
+
+
+
 
 
 

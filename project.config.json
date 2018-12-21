@@ -13,7 +13,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.3.0",
 	"appid": "wx6b736d80a7c50cd0",
-	"projectname": "%E7%8C%BF%E5%91%A8%E7%8E%873.0",
+	"projectname": "%E7%8C%BF%E5%91%A8%E7%8E%876.0",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 28,
+			"current": 23,
 			"list": [
 				{
 					"id": -1,
@@ -177,10 +177,10 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 23,
 					"name": "跳蚤-详情",
 					"pathName": "pages/fleamarket/details/details",
-					"query": ""
+					"query": "id=68"
 				},
 				{
 					"id": -1,
@@ -210,6 +210,24 @@
 					"id": -1,
 					"name": "企业信息",
 					"pathName": "pages/enterprise/release/release",
+					"query": ""
+				},
+				{
+					"id": 29,
+					"name": "分享",
+					"pathName": "pages/circle/detailed/detailed",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "教师认证",
+					"pathName": "pages/teacher/home/home",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "跳蚤市场详情",
+					"pathName": "pages/fleamarket/details/details",
 					"query": ""
 				}
 			]

@@ -21,15 +21,33 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(option) {
+        var that = this
+        app.getW(this)
         this.refreshView = this.selectComponent("#refreshView")
 
-        if (app.user) {
-            this._loadData();
+        if (option.share) {
+            this.setData({
+                share: option.share
+            })
+            app.share(this, function(flag) {
+                if (flag) {
+                    that._loadData();
+                }
+
+            })
+        } else {
+            if (app.user) {
+                this._loadData();
+            }
         }
+
+
     },
 
     onShow: function() {
-        app.checkUser()
+        if (!this.data.share) {
+            app.checkUser()
+        }
     },
 
     //加载数据
@@ -58,42 +76,16 @@ Page({
             if (res.length > 0) {
 
                 if (that.data.page > 1) {
-                    if (data) {
-                        that.data.homeData.forEach(function(item, index) {
-                            if (item.recruit_id == data.recruit_id) {
-                                that.data.homeData[index] = data
-                                that.data.homeData[index].checked = true
-                                that.setData({
-                                    homeData: that.data.homeData
-                                })
-                            }
-                        })
 
-                    } else {
-                        var res = that.data.homeData.concat(res)
-                        that.setData({
-                            homeData: res
-                        })
-                    }
+                    var res = that.data.homeData.concat(res)
+                    that.setData({
+                        homeData: res
+                    })
                 } else {
-                    if (data) {
 
-                        that.data.homeData.forEach(function(item, index) {
-                            item.checked = true
-                            if (item.recruit_id == data.recruit_id) {
-                                that.data.homeData[index] = data
-                                that.data.homeData[index].checked = true
-                                
-                                that.setData({
-                                    homeData: that.data.homeData
-                                })
-                            }
-                        })
-                    } else {
-                        that.setData({
-                            homeData: res
-                        })
-                    }
+                    that.setData({
+                        homeData: res
+                    })
                 }
                 that.setonReachBottom(true)
 
@@ -223,7 +215,7 @@ Page({
     switchNav(event) {
         var cur = event.currentTarget.dataset.current;
         //每个tab选项宽度占1/5
-        var singleNavWidth = this.data.windowWidth / 5;
+        var singleNavWidth = this.data.w / 5;
         //tab选项居中                            
         this.setData({
             navScrollLeft: (cur - 2) * singleNavWidth
@@ -313,7 +305,31 @@ Page({
 
     //刷新
     changeData: function(data) {
-        this.loadHomeData(null, data)
+        var that = this
+        if (data) {
+            that.data.homeData.forEach(function(item, index) {
+                if (item.recruit_id == data.recruit_id) {
+
+                    var old = that.data.homeData[index]
+
+                    that.data.homeData[index] = data
+
+                    that.data.homeData[index].checked = old['checked']
+
+
+                    that.setData({
+                        homeData: that.data.homeData
+                    })
+                }
+            })
+
+        } else {
+            this.setData({
+                page: 1
+            })
+
+            this.loadHomeData()
+        }
 
     },
 
@@ -356,6 +372,18 @@ Page({
     },
 
     onShareAppMessage: function() {
+        return {
+            path: 'pages/enterprise/home/home?share=' + true,
+        }
+    },
+
+    //登录
+    getUserInfo: function(e) {
+        var that = this
+
+        app.shareLogin(this, e, function() {
+            that._loadData();
+        })
 
     },
 

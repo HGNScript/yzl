@@ -1,69 +1,69 @@
 <refresh-view id='refreshView' bind:onRefresh="onPullDownRefresh" bind:onPullState="_pullState" />
 
-<view bindtouchstart='handletouchstart' bindtouchmove='handletouchmove' bindtouchend='handletouchend' bindtouchcancel='handletouchcancel' id='j_page'>
+<scroll-view  scroll-y style='height:{{h}}px;' scroll-with-animation="true" scroll-into-view="{{toViewRt}}">
+    <view bindtouchstart='handletouchstart' bindtouchmove='handletouchmove' bindtouchend='handletouchend' bindtouchcancel='handletouchcancel' id='j_page'>
 
-<view class='title'>下拉重新进入聊天室</view>
+        <view class='title'>下拉重新进入聊天室</view>
 
 
-<!-- 头部 -->
-<view class='head'>
-    在线人数({{people}})
-</view>
-<view class='moment1' wx:if="{{outFlag}}">你已退出聊天室</view>
-
-<view wx:for="{{allContentList}}" wx:key="k">
-    <!-- 内容 -->
-    <!-- <view class='moment' wx:if="{{item.time}}">5:20</view> -->
-    <view class='moment1' wx:if="{{item.user_name && !item.user_id}}">{{item.user_name}}加入聊天室</view>
-
-    <view class='section-left' wx:if="{{item.user_id && item.user_id != user_id  && item.text}}">
-        <image src='{{item.imageUrl}}'></image>
-        <view class='leftText'>{{item.text}}</view>
-    </view>
-
-    <view class='section-left' wx:if="{{item.user_id && item.user_id != user_id && item.img}}" wx:for="{{item.img}}" wx:for-item="imgitem" wx:key="key">
-        <image src='{{item.imageUrl}}'></image>
-        <view class='left-img'>
-            <image src='{{imgitem.url}}' bindtap='img' data-imgurl="{{imgitem.url}}"></image>
+        <!-- 头部 -->
+        <view class='head'>
+            在线人数({{people}})
         </view>
-    </view>
+        <view class='moment1' wx:if="{{outFlag}}">你已退出聊天室</view>
 
-    <view class='section-right' wx:if="{{item.user_id == user_id && item.text}}">
-        <image src='{{item.imageUrl}}'></image>
-        <view class='rightText'>{{item.text}}</view>
-        <view class='xc'></view>    
-    </view>
+        <view wx:for="{{allContentList}}" wx:key="k">
+            <!-- 内容 -->
+            <!-- <view class='moment' wx:if="{{item.time}}">5:20</view> -->
+            <view class='moment1' wx:if="{{item.user_name && !item.user_id}}">{{item.user_name}}加入聊天室</view>
 
-    <view class='box'>
-        <view class='section-right' wx:for="{{item.img}}" wx:for-item="imgitem" wx:key="key" wx:if="{{item.user_id && item.user_id == user_id && item.img}}">
-            <image src='{{item.imageUrl}}'></image>
-            <view class='right-img'>
-                <image src='{{imgitem.url}}' bindtap='img' data-imgurl="{{imgitem.url}}"></image>
+            <view class='section-left' wx:if="{{item.user_id && item.user_id != user_id  && item.text}}">
+                <image src='{{item.imageUrl}}'></image>
+                <view class='leftText'>{{item.text}}</view>
             </view>
-                <view class='xc'></view>    
+
+            <view class='section-left' wx:if="{{item.user_id && item.user_id != user_id && item.img}}" wx:for="{{item.img}}" wx:for-item="imgitem" wx:key="key">
+                <image src='{{item.imageUrl}}'></image>
+                <view class='left-img'>
+                    <image src='{{imgitem.url}}' mode='widthFix' bindtap='img' data-imgurl="{{imgitem.url}}"></image>
+                </view>
+            </view>
+
+            <view class='section-right' wx:if="{{item.user_id == user_id && item.text}}">
+                <image src='{{item.imageUrl}}'></image>
+                <view class='rightText'>{{item.text}}</view>
+                <view class='xc'></view>
+            </view>
+
+            <view class='box'>
+                <view class='section-right' wx:for="{{item.img}}" wx:for-item="imgitem" wx:key="key" wx:if="{{item.user_id && item.user_id == user_id && item.img}}">
+                    <image src='{{item.imageUrl}}'></image>
+                    <view class='right-img'>
+                        <image src='{{imgitem.url}}' mode='widthFix' bindtap='img' data-imgurl="{{imgitem.url}}"></image>
+                    </view>
+                    <view class='xc'></view>
+
+                </view>
+            </view>
+
+            
 
         </view>
     </view>
 
+<view class='anchor' id="t1" style='height:40px;display: hidden'></view>
 
-    
-</view>
-
-
+</scroll-view>
 
 
-
-
-
-</view>
 
 <!-- 底部 -->
-<view class='foot'  id='foot'>
+<view class='foot' id='foot'>
     <view class='foot-left' bindtap='upimg'>
         <image src='../../image/plus.png'></image>
     </view>
     <view class='foot-middle'>
-        <input type='text' class='txt' bindinput="bindKeyInput" value='{{inputValue}}' />
+        <input type='text' class='txt' bindinput="bindKeyInput" value='{{inputValue}}' bindconfirm="submitTo" />
     </view>
     <button class='foot-right' bindtap="submitTo">发送</button>
 

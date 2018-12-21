@@ -3,110 +3,123 @@
 
 <view bindtouchstart='handletouchstart' bindtouchmove='handletouchmove' bindtouchend='handletouchend' bindtouchcancel='handletouchcancel'>
 
-<!--导航条-->
-<view class="navbar">
-    <scroll-view scroll-x="true" class="nav" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+    <!--导航条-->
+    <view class="navbar">
+        <scroll-view scroll-x="true" class="nav" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
 
-        <block wx:for="{{navData}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
-            <view class="nav-item {{currentTab == idx ?'active':''}}" data-current="{{idx}}" bindtap="switchNav" data-cateid="{{navItem.fleamarketCate_id}}">{{navItem.fleamarketCate_name}}</view>
-        </block>
-    </scroll-view>
-    <view class='search_icon' bindtap='bind_market_search'>
-        <image src="/image/icon/flea/search.png"></image>
+            <block wx:for="{{navData}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
+                <view class="nav-item {{currentTab == idx ?'active':''}}" data-current="{{idx}}" bindtap="switchNav" data-cateid="{{navItem.fleamarketCate_id}}">{{navItem.fleamarketCate_name}}</view>
+            </block>
+        </scroll-view>
+        <view class='search_icon' bindtap='bind_market_search'>
+            <image src="/image/icon/flea/search.png"></image>
+        </view>
     </view>
-</view>
 
-<!--全部-->
-<view class="box" wx:for="{{matter}}" wx:key="k">
-    <view class="block">
-        <image src="{{item.user.company['company_state'] == 2?item.user.company.company_logo:item.user.imageUrl}}" data-id="{{item.user.id}}" bindtap='userimg'></image>
-        <view class="block_content" >
+    <!--全部-->
+    <view class="box" wx:for="{{matter}}" wx:key="k">
+        <view class="block">
+            <image src="{{item.user.company['company_state'] == 2?item.user.company.company_logo:item.user.imageUrl}}" data-id="{{item.user.id}}" bindtap='userimg'></image>
+            <view class="block_content">
+
+                <view class="details">
+                    <view class="details_things">{{item.fleamarket_title}}</view>
+
+                    <view class="details_name">{{item.user.company['company_state'] == 2?item.user.company.company_name:item.user.user_name}}
+                        <image wx:if="{{item.user.gender == '男'}}" src='/image/icon/circle/nan.png'></image>
+                        <image wx:elif="{{item.user.gender == '女'}}" src='/image/icon/circle/nv.png'></image>
+                    </view>
+
+
+                    <view class="{{item.checked?'checked_none':'checked_show'}}" bindtap='detailed' data-id="{{item.fleamarket_id}}">
+                        <view class='details_content'>{{item.fleamarket_content}}</view>
+                    </view>
+
+
+                    <!-- 按钮 -->
+                    <view class='check'>
+                        <view class='text' wx:if="{{item.checked && item.checkedFlag}}" bindtap='check' data-index='{{index}}'>全部</view>
+                        <view class='text' wx:if="{{!item.checked}}" bindtap='check' data-index='{{index}}'>收起</view>
+                    </view>
+
+                    <view class="details_img" wx:for="{{item.img}}" wx:for-item="list" wx:key="id">
+                        <image class="{{item.img.length == 1?'image2':'image'}}" src="{{list.img_url}}" bindtap='img' data-imgurl="{{list.img_url}}" data-imgurls="{{item.img}}" mode="{{item.img.length == 1?'widthFix':''}}"></image>
+                    </view>
+
+
+                    <view class='remove'></view>
+                    <view class='add_all'>
+                        <view class='time'>{{item.create_time}}</view>
+                        <view class='add' wx:if="{{item.fleamarket_address != 0}}">{{item.fleamarket_address}}</view>
+                    </view>
+
+
+                    <view class="price">
+                        <view class='to_price'>￥{{item.fleamarket_price}}</view>
+                        <view class='original_price' wx:if="{{item.fleamarket_costprice}}">￥{{item.fleamarket_costprice}}</view>
+                    </view>
+
+                </view>
+            </view>
+
+        </view>
+        <view class="details_like">
+            <text class="details_like_text">浏览量：{{item.fleamarket_flow}}</text>
+            <view class='asd'>
+                <view class='asd_box'>
+                    <block wx:if="{{item.goodFlag}}">
+                        <image src='/image/icon/circle/zan2.png' bindtap='good' data-index="{{index}}"></image>
+                        <view class='num'>{{item.fleamarket_good}}</view>
+                    </block>
+
+                    <block wx:else>
+                        <image src='/image/icon/circle/zan1.png' bindtap='good' data-index="{{index}}"></image>
+                        <view class='num'>{{item.fleamarket_good}}</view>
+                    </block>
+
+                </view>
+                <view class='asd_box2' wx:if="{{item.collectFlag}}" bindtap='coller' data-index="{{index}}">
+                    <image class='sc' src="/image/icon/circle/sc2.png"></image>
+                </view>
+
+                <view class='asd_box2' wx:else bindtap='coller' data-index="{{index}}">
+                    <image class='sc' src="/image/icon/circle/sc1.png"></image>
+                </view>
+
             
-            <view class="details">
-                <view class="details_things">{{item.fleamarket_title}}</view>
-                
-                <view class="details_name">{{item.user.company['company_state'] == 2?item.user.company.company_name:item.user.user_name}}
-                    <image wx:if="{{item.user.gender == '男'}}" src='/image/icon/circle/nan.png'></image>
-                    <image wx:elif="{{item.user.gender == '女'}}" src='/image/icon/circle/nv.png'></image>
-                </view>
-
-
-                <view class="{{item.checked?'checked_none':'checked_show'}}" bindtap='detailed' data-id="{{item.fleamarket_id}}">
-                    <view class='details_content'>{{item.fleamarket_content}}</view>
-                </view>
-
-
-                <!-- 按钮 -->
-                <view class='check'>
-                    <view class='text' wx:if="{{item.checked && item.checkedFlag}}" bindtap='check' data-index='{{index}}'>全部</view>
-                    <view class='text' wx:if="{{!item.checked}}" bindtap='check' data-index='{{index}}'>收起</view>
-                </view>
-
-                <view class="details_img" wx:for="{{item.img}}" wx:for-item="list" wx:key="id">
-                    <image class='image' src="{{list.img_url}}" bindtap='img' data-imgurl="{{list.img_url}}" data-imgurls="{{item.img}}"></image>
-                </view>
-
-
-                <view class='remove'></view>
-                <view class='add_all'>
-                    <view class='time'>{{item.create_time}}</view>
-                    <view class='add' wx:if="{{item.fleamarket_address != 0}}">{{item.fleamarket_address}}</view>
-                </view>
-
-
-                <view class="price">
-                    <view class='to_price'>￥{{item.fleamarket_price}}</view>
-                    <view class='original_price' wx:if="{{item.fleamarket_costprice}}">￥{{item.fleamarket_costprice}}</view>
-                </view>
 
             </view>
         </view>
-        
+
+         <block wx:if="{{ (((index+1)/5)%1) === 0 }}">
+                <ad unit-id="adunit-c4842e001b737015"></ad>
+            </block>
+
+
     </view>
-    <view class="details_like">
-        <text class="details_like_text">浏览量：{{item.fleamarket_flow}}</text>
-        <view class='asd'>
-            <view class='asd_box'>
-                <block wx:if="{{item.goodFlag}}">
-                <image src='/image/icon/circle/zan2.png'  bindtap='good' data-index="{{index}}"></image>
-                <view class='num'>{{item.fleamarket_good}}</view>
-                </block>
-
-                <block wx:else>
-                <image src='/image/icon/circle/zan1.png' bindtap='good' data-index="{{index}}"></image>
-                <view class='num'>{{item.fleamarket_good}}</view>
-                </block>
-                
-            </view>
-            <view class='asd_box2' wx:if="{{item.collectFlag}}" bindtap='coller' data-index="{{index}}">
-                <image class='sc' src="/image/icon/circle/sc2.png"></image>
-            </view>
-
-            <view class='asd_box2' wx:else bindtap='coller' data-index="{{index}}">
-                <image class='sc' src="/image/icon/circle/sc1.png"></image>
-            </view>
-
-        </view>
-    </view>
-
-    
-</view>
-<view class='bottom' wx:if="{{matter.length}}">
+    <view class='bottom' wx:if="{{matter.length}}">
         <text>数据加载完毕~</text>
+    </view>
+
+
+    <view class='none' wx:if="{{!matter.length}}">
+        <image src='/image/null.png'></image>
+        <text>暂时找不到数据</text>
+    </view>
+
+    <!-- </view> -->
+
+    <!-- 添加发布 -->
+    <view class='append' bindtap='append'>
+        <image src='/image/icon/flea/jia.png'></image>
+    </view>
+
+
 </view>
 
-
-<view class='none' wx:if="{{!matter.length}}">
-    <image src='/image/null.png'></image>
-    <text>暂时找不到数据</text>
-</view>
-
-<!-- </view> -->
-
-<!-- 添加发布 -->
-<view class='append' bindtap='append'>
-    <image src='/image/icon/flea/jia.png'></image>
-</view>
-
-
+<view class='model2' bindtap='csole' wx:if="{{loginFlag}}">
+    <view class='box'>
+        <view class='title'>点击立即登录</view>
+        <button class='submit' open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+    </view>
 </view>

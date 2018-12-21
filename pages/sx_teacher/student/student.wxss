@@ -1,0 +1,238 @@
+/* pages/sx_teacher/student/student.wxss */
+page {
+  font-family: '微软雅黑';
+  padding-bottom: 130rpx;
+}
+.header {
+  display: flex;
+  height: 100rpx;
+  background: #f9f9f9;
+  border-bottom: 1px #f2f2f2 solid;
+}
+.pickerbox {
+  width: 42%;
+  padding: 0 10rpx;
+  display: flex;
+}
+.pickerbox2 {
+  width: calc(100% - 40rpx);
+}
+.pickerbox > .pickerimg {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 35rpx 10rpx;
+}
+.pickertext {
+  font-size: 30rpx;
+  color: #666;
+  line-height: 100rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.search {
+  width: 58%;
+  display: flex;
+  background: #fff;
+}
+.search > .input1 {
+  width: 77%;
+  font-size: 28rpx;
+  color: #666;
+  height: 70rpx;
+  margin: 15rpx 0;
+  padding: 0 10rpx;
+}
+.placeholder {
+  font-size: 28rpx;
+  color: #666;
+}
+.search > .seaimgbox {
+  width: 23%;
+  background: #009688;
+}
+.search > .seaimgbox > .searchimg {
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  margin: 30rpx auto;
+}
+
+/* 。内容 */
+.content {
+  padding: 30rpx 20rpx;
+}
+.content > .title {
+  font-size: 36rpx;
+  color: #666;
+  letter-spacing: 3rpx;
+  line-height: 3;
+}
+/* tabel */
+/* .tabel {
+  width: 100%;
+}
+.th {
+  white-space: nowrap;
+  margin-bottom: 4px;
+}
+.th > .thbox {
+  display: inline-block;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 20rpx;
+  background: #f2f6fc;
+  font-size: 34rpx;
+  color: #9b9b9e;
+  letter-spacing: 2rpx;
+  border-top: 1px #dadadd solid;
+  border-bottom: 1px #dadadd solid;
+  border-right: 1px #dadadd solid;
+}
+.th > .thbox:first-child, 
+.tr > .td:first-child {
+  border-left: 1px #dadadd solid;
+  margin-left:1px;
+}
+.tr {
+  position: relative;
+  white-space: nowrap;
+  margin-top: -4px;
+}
+.tr > .td {
+  position: relative;
+  display: inline-block;
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #666;
+  padding-left: 20rpx;
+  letter-spacing: 2rpx;
+  border-right: 1px #dadadd solid;
+  border-bottom: 1px #dadadd solid;
+  background: #fff;
+}
+.tr > .td > .text, 
+.tr > .td2 > .text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #666;
+}
+.tr > .td > .text > .yestext {
+  background: #009688;
+  color: #fff;
+  padding: 3rpx 10rpx;
+  border-radius: 15rpx;
+}
+.tr > .td > .text > .notext {
+  background: #FF5722;
+  color: #fff;
+  padding: 3rpx 10rpx;
+  border-radius: 15rpx;
+}
+.tr > .td2 {
+  background: #f9feff;
+} */
+
+
+.tabel {
+  /* white-space: nowrap; */
+  display: flex;
+}
+.studentname {
+  z-index: 999;
+}
+.studentname > .title {
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 20rpx;
+  background: #f2f6fc;
+  font-size: 34rpx;
+  color: #9b9b9e;
+  letter-spacing: 2rpx;
+  border: 1rpx #dadadd solid;
+}
+.studentname > .list {
+  position: relative;
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #666;
+  padding-left: 20rpx;
+  letter-spacing: 2rpx;
+  border-left: 1px #dadadd solid;
+  border-right: 1px #dadadd solid;
+  border-bottom: 1px #dadadd solid;
+  background: #fff;
+}
+.studentname > .list2 {
+  background: #f9feff;
+}
+.studentslide {
+  width:calc(100% - 150rpx);
+  overflow-x: auto;
+  margin-left: -4rpx;
+}
+.th {
+  white-space: nowrap;
+  margin-bottom: 4px;
+}
+.th > .thbox {
+  display: inline-block;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 20rpx;
+  background: #f2f6fc;
+  font-size: 34rpx;
+  color: #9b9b9e;
+  letter-spacing: 2rpx;
+  border-top: 1px #dadadd solid;
+  border-right: 1px #dadadd solid;
+  border-bottom: 1px #dadadd solid;
+}
+.th > .thbox:first-child, 
+.tr > .td:first-child {
+  border-left: 1px #dadadd solid;
+  margin-left:1px;
+}
+.tr {
+  position: relative;
+  white-space: nowrap;
+  margin-top: -4px;
+}
+.tr > .td {
+  position: relative;
+  display: inline-block;
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #666;
+  padding-left: 20rpx;
+  letter-spacing: 2rpx;
+  border-right: 1px #dadadd solid;
+  border-bottom: 1px #dadadd solid;
+  background: #fff;
+}
+.tr > .td > .text, 
+.tr > .td2 > .text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #666;
+}
+.tr > .td > .text > .yestext {
+  background: #009688;
+  color: #fff;
+  padding: 3rpx 10rpx;
+  border-radius: 15rpx;
+}
+.tr > .td > .text > .notext {
+  background: #FF5722;
+  color: #fff;
+  padding: 3rpx 10rpx;
+  border-radius: 15rpx;
+}
+.tr > .td2 {
+  background: #f9feff;
+}

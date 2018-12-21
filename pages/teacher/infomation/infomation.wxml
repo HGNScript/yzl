@@ -1,0 +1,19 @@
+<!--pages/student/information/information.wxml-->
+<view class='box'>
+  <view class='content'>
+    <image src='/image/icon/teacher/teacher.png'></image>
+    <view class='name'>{{tchData.tch_name}}</view>
+  </view>
+   <view class='content'>
+    <image src='/image/icon/teacher/gh.png'></image>
+    <view class='name'>{{tchData.tch_numBer}}</view>
+  </view>
+   <view class='content'>
+    <image src='/image/icon/teacher/phone.png'></image>
+    <view class='name'>{{tchData.tch_phone}}</view>
+  </view>
+   <view class='content'>
+    <image src='/image/icon/teacher/lx.png'></image>
+    <view class='name'>实习老师</view>
+  </view>
+</view>

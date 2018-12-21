@@ -109,3 +109,17 @@
 <template is="footer"></template>
 
 </view>
+
+<view class='model2' wx:if="{{loginFlag}}">
+    <view class='box'>
+        <view class='title'>点击立即登录</view>
+        <button class='submit' open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+    </view>
+</view>
+
+<view class='model2'  bindtap='csole' wx:if="{{authority}}">
+    <view class='box'>
+        <view class='title'>授权失败</view>
+        <button class='submit' open-type="openSetting" bindopensetting='handler'>点击重新授权</button>
+    </view>
+</view>

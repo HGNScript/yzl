@@ -23,6 +23,7 @@ Page({
         where: '',
         pStart: 1,
         limit: 5,
+        loginFlag: false
 
     },
     // 发布帖子
@@ -85,7 +86,9 @@ Page({
     },
 
     onShow: function() {
+
         this.checkUser()
+
     },
 
     //查看是否登录，登录身份是学生还是游客
@@ -95,8 +98,36 @@ Page({
 
     //刷新
     changeData: function(data) {
-        this.getCircle(this.data.where, this.data.pStart, this.data.limit, null, data)
+        var that = this
 
+        if (data) {
+
+            that.data.matter.forEach(function(item, index) {
+                if (item.circle_id == data.circle_id) {
+                    var old = that.data.matter[index]
+
+                    that.data.matter[index] = data
+
+                    that.data.matter[index].checked = old['checked']
+
+                    that.data.matter[index].checkedFlag = old['checkedFlag']
+
+
+                    that.setData({
+                        matter: that.data.matter
+                    })
+                }
+            })
+
+
+
+        } else {
+            this.setData({
+                pStart: 1,
+                limit: 5,
+            })
+            that.onLoad()
+        }
     },
 
     // 收起||全部
@@ -136,43 +167,14 @@ Page({
             home.getCircle(url, function(res) {
                 if (res.length > 0) {
                     if (that.data.pStart > 1) {
-
-                        if (data) {
-
-                            that.data.matter.forEach(function(item, index) {
-                                if (item.circle_id == data.circle_id) {
-                                    that.data.matter[index] = data
-                                    that.setData({
-                                        matter: that.data.matter
-                                    })
-                                }
-                            })
-
-
-
-                        } else {
-                            res = that.data.matter.concat(res)
-                            that.setData({
-                                matter: res
-                            })
-                        }
-
+                        res = that.data.matter.concat(res)
+                        that.setData({
+                            matter: res
+                        })
                     } else {
-                        if (data) {
-
-                            that.data.matter.forEach(function(item, index) {
-                                if (item.circle_id == data.circle_id) {
-                                    that.data.matter[index] = data
-                                    that.setData({
-                                        matter: that.data.matter
-                                    })
-                                }
-                            })
-                        } else {
-                            that.setData({
-                                matter: res
-                            })
-                        }
+                        that.setData({
+                            matter: res
+                        })
                     }
 
                 } else {
@@ -305,6 +307,8 @@ Page({
         this.setonReachBottom(true)
 
     },
+
+    //分享
     onShareAppMessage: function() {
         return {
             title: '猿周率',

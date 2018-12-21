@@ -1,6 +1,9 @@
 <!--pages/questionnaire/answer/answer.wxml 答卷-->
 <view class='header'>
-    <view class='title'>{{book_name}}</view>
+    <view class='title'>
+    {{book_name}} 
+    <view bindtap='share' class='share'>分享</view>
+    </view>
     <view class='details'>
         <view class='name'>发起人：{{launch_name}}</view>
         <view class='day'>发起日期：{{create_time}}</view>
@@ -60,3 +63,30 @@
     <!-- 提交按钮 -->
     <button class='btn' bindtap='submit' wx:if="{{flag === 'true'}}">提交</button>
 </view>
+
+<view class='model2'  bindtap='csole' wx:if="{{loginFlag}}">
+    <view class='box'>
+        <view class='title'>点击立即登录</view>
+        <button class='submit' open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+    </view>
+</view>
+
+<block wx:if="{{saveFrameFlag}}">
+   <cover-view class="middle-flex-column-center middle-box1">
+      <cover-view class="middle-flex-column-center middle-box2">
+         <cover-view style="width:400rpx;height:650rpx;">
+            <cover-image style="width:100%;height:100%;" src="{{shengchengUrl}}"></cover-image>
+         </cover-view>
+         <cover-view class='middle-tis'>保存后分享到朋友圈</cover-view>
+         <cover-view style="width:600rpx;height:100rpx;" class="middle-flex-row-center">
+            <button class='sharebtn' bindtap='closeSaveFrame'>关闭</button>
+            <button class='sharebtn' bindtap='saveImage'>保存图片</button>
+         </cover-view>
+      </cover-view>
+   </cover-view>
+</block>
+
+
+<block wx:if="{{showCanvasFlag}}">
+   <canvas canvas-id="shareCanvas" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;border:1px dashed black;"></canvas>
+</block>

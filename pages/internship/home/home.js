@@ -13,7 +13,8 @@ Page({
             stu_id: null,
             logstype: null,
         },
-        collected: true
+        collected: true,
+        authority: false,
 
     },
 
@@ -25,36 +26,63 @@ Page({
                 headData: app.headData
             })
         }
-
-        app.checkUser(function() {
-            if (app.user.stu_id == 0 || app.user.student.stu_type != 2) {
-                wx.showModal({
-                    title: '提示',
-                    showCancel: false, //是否显示取消按钮
-                    content: '此功能暂对广州城建技工学校实习生开放！请前往个人中心进行学生认证。',
-                    success: function(res) {
-                        if (res.confirm) {
-                            wx.switchTab({
-                                url: '/pages/personal/personal'
-                            })
+        if (!this.data.share) {
+            app.checkUser(function() {
+                if (app.user.stu_id == 0 || app.user.student.stu_type != 2) {
+                    wx.showModal({
+                        title: '提示',
+                        showCancel: false, //是否显示取消按钮
+                        content: '此功能暂对广州城建技工学校实习生开放！请前往个人中心进行学生认证。',
+                        success: function(res) {
+                            if (res.confirm) {
+                                wx.switchTab({
+                                    url: '/pages/personal/personal'
+                                })
+                            }
                         }
-                    }
-                })
+                    })
 
-            }
-                
-        });
-
+                }
+            });
+        }
     },
 
-    onLoad: function(){
+    onLoad: function(e) {
+        console.log(e)
+        var that = this
+        if (e.share) {
+            this.setData({
+                share: e.share
+            })
+            app.share(this, function(flag) {
+                if (flag) {
+                    if (app.user.stu_id == 0 || app.user.student.stu_type != 2) {
+                        wx.showModal({
+                            title: '提示',
+                            showCancel: false, //是否显示取消按钮
+                            content: '此功能暂对广州城建技工学校实习生开放！请前往个人中心进行学生认证。',
+                            success: function(res) {
+                                if (res.confirm) {
+                                    wx.switchTab({
+                                        url: '/pages/personal/personal'
+                                    })
+                                }
+                            }
+                        })
 
-        if (app.user.stu_id != 0 && app.user.student.stu_type == 2) {
-            var stunum = app.user.student.stu_number;
-            this._loadData(stunum);
+                    } else {
+                        var stunum = app.user.student.stu_number;
+                        that._loadData(stunum);
+                    }
+                }
+
+            })
+        } else {
+            if (app.user && app.user.stu_id != 0 && app.user.student.stu_type == 2) {
+                var stunum = app.user.student.stu_number;
+                this._loadData(stunum);
+            }
         }
-       
-       
     },
 
     //加载页面数据
@@ -90,9 +118,14 @@ Page({
 
         //日志消息提示
         home.logsType(stunum, (data) => {
-            if (data != null) {
+            if (data.length != 0) {
                 that.data.headData['logstype'] = 0
-                that.data.headData['logs_id'] = data.logs_id
+                var arr = {}
+                data.forEach(function(item, index) {
+                    arr[index] = item.logs_id
+                })
+
+                that.data.headData['logs_id'] = JSON.stringify(arr)
             } else {
                 that.data.headData['logstype'] = 1
             }
@@ -135,7 +168,7 @@ Page({
         })
     },
 
-    focus: function(){
+    focus: function() {
         this.data.headData['open'] = false;
         this.setData({
             headData: this.data.headData
@@ -150,50 +183,58 @@ Page({
             headData: that.data.headData
         })
         var id = e.currentTarget.dataset.id;
-        app.getAddress(that, (res) => {
-            var param = {
-                url: 'internship/signIn',
-                type: 'POST',
-                data: {
-                    stu_id: id,
-                    address: res
-                },
-                eCallback: function(res) {
-                    if (res.valid) {
-                        wx.showToast({
-                            title: res.msg,
-                            icon: 'success',
-                            duration: 2000,
-                            success: function() {
-                                setTimeout(function() {
-                                    app.headData['open'] = false;
-                                    app.headData['sigintype'] = 1
-                                    that.setData({
-                                        headData: app.headData
-                                    })
-                                    that.onShow();
-                                }, 2000)
-                            }
-                        })
+        app.getAddress(that, true, (res) => {
 
-                    } else {
-                        wx.showModal({
-                            title: '提示',
-                            content: res.msg,
-                            showCancel: false,
-                        })
+            if (!res){
+                that.setData({
+                    authority: true,
+                })
+            } else {
+                var param = {
+                    url: 'internship/signIn',
+                    type: 'POST',
+                    data: {
+                        stu_id: id,
+                        address: res
+                    },
+                    eCallback: function (res) {
+                        if (res.valid) {
+                            wx.showToast({
+                                title: res.msg,
+                                icon: 'success',
+                                duration: 2000,
+                                success: function () {
+                                    setTimeout(function () {
+                                        app.headData['open'] = false;
+                                        app.headData['sigintype'] = 1
+                                        that.setData({
+                                            headData: app.headData
+                                        })
+                                        that.onShow();
+                                    }, 2000)
+                                }
+                            })
+
+                        } else {
+                            wx.showModal({
+                                title: '提示',
+                                content: res.msg,
+                                showCancel: false,
+                            })
+                        }
                     }
                 }
-            }
 
-            home.request(param);
+                home.request(param);
+            }
+            
         });
     },
     // 日志反馈
     feedback: function(e) {
         this.data.headData.open = false
         this.setData({
-          headData: this.data.headData
+            headData: this.data.headData
         })
         var id = e.currentTarget.dataset.id;
         wx: wx.navigateTo({
@@ -208,10 +249,10 @@ Page({
     },
     // 实习信息
     interninfo: function(e) {
-      this.data.headData.open = false
-      this.setData({
-        headData: this.data.headData
-      })
+        this.data.headData.open = false
+        this.setData({
+            headData: this.data.headData
+        })
         var id = e.currentTarget.dataset.id;
         wx.navigateTo({
             url: '/pages/internship/interninfo/interninfo?id=' + id,
@@ -219,10 +260,10 @@ Page({
     },
     // 实习记录
     practicenote: function() {
-      this.data.headData.open = false
-      this.setData({
-        headData: this.data.headData
-      })
+        this.data.headData.open = false
+        this.setData({
+            headData: this.data.headData
+        })
         var stu_id = this.data.headData.stu_id;
         wx.navigateTo({
             url: '/pages/internship/practicenote/practicenote?id=' + stu_id,
@@ -230,10 +271,10 @@ Page({
     },
     // 实习记录
     log: function(e) {
-      this.data.headData.open = false
-      this.setData({
-        headData: this.data.headData
-      })
+        this.data.headData.open = false
+        this.setData({
+            headData: this.data.headData
+        })
         var id = e.currentTarget.dataset.id;
         wx.navigateTo({
             url: '/pages/internship/log/log?id=' + id,
@@ -247,12 +288,49 @@ Page({
     },
 
     onShareAppMessage: function() {
-
+        return {
+            path: 'pages/internship/home/home?share=' + true,
+        }
     },
 
 
-    changeData: function () {
-        this.onLoad()
-    }
+    changeData: function() {
+        this.onLoad({"share": null})
+    },
+
+    //登录
+    getUserInfo: function(e) {
+        var that = this
+
+        app.shareLogin(this, e, function() {
+            if (app.user.stu_id == 0 || app.user.student.stu_type != 2) {
+                wx.showModal({
+                    title: '提示',
+                    showCancel: false, //是否显示取消按钮
+                    content: '此功能暂对广州城建技工学校实习生开放！请前往个人中心进行学生认证。',
+                    success: function (res) {
+                        if (res.confirm) {
+                            wx.switchTab({
+                                url: '/pages/personal/personal'
+                            })
+                        }
+                    }
+                })
+
+            } else {
+                var stunum = app.user.student.stu_number;
+
+                that._loadData(stunum);
+            }
+            
+        })
+
+    },
+
+    csole: function(){
+        this.setData({
+            authority: false
+        })
+    },
 
 })

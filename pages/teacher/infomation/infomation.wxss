@@ -1,0 +1,29 @@
+/* pages/student/information/information.wxss */
+.box {
+  border: 1px #d0d0d0 solid;
+  margin: 15rpx;
+  margin-top: 20rpx;
+  border-radius: 10rpx;
+  box-shadow: 0 0 15rpx rgba(0, 0, 0, .1);
+}
+.content {
+  display: flex;
+  height: 100rpx;
+  border-bottom: 1px #e5e5e5 solid;
+  padding: 0 20rpx;
+}
+.content:last-child {
+  border-bottom: 0;
+}
+.content > image {
+  width: 50rpx;
+  height: 50rpx;
+  margin: 25rpx 0rpx;
+}
+.content > .name {
+  font-size: 34rpx;
+  color: #999;
+  line-height: 100rpx;
+  letter-spacing: 2rpx;
+  margin-left: 20rpx;
+}

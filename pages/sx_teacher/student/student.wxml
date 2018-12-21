@@ -1,0 +1,130 @@
+<view class='header'>
+  <view class='pickerbox'>
+    <picker class='pickerbox2' bindchange='bindPickerChange' value="{{pickerindex}}" range="{{pickerarray}}">
+      <view class='pickertext'>{{pickerarray[pickerindex]}}</view>
+    </picker>
+    <image class='pickerimg' src='/image/icon/teacher/bottom.png'></image>
+  </view>
+  <view class='search'>
+    <input class='input1' type='text' placeholder='请输入搜索内容' placeholder-class='placeholder'></input>
+    <view class='seaimgbox'>
+      <image class='searchimg' src='/image/icon/teacher/search1.png'></image>
+    </view>
+  </view>
+</view>
+
+<view class='content'>
+  <view class='title'>学生信息</view>
+  <view class='tabel'>
+    <view class='studentname box150'>
+      <view class='title'>名称</view>
+      <view class="list {{index%2 == 1 ?'list2':''}}" wx:for="{{studentname}}" data-studentnameindex='{{index}}'>{{item}}</view>
+    </view>
+    <view class='studentslide '>
+      <view class='th'>
+        <view class="thbox box220">学号</view>
+        <view class='thbox box250'>联系电话</view>
+        <view class='thbox box160'>是否签到</view>
+        <view class='thbox box220'>是否填写日志</view>
+        <view class='thbox box160'>是否走访</view>
+        <view class='thbox box400'>实习单位名称</view>
+        <view class='thbox box400'>实习地点</view>
+      </view>
+      <view class="tr" wx:for="{{information}}" wx:key="id" data-information='{{index}}'>
+        <view class="td box220 {{index%2 == 1 ?'td2':''}}">
+          <view class='text'>{{item.studentid}}</view>
+        </view>
+        <view class="td box250 {{index%2 == 1 ?'td2':''}}">
+          <view class='text'>{{item.studentphone}}</view>
+        </view>
+        <view class="td box160 {{index%2 == 1 ?'td2':''}}">
+          <view class='text'>
+            <text class="{{item.signin == '是' ? 'yestext': 'notext'}}">{{item.signin}}</text>
+          </view>
+        </view>
+        <view class="td box220 {{index%2 == 1 ?'td2':''}}">
+          <view class='text'>
+            <text class="{{item.log == '是' ? 'yestext': 'notext'}}">{{item.log}}</text>
+          </view>
+        </view>
+        <view class="td box160 {{index%2 == 1 ?'td2':''}}">
+          <view class='text'>
+            <text class="{{item.visit == '是' ? 'yestext': 'notext'}}">{{item.visit}}</text>
+          </view>
+        </view>
+        <view class="td box400 {{index%2 == 1 ?'td2':''}}">
+          <view class='text'>{{item.unitname}}</view>
+        </view>
+        <view class="td box400 {{index%2 == 1 ?'td2':''}}">
+          <view class='text'>{{item.place}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- <scroll-view scroll-x class='tabel'>
+    <view class='th'>
+      <view class='thbox box150'>名称</view>
+      <view class="thbox box220">学号</view>
+      <view class='thbox box250'>联系电话</view>
+      <view class='thbox box160'>是否签到</view>
+      <view class='thbox box220'>是否填写日志</view>
+      <view class='thbox box160'>是否走访</view>
+      <view class='thbox box400'>实习单位名称</view>
+      <view class='thbox box400'>实习地点</view>
+    </view>
+    <view class="tr" wx:for="{{information}}" wx:key="id">
+      <view class="td td3 box150 {{index%2 == 1 ?'td2':''}}">
+        <view class='text'>{{item.studentname}}</view>
+      </view>
+        <view class="td box220 {{index%2 == 1 ?'td2':''}}">
+          <view class='text'>{{item.studentid}}</view>
+        </view>
+        <view class="td box250 {{index%2 == 1 ?'td2':''}}">
+          <view class='text'>{{item.studentphone}}</view>
+        </view>
+        <view class="td box160 {{index%2 == 1 ?'td2':''}}">
+          <view class='text'>
+            <text class="{{item.signin == '是' ? 'yestext': 'notext'}}">{{item.signin}}</text>
+          </view>
+        </view>
+        <view class="td box220 {{index%2 == 1 ?'td2':''}}">
+          <view class='text'>
+            <text class="{{item.log == '是' ? 'yestext': 'notext'}}">{{item.log}}</text>
+          </view>
+        </view>
+        <view class="td box160 {{index%2 == 1 ?'td2':''}}">
+          <view class='text'>
+            <text class="{{item.visit == '是' ? 'yestext': 'notext'}}">{{item.visit}}</text>
+          </view>
+        </view>
+        <view class="td box400 {{index%2 == 1 ?'td2':''}}">
+          <view class='text'>{{item.unitname}}</view>
+        </view>
+        <view class="td box400 {{index%2 == 1 ?'td2':''}}">
+          <view class='text'>{{item.place}}</view>
+        </view>
+      </view>
+  </scroll-view> -->
+</view>
+
+
+<!-- tabbar -->
+<cover-view class='tabbarbox'>
+  <cover-view class='tabbarbox2' bindtap='tabbarsurveybtn'>
+    <cover-image class='tabbarimage' src='/image/icon/teacher/tabbar/gk1.png'></cover-image>
+    <cover-view class='tabbartitle'>实习概况</cover-view>
+  </cover-view>
+  <cover-view class='tabbarbox2' bindtap='tabbarclassbtn'>
+    <cover-image class='tabbarimage' src='/image/icon/teacher/tabbar/class1.png'></cover-image>
+    <cover-view class='tabbartitle'>班级详情</cover-view>
+  </cover-view>
+  <cover-view class='tabbarbox2' bindtap='tabbarstudentbtn'>
+    <cover-image class='tabbarimage' src='/image/icon/teacher/tabbar/student2.png'></cover-image>
+    <cover-view class='tabbartitle tabbaractive'>学生信息</cover-view>
+  </cover-view>
+  <cover-view class='tabbarbox2' bindtap='tabbarsigninbtn'>
+    <cover-image class='tabbarimage' src='/image/icon/teacher/tabbar/qd1.png'></cover-image>
+    <cover-view class='tabbartitle'>签到日志</cover-view>
+  </cover-view>
+</cover-view>

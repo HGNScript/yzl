@@ -23,13 +23,13 @@
       <image class='right' src='/image/icon/flea/right.png'></image>
     </view>
   <!-- 专业 -->
-    <view class="options">
+    <!-- <view class="options">
       <input name="stu_major" type='text' class='input1' placeholder='请输入专业' placeholder-class='placeholder'></input>
-    </view>
+    </view> -->
   <!-- 班级 -->
-    <view class="options">
+    <!-- <view class="options">
       <input name="stu_class" type='text' class='input1' placeholder='请输入班级' placeholder-class='placeholder'></input>
-    </view>
+    </view> -->
   <!-- 学号 -->
   <view class="options">
     <input name="stu_number" type='number' class='input1' placeholder='请输入学号' placeholder-class='placeholder'></input>

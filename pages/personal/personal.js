@@ -22,14 +22,14 @@ Page({
                 list: '我的收藏',
             },
             {
-                url: '/pages/turntable/home/home',
-                imgurl: '/image/icon/personal/zp.png',
-                list: '命运转盘',
-            },
-            {
                 url: '/pages/resources/home/home',
                 imgurl: '/image/icon/personal/na.png',
                 list: '爱拿不拿',
+            },
+            {
+              url: '/pages/teacher/home/home',
+              imgurl: '/image/icon/personal/js.png',
+              list: '教师认证',
             },
             {
                 url: '/pages/student/certification/certification',
@@ -115,6 +115,15 @@ Page({
             if (app.user.student && (app.user.student.stu_type == 1 || app.user.student.stu_type == 2)) {
                 this.data.common1[4].url = '/pages/student/information/information'
                 this.data.common1[5].url = '/pages/student/information/information'
+
+                this.setData({
+                    common1: this.data.common1
+                })
+            }
+
+
+            if (app.user.tch_id) {
+                this.data.common1[3].url = '/pages/teacher/infomation/infomation'
 
                 this.setData({
                     common1: this.data.common1

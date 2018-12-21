@@ -92,17 +92,12 @@ var page = {
     onLoad: function(options) {
         var that = this
         this.zhuanpan = this.selectComponent("#zhuanpan");
-        
+
         if (options.id) {
             this.setData({
                 shareid: options.id
             })
-          
         }
-
-       
-        
-        
     },
 
     //点击切换转盘选项
@@ -111,7 +106,7 @@ var page = {
             idx = e.currentTarget.dataset.idx,
             xiaojuedingArr = that.data.xiaojuedingArr;
 
-           
+
         if (!that.data.zhuanflg) {
             for (let x in xiaojuedingArr) {
                 if (idx == x && xiaojuedingArr[x].option != that.data.awardsConfig.option) {
@@ -128,80 +123,71 @@ var page = {
 
     onShow: function(e) {
         var that = this
-
-        if (!app.user) {
-            app.login(that, function () {
-                that.init()
-            })
-        } else {
-            that.init()
-        }
+        that.init()
 
     },
 
     init: function() {
         var that = this
-        app.checkUser(function () {
-            home.getTop(function (res) {
+        home.getTop(function(res) {
 
-                if (res.length) {
-                    that.setData({
-                        xiaojuedingArr: res,
-                        all: res,
-                        awardsConfig: res[0]
+            if (res.length) {
+                that.setData({
+                    xiaojuedingArr: res,
+                    all: res,
+                    awardsConfig: res[0]
 
-                    })
+                })
 
-                    var xiaojuedingArr = that.data.xiaojuedingArr
+                var xiaojuedingArr = that.data.xiaojuedingArr
 
-                    that.setData({
-                        musicflg: !app.globalData.musicflg ? true : false,
-                        fastJuedin: app.globalData.juedin ? true : false,
-                        repeat: app.globalData.repeat ? true : false,
-                    })
+                that.setData({
+                    musicflg: !app.globalData.musicflg ? true : false,
+                    fastJuedin: app.globalData.juedin ? true : false,
+                    repeat: app.globalData.repeat ? true : false,
+                })
 
-                    if (!that.data.shareid) {
+                if (!that.data.shareid) {
 
-                        var redirectTo = wx.getStorageSync('redirectTo')
+                    var redirectTo = wx.getStorageSync('redirectTo')
 
-                        if (redirectTo) {
-                            that.setData({
-                                id: redirectTo['id']
-                            })
-                            that.zhuanpan.switchZhuanpan(redirectTo, true)
-
-                        } else {
-                            that.setData({
-                                id: xiaojuedingArr[0]['id']
-                            })
-                            that.zhuanpan.switchZhuanpan(xiaojuedingArr[0], true)
-
-                        }
-                    } else {
-                        home.getIdData(that.data.shareid, function (res) {
-                            that.setData({
-                                shareData: res
-                            })
-
-                            that.setData({
-                                id: that.data.shareid
-                            })
-                            that.zhuanpan.switchZhuanpan(that.data.shareData[0], true)
-
+                    if (redirectTo) {
+                        that.setData({
+                            id: redirectTo['id']
                         })
+                        that.zhuanpan.switchZhuanpan(redirectTo, true)
+
+                    } else {
+                        that.setData({
+                            id: xiaojuedingArr[0]['id']
+                        })
+                        that.zhuanpan.switchZhuanpan(xiaojuedingArr[0], true)
+
                     }
+                } else {
+                    home.getIdData(that.data.shareid, function(res) {
+                        that.setData({
+                            shareData: res
+                        })
 
-                    that.setData({
-                        zhuanflg: false
+                        that.setData({
+                            id: that.data.shareid
+                        })
+                        that.zhuanpan.switchZhuanpan(that.data.shareData[0], true)
+
                     })
-
-
                 }
 
-                wx.hideLoading();
+                that.setData({
+                    zhuanflg: false
+                })
 
 
-            })
+            }
+
+            wx.hideLoading();
+
+
         })
     },
 
@@ -295,7 +281,7 @@ var page = {
     },
 
     onShareAppMessage: function() {
-        home.flow(this.data.id, function () {
+        home.flow(this.data.id, function() {
 
         })
         let that = this;
@@ -390,6 +376,9 @@ var page = {
         })
     },
 
+
+    
+
     //数组随机取出一个数
     arrayRandomTakeOne: function(array) {
         var index = Math.floor((Math.random() * array.length + 1) - 1);
@@ -402,7 +391,7 @@ var page = {
         })
     },
 
-    changeData: function () {
+    changeData: function() {
         this.onShow()
     }
 

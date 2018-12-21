@@ -1,37 +1,161 @@
 /**app.wxss**/
+
 .container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  /* padding: 200rpx 0; */
-  box-sizing: border-box;
-} 
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* padding: 200rpx 0; */
+    box-sizing: border-box;
+}
 
 /* hr间隔 */
+
 .hr {
-  width: 100%;
-  height: 15rpx;
-  background-color: #f8f8f8;
-}
-.hr2 {
-  width: 100%;
-  height: 30rpx;
-  background-color: #f8f8f8;
-}
-.hr3 {
-  height: 60rpx;
-  width: 100%;
-  background: #f8f8f8;
-}
-.hr4 {
-  width: 100%;
-  height: 18rpx;
-  background-color: #f8f8f8;
+    width: 100%;
+    height: 15rpx;
+    background-color: #f8f8f8;
 }
 
+.hr2 {
+    width: 100%;
+    height: 30rpx;
+    background-color: #f8f8f8;
+}
+
+.hr3 {
+    height: 60rpx;
+    width: 100%;
+    background: #f8f8f8;
+}
+
+.hr4 {
+    width: 100%;
+    height: 18rpx;
+    background-color: #f8f8f8;
+}
+
+
 /* 消除浮动 */
+
 .remove {
-  clear: both;
+    clear: both;
+}
+
+.model2 {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    animation: myfirst 1.5s;
+    z-index: 1000;
+}
+
+/* @keyframes myfirst {
+from {
+opacity: 0;
+}
+
+to {
+opacity: 1;
+}
+} */
+
+.model2 .box {
+    background: #fff;
+    width: 70%;
+    height: 24vh;
+    border-radius: 10rpx;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    margin: auto;
+    box-shadow: 3rpx 3rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.model2 .box > .title {
+    text-align: center;
+    color: #666;
+    font-size: 34rpx;
+    line-height: 13vh;
+    letter-spacing: 2rpx;
+}
+
+.model2 .box > .submit {
+    width: 60%;
+    font-size: 32rpx;
+    background: #19b4ed;
+    padding: 0rpx 20rpx;
+    text-align: center;
+    color: #fff;
+    letter-spacing: 2rpx;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10rpx;
+}
+
+/* 实习教师端 */
+.jshr1 {
+  height: 15rpx;
+  background: #f8f8f8;
+}
+/* 柱状画布 */
+.canvas {
+  width: 100%;
+  height: 400rpx;
+}
+
+/* table */
+.box100 {width: 100rpx;}
+.box150 {width: 150rpx;}
+.box160 {width: 160rpx;}
+.box170 {width: 170rpx;}
+.box200 {width: 200rpx;}
+.box220 {width: 220rpx;}
+.box250 {width: 250rpx;}
+.box280 {width: 280rpx;}
+.box300 {width: 300rpx;}
+.box330 {width: 330rpx;}
+.box350 {width: 350rpx;}
+.box400 {width: 400rpx;}
+.box450 {width: 450rpx;}
+.box500 {width: 500rpx;}
+.box550 {width: 550rpx;}
+.box600 {width: 600rpx;}
+
+/* tabbar */
+.tabbarbox {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 110rpx;
+  border-top: 1rpx solid #f0f0f0;
+  display: flex;
+  background: #fff;
+  z-index: 9999;
+}
+.tabbarbox2 {
+  width: 25%;
+}
+.tabbarimage {
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  margin:  18rpx auto 0;
+}
+.tabbartitle {
+  text-align: center;
+  font-size: 22rpx;
+  color: #bfbfbf;
+  line-height: 1.8;
+}
+.tabbaractive {
+  color: #19b4ed;
 }

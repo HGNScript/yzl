@@ -26,6 +26,7 @@ Page({
         outFlag: false,
     },
     onLoad: function() {
+        app.getH(this)
         this.refreshView = this.selectComponent("#refreshView")
 
     },
@@ -81,14 +82,19 @@ Page({
                     that.setData({
                         allContentList: that.data.allContentList
                     })
-                    that.bottom()
+                    // that.bottom()
                 } else {
                     that.setData({
                         people: JSON.parse(onMessage['data'])
                     })
                 }
 
-                
+
+                that.setData({
+                    toViewRt: 't1'
+                })
+
+
             })
         })
 
@@ -120,6 +126,9 @@ Page({
 
     // 提交文字
     submitTo: function(e) {
+        this.setData({
+            toViewRt: null,
+        })
         let that = this;
         var data = {
             text: that.data.inputValue,
@@ -132,21 +141,25 @@ Page({
         if (socketOpen) {
             // 如果打开了socket就发送数据给服务器
 
-            if (that.data.inputValue){
+            if (that.data.inputValue) {
                 var parmes = {
                     url: 'bc/enation',
                     type: 'post',
                     data: {
                         str: that.data.inputValue
                     },
-                    eCallback: function (res) {
+                    eCallback: function(res) {
                         if (res['valid']) {
                             sendSocketMessage(data)
                             that.setData({
-                                inputValue: ''
+                                inputValue: '',
+                                toViewRt: 't1'
                             })
 
-                            that.bottom()
+                            that.setData({
+                                toViewRt: ''
+                            })
+                          
                         } else {
                             wx.showModal({
                                 title: '警告',
@@ -155,10 +168,10 @@ Page({
                         }
                     }
 
-                    
+
                 }
                 base.request(parmes)
-                
+
             } else {
                 wx.showModal({
                     title: '提示',
@@ -166,7 +179,7 @@ Page({
                     showCancel: false,
                 })
             }
-            
+
 
 
 
@@ -174,11 +187,11 @@ Page({
             wx.showModal({
                 title: '提示',
                 content: '你已退出聊天室，请在顶部下拉页面，重新进入聊天室',
-                showCancel: false,//是否显示取消按钮
-                success: function (res) {
-                   
+                showCancel: false, //是否显示取消按钮
+                success: function(res) {
+
                 },
-               
+
             })
         }
     },
@@ -188,17 +201,17 @@ Page({
         })
     },
 
-    onUnload: function() {
-        SocketTask.close(function(close) {
-            console.log('关闭 WebSocket 连接。', close)
-        })
-    },
+    // onUnload: function() {
+    //     SocketTask.close(function(close) {
+    //         console.log('关闭 WebSocket 连接。', close)
+    //     })
+    // },
 
     upimg: function() {
         var that = this;
         wx.chooseImage({
             count: 1,
-            sizeType: ['original', 'compressed'],
+            sizeType: ['compressed'],
             success: function(res) {
                 that.setData({
                     img: res.tempFilePaths
@@ -233,8 +246,6 @@ Page({
                 success++; //图片上传成功，图片上传成功的变量+1
                 that.data.imgurl.push(JSON.parse(res.data))
 
-                console.log(res.data)
-
                 that.setData({
                     imgurl: that.data.imgurl,
                 })
@@ -266,8 +277,9 @@ Page({
                                     imageUrl: app.user['imageUrl'],
                                 })
 
-                                that.bottom()
-                                
+                                that.setData({
+                                    toViewRt: 't1'
+                                })
 
                             } else {
                                 wx.showModal({
@@ -289,31 +301,6 @@ Page({
             }
 
         });
-    },
-
-    // 获取hei的id节点然后屏幕焦点调转到这个节点  
-    bottom: function() {
-        wx.getSystemInfo({
-            success: function(res) {
-
-                wx.createSelectorQuery().select('#j_page').boundingClientRect(function(rect) {
-
-                    if (rect.height > res.windowHeight - 100) {
-                        wx.pageScrollTo({
-                            scrollTop: rect.height
-                        })
-                    }
-
-                }).exec()
-
-
-            }
-
-
-
-        })
-
-
     },
 
     img: function(e) {
@@ -360,7 +347,7 @@ Page({
 
     },
 
-    onShareAppMessage: function () {
+    onShareAppMessage: function() {
         return {
             title: '猿周率',
             path: '/pages/chat/chat'

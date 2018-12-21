@@ -7,6 +7,7 @@ class Base {
         this.baseRequestUrl = Config.restUrl;
         this.imgUrl = Config.imgUrl;
         this.practiceUrl = Config.practiceUrl;
+        this.practiceApiUrl = Config.practiceApiUrl;
     }
 
     request(parmes) {

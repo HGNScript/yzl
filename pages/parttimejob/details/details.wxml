@@ -1,6 +1,7 @@
 <!--pages/parttimejob/details/details.wxml-->
 
 <view id="page">
+<scroll-view  scroll-y style='height:{{h}}px;' scroll-with-animation="true" scroll-into-view="{{toViewRt}}">
 <view class="box">
     <view class="block">
         <image class="block_content" src="{{jobData.user.company['company_state'] == 2?jobData.user.company.company_logo:jobData.user.imageUrl}}" bindtap='userimg' data-id="{{jobData.user.id}}"></image>
@@ -120,6 +121,10 @@
 
     </view>
 </view>
+<view class='anchor' id="t1" style='height:40px;display: hidden'></view>
+</scroll-view>
+
+
 
 <!-- 评论框 -->
 <view class="release">
@@ -128,3 +133,11 @@
 </view>
 
 </view>
+
+<view class='model2'  bindtap='csole' wx:if="{{loginFlag}}">
+    <view class='box'>
+        <view class='title'>点击立即登录</view>
+        <button class='submit' open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+    </view>
+</view>
+

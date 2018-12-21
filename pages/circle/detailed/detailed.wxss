@@ -3,6 +3,13 @@ page {
   padding-bottom: 100rpx;
 }
 
+/*隐藏滚动条*/
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
 
 /* 没有用户评价 */
 
@@ -87,10 +94,16 @@ page {
     margin: 30rpx 0 0;
 }
 
-.con > .matter > .matter_img > image {
+.matter_img {
     width: 31%;
     height: 200rpx;
     padding: 0 6rpx 10rpx;
+    float: left;
+}
+.matter_img2 {
+    width: 65%;
+    max-height: 400rpx;
+    padding: 0 3rpx 10rpx;
     float: left;
 }
 
@@ -336,3 +349,6 @@ page {
     font-size: 24rpx;
     background: #2196f3;
 }
+
+
+

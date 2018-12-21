@@ -8,12 +8,19 @@ var app = getApp()
 Page({
     data: {
         open: false,
-        logsData: null
+        logsData: null,
+        authority: false,
+        
     },
 
     onLoad: function(option) {
-        var logs_id = option.id;
-        this.getLogsData(logs_id);
+        console.log(option.id)
+        if (option.id != 'undefined'){
+            var logs_id = JSON.parse(option.id)
+            this.getLogsData(logs_id);
+            
+        }
+
         this.setData({
             headData: app.headData
         })
@@ -22,7 +29,9 @@ Page({
     getLogsData: function(logs_id) {
         var that = this;
         var params = {
-            url: 'internship/logsData/' + logs_id,
+            url: 'internship/logsData',
+            type: 'post',
+            data: { id: logs_id},
             eCallback: function(data) {
                 that.data.headData.logstype = 1
                 app.headData.logstype = 1
@@ -58,43 +67,50 @@ Page({
             headData: that.data.headData
         })
         var id = e.currentTarget.dataset.id;
-        app.getAddress(that, (res) => {
-            var param = {
-                url: 'internship/signIn',
-                type: 'POST',
-                data: {
-                    stu_id: id,
-                    address: res
-                },
-                eCallback: function(res) {
-                    if (res.valid) {
-                        app.headData['open'] = false;
-                        app.headData['sigintype'] = 1
-                        that.setData({
-                            headData: app.headData
-                        })
-                        wx.showToast({
-                            title: res.msg,
-                            icon: 'success',
-                            duration: 2000,
-                            success: function() {
-                                setTimeout(function() {
-                                    that.onShow();
-                                }, 2000)
-                            }
-                        })
+        app.getAddress(that, true, (res) => {
+            if (!res) {
+                that.setData({
+                    authority: true,
+                })
+            } else {
+                var param = {
+                    url: 'internship/signIn',
+                    type: 'POST',
+                    data: {
+                        stu_id: id,
+                        address: res
+                    },
+                    eCallback: function (res) {
+                        if (res.valid) {
+                            app.headData['open'] = false;
+                            app.headData['sigintype'] = 1
+                            that.setData({
+                                headData: app.headData
+                            })
+                            wx.showToast({
+                                title: res.msg,
+                                icon: 'success',
+                                duration: 2000,
+                                success: function () {
+                                    setTimeout(function () {
+                                        that.onShow();
+                                    }, 2000)
+                                }
+                            })
 
-                    } else {
-                        wx.showModal({
-                            title: '提示',
-                            content: res.msg,
-                            showCancel: false,
-                        })
+                        } else {
+                            wx.showModal({
+                                title: '提示',
+                                content: res.msg,
+                                showCancel: false,
+                            })
+                        }
                     }
                 }
-            }
 
-            home.request(param);
+                home.request(param);
+            }
+            
         });
     },
 
@@ -103,10 +119,6 @@ Page({
         this.data.headData.open = false
         this.setData({
             headData: this.data.headData
-        })
-        var id = e.currentTarget.dataset.id;
-        wx: wx.navigateTo({
-            url: '/pages/internship/logfeedback/logfeedback?id=' + id,
         })
     },
 
@@ -132,6 +144,12 @@ Page({
     return: function() {
         wx.navigateBack({
             delta: 1
+        })
+    },
+
+    csole: function () {
+        this.setData({
+            authority: false
         })
     },
 

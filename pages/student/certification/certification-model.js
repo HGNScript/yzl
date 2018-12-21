@@ -33,12 +33,12 @@ class Certification extends Base {
             stu_name: {
                 required: true,
             },
-            stu_major: {
-                required: true,
-            },
-            stu_class: {
-                required: true,
-            },
+            // stu_major: {
+            //     required: true,
+            // },
+            // stu_class: {
+            //     required: true,
+            // },
             stu_number: {
                 required: true,
             },
@@ -50,12 +50,12 @@ class Certification extends Base {
             stu_name: {
                 required: '请填写姓名',
             },
-            stu_major: {
-                required: '请填写专业',
-            },
-            stu_class: {
-                required: '请填写班级',
-            },
+            // stu_major: {
+            //     required: '请填写专业',
+            // },
+            // stu_class: {
+            //     required: '请填写班级',
+            // },
             stu_number: {
                 required: '请填写学号',
             },

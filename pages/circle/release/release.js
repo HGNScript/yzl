@@ -61,7 +61,8 @@ Page({
         },
 
         imgurl: [],
-        imgpath: []
+        imgpath: [],
+        authority: false,
 
     },
 
@@ -105,7 +106,7 @@ Page({
                 content: '只能上传三张图片',
             })
         } else {
-            app.choose(this, function(imgsrc) {
+            app.choose(this, 3,function(imgsrc) {
 
                 that.setData({
                     imgpath: imgsrc
@@ -162,20 +163,27 @@ Page({
     getAddress: function(e) {
 
         var that = this
-        this.data.addressFlag = !this.data.addressFlag
 
         this.setData({
-            addressFlag: this.data.addressFlag
+            addressFlag: !this.data.addressFlag
         })
 
         if (this.data.addressFlag) {
-            app.getAddress(this, function(res) {
-
+            app.getAddress(this, false,function(res) {
                 wx.hideLoading()
-                that.data.releaseData.circle.circle_addresss = res
-                that.setData({
-                    releaseData: that.data.releaseData
-                })
+                
+                if(!res){
+                    that.setData({
+                        authority: true,
+                        addressFlag: false
+                    })
+                    
+                } else {
+                    that.data.releaseData.circle.circle_addresss = res
+                    that.setData({
+                        releaseData: that.data.releaseData
+                    })
+                }
             })
         } else {
             that.data.releaseData.circle.circle_addresss = null
@@ -214,12 +222,14 @@ Page({
                     wx.showToast({
                         title: res['msg'],
                         icon: 'succes',
-                        duration: 1000,
+                        duration: 2000,
                         mask: true,
                         success: function(res) {
                             setTimeout(function() {
-                                that.changeParentData()
-                            }, 1000);
+                                app.changeParentData(function(){
+                                    wx.navigateBack({})
+                                })
+                            }, 2000)
                         },
                     })
                 } else {
@@ -238,23 +248,11 @@ Page({
 
     },
 
-    //刷新上一级页面数据
-    changeParentData: function() {
-
-        var pages = getCurrentPages(); //当前页面栈
-
-        if (pages.length > 1) {
-
-            var beforePage = pages[pages.length - 2]; //获取上一个页面实例对象
-
-            beforePage.changeData(); //触发父页面中的方法
-
-            wx.navigateBack({
-
-            })
-
-        }
-
+   
+    csole: function(){
+        this.setData({
+            authority: false
+        })
     }
 
 

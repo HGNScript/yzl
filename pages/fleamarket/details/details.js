@@ -68,21 +68,52 @@ Page({
     },
 
     onLoad: function(e, fn) {
+
         var that = this
 
-        app.checkUser(function () {
-            var id = e.id
+     
 
-            that.setData({
-                id: id
+        app.getH(this)
+        
+
+        var id = e.id
+
+        that.setData({
+            id: id
+        })
+
+        if (e.share) {
+            this.setData({
+                share: e.share
             })
 
-            that.setIncFlow(id)
+            app.share(this, function (flag){
+                if(flag){
+                    that.setIncFlow(id)
 
-            that.getComment(id, function () {
-                fn && fn()
+                    that.getComment(id, function () {
+                        fn && fn()
+                    })
+
+                   
+                       
+                }
             })
-        })        
+
+        } else {
+            app.checkUser(function () {
+
+                that.setIncFlow(id)
+
+                that.getComment(id, function () {
+                    fn && fn()
+                })
+
+
+               
+            })   
+        }
+             
     },
 
     //退出刷新
@@ -98,6 +129,46 @@ Page({
             that.setData({
                 matter: res
             })
+
+            wx.getImageInfo({
+                src: that.data.matter.img[0]['img_url'],
+                success: function (res) {
+
+
+                    // const canvas = wx.createCanvasContext('shareCanvas')
+                    // //设置填充颜色
+                    // canvas.fillStyle = "#fff"
+
+                    // //设置填充颜色
+                    // canvas.fillRect(0, 0, 260, 400);
+
+                    // // 画图
+                    // canvas.drawImage(res.path, 0, 100, 260, 260)
+                            
+                    // // 标题
+                    // canvas.setFillStyle('#000')
+                    // canvas.setFontSize(20) 
+                    // let title = that.data.matter.fleamarket_title
+                    // canvas.fillText(title, (260 - canvas.measureText(title).width) / 2, 45)
+
+                    // //价格
+                    // let price = '￥' + that.data.matter.fleamarket_price
+                    // canvas.setFontSize(16)        
+                    // canvas.fillText(price, (260 - canvas.measureText(price).width) / 2, 65)
+
+                    // //内容
+                    // let content = that.data.matter.fleamarket_content
+                    // canvas.setFontSize(16)        
+                    // canvas.fillText(content, (260 - canvas.measureText(content).width) / 2, 85)
+
+                    // canvas.drawImage(res.path, 0, 300, 260, 260)
+
+                    // canvas.stroke()
+                    // canvas.draw()
+
+                }
+            })
+
         })
     },
 
@@ -282,11 +353,9 @@ Page({
             if (res.comment_id) {
                 that.onLoad({id: that.data.id}, function(){
                     if (that.data.buttomFlag) {
-                        app.bottom(function () {
-                            that.setData({
-                                buttomFlag: false
-                            })
-                        })
+                       that.setData({
+                           toViewRt: 't1'
+                       })
                     }
                 })
             } else {
@@ -363,8 +432,26 @@ Page({
 
     onShareAppMessage: function () {
         return {
-            path: '/pages/fleamarket/details/details?id=' + this.data.id
+            title: this.data.matter['fleamarket_title'] + "   ￥" + this.data.matter['fleamarket_price'],
+            imageUrl: this.data.matter['img'][0]['img_url'],
+            path: '/pages/fleamarket/details/details?id=' + this.data.id + '&share=' + true
         }
+    },
+
+    //登录
+    getUserInfo: function (e) {
+        var that = this
+
+        app.shareLogin(this, e, function () {
+            var fn = null
+            that.setIncFlow(that.data.id)
+
+            that.getComment(that.data.id, function () {
+                fn && fn()
+            })
+        })
+
+
     },
 
 

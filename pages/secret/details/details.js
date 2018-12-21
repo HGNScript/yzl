@@ -14,14 +14,21 @@ Page({
         date: '',
         icon: '/image/l.png' ,
         audioFlag: false,
+        audio: {}
     },
 
     onLoad: function() {
         var that = this
         details.getAudiio(this.data.date, function(data) {
-            that.setData({
-                audio: data
-            })
+            if (Object.keys(data).length) {
+                that.setData({
+                    audio: data
+                })
+            } else {
+                that.setData({
+                    audio: null
+                })
+            }
         })
     },
 
@@ -101,9 +108,16 @@ Page({
         })
 
         details.getAudiio(this.data.date, function (data) {
-            that.setData({
-                audio: data
-            })
+            if (Object.keys(data).length) {
+                that.setData({
+                    audio: data
+                })
+            } else {
+                that.setData({
+                    audio: null
+                })
+            }
+           
         })
     },
 

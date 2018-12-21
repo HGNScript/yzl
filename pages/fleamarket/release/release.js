@@ -49,6 +49,8 @@ Page({
             fleamarket_phone: null,
 
         },
+        authority: false,
+        
     },
 
 
@@ -197,7 +199,7 @@ Page({
                 content: '只能上传三张图片',
             })
         } else {
-            app.choose(this, function(imgsrc) {
+            app.choose(this, 3,function(imgsrc) {
 
                 that.setData({
                     imgpath: imgsrc
@@ -275,12 +277,14 @@ Page({
                     if (res['valid']) {
                         wx.showToast({
                             title: res['msg'],
-                            icon: 'succes',
+                            icon: 'succes',     
                             duration: 1500,
                             mask: true,
                             success: function (res) {
                                 setTimeout(function () {
-                                    that.changeParentData()
+                                    app.changeParentData(function(){
+                                        wx.navigateBack({})
+                                    })
                                 }, 1500);
                             },
                         })
@@ -303,43 +307,31 @@ Page({
 
     },
 
-    //刷新上一级页面数据
-    changeParentData: function() {
-
-        var pages = getCurrentPages(); //当前页面栈
-
-        if (pages.length > 1) {
-
-            var beforePage = pages[pages.length - 2]; //获取上一个页面实例对象
-
-            beforePage.changeData(); //触发父页面中的方法
-
-            wx.navigateBack({
-
-            })
-
-        }
-
-    },
-
     //监听是否获取地址
     getAddress: function(e) {
 
         var that = this
-        this.data.addressFlag = !this.data.addressFlag
 
         this.setData({
-            addressFlag: this.data.addressFlag
+            addressFlag: !this.data.addressFlag
         })
 
         if (this.data.addressFlag) {
-            app.getAddress(this, function(res) {
-
+            app.getAddress(this, false,function(res) {
                 wx.hideLoading()
-                that.data.fleamarket.fleamarket_address = res
-                that.setData({
-                    fleamarket: that.data.fleamarket
-                })
+                
+                if(!res){
+                    that.setData({
+                        authority: true,
+                        addressFlag: false
+                    })
+                } else {
+                    that.data.fleamarket.fleamarket_address = res
+                    that.setData({
+                        fleamarket: that.data.fleamarket
+                    })
+                }
+                
             })
         } else {
             that.data.fleamarket.fleamarket_address = null
@@ -348,5 +340,12 @@ Page({
             })
         }
     },
+
+    csole: function () {
+        this.setData({
+            authority: false
+        })
+    }
+
 
 })

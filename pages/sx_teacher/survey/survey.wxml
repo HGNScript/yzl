@@ -1,0 +1,98 @@
+<!-- 教师信息 -->
+<view class='header'>
+    <view class='title1'>实习概况</view>
+    <view class='headbox'>
+        <view class='teachername'>
+            <image class='teacherimg' src='/image/icon/teacher/teacher.png'></image>
+            <text>{{tchData.tch_name}}</text>
+        </view>
+        <view class='teachername'>
+            <image class='teacherimg' src='/image/icon/teacher/gh.png'></image>
+            <text>{{tchData.tch_numBer}}</text>
+        </view>
+        <view class='teachername'>
+            <image class='teacherimg' src='/image/icon/teacher/phone.png'></image>
+            <text>{{tchData.tch_phone}}</text>
+        </view>
+    </view>
+    <view class='exportbtn' bindtap='exportbtn'>文件导出</view>
+
+</view>
+
+<view class='jshr1'></view>
+
+<!-- 柱状图 -->
+<view class='chartbox'>
+    <view class='title1'>实习概况
+        <text class='sum'>总人数：{{sum}}</text>
+    </view>
+    <canvas canvas-id="columnCanvas" disable-scroll="true" class="canvas"></canvas>
+</view>
+
+<view class='jshr1'></view>
+
+<!-- 变更信息 -->
+<view class='information'>
+    <view class='title1'>变更信息</view>
+    <view class='tabel'>
+        <view class='studentname'>
+            <view class='title'>名称</view>
+            <view class="list {{index%2 == 1 ?'list2':''}} {{item.status == 0 ?'change':''}}" wx:for="{{changeData}}" bindtap='model1btn'>{{item.stu.stu_name}}</view>
+        </view>
+
+        <view class='studentslide '>
+            <view class='th'>
+                <view class="thbox box300">学号 </view>
+                <view class="thbox box350">班级 </view>
+                <view class="thbox box300">变更类型</view>
+                <view class='thbox box350'>原先内容</view>
+                <view class='thbox box350'>变更内容</view>
+                <view class='thbox box150'>操作</view>
+            </view>
+            <view class="tr" wx:for="{{changeData}}" wx:key="id" bindtap='model1btn'>
+                <view class="td box300 {{index%2 == 1 ?'td2':''}} {{item.status == 0 ?'change':''}}">
+                    <view class='text'>{{item.stu.stu_numBer}}</view>
+                </view>
+                <view class="td box350 {{index%2 == 1 ?'td2':''}} {{item.status == 0 ?'change':''}}">
+                    <view class='text'>{{item.stu.stu_className}}</view>
+                </view>
+                <view class="td box300 {{index%2 == 1 ?'td2':''}} {{item.status == 0 ?'change':''}}">
+                    <view class='text'>{{item.change_type}}</view>
+                </view>
+                 <view class="td box350 {{index%2 == 1 ?'td2':''}} {{item.status == 0 ?'change':''}}">
+                    <view class='text'>{{item.change_old}}</view>
+                </view>
+                <view class="td box350 {{index%2 == 1 ?'td2':''}} {{item.status == 0 ?'change':''}}">
+                    <view class='text'>{{item.change_new}}</view>
+                </view>
+                <view class="td box150 {{index%2 == 1 ?'td2':''}} {{item.status == 0 ?'change':''}}">
+                    <text wx:if="{{item.status == 0}}" class='controller' data-id="{{item.change_id}}" bindtap='changeStatus'>查看</text>
+                    <text wx:if="{{item.status == 1}}" class='controller2'>已查看</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+
+
+
+<!-- tabbar -->
+<cover-view class='tabbarbox'>
+    <cover-view class='tabbarbox2' bindtap='tabbarsurveybtn'>
+        <cover-image class='tabbarimage' src='/image/icon/teacher/tabbar/gk2.png'></cover-image>
+        <cover-view class='tabbartitle tabbaractive'>实习概况</cover-view>
+    </cover-view>
+    <cover-view class='tabbarbox2' bindtap='tabbarclassbtn'>
+        <cover-image class='tabbarimage' src='/image/icon/teacher/tabbar/class1.png'></cover-image>
+        <cover-view class='tabbartitle'>班级详情</cover-view>
+    </cover-view>
+    <cover-view class='tabbarbox2' bindtap='tabbarstudentbtn'>
+        <cover-image class='tabbarimage' src='/image/icon/teacher/tabbar/student1.png'></cover-image>
+        <cover-view class='tabbartitle'>学生信息</cover-view>
+    </cover-view>
+    <cover-view class='tabbarbox2' bindtap='tabbarsigninbtn'>
+        <cover-image class='tabbarimage' src='/image/icon/teacher/tabbar/qd1.png'></cover-image>
+        <cover-view class='tabbartitle'>签到日志</cover-view>
+    </cover-view>
+</cover-view>

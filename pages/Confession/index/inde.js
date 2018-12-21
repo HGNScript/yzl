@@ -48,13 +48,32 @@ Page({
     },
     // 点赞
     onLoad: function(option) {
-        this.refreshView = this.selectComponent("#refreshView")
+        var that = this
 
-        this._loadData()
+        if (option.share) {
+            this.setData({
+                share: option.share
+            })
+            app.share(this, function(flag){
+                if(flag){
+                    that._loadData()
+                }
+            })
+        }   else {
+
+            if(app.user){
+                this.refreshView = this.selectComponent("#refreshView")
+
+                this._loadData()
+            }
+        }
+        
     },
 
     onShow: function() {
-        app.checkUser()
+        if (!this.data.share) {
+            app.checkUser()
+        }
     },
 
     good: function(e) {
@@ -125,11 +144,11 @@ Page({
         })
     },
 
-
-
-
     changeData() {
-        this.onLoad()
+        this.setData({
+            pStart: 1,    
+        })
+        this.onLoad({'share': false})
     },
 
     //上拉触底 加载数据
@@ -143,7 +162,6 @@ Page({
         this.getConfession()
 
     },
-
 
     //设置下拉事件
     setonReachBottom: function(flag) {
@@ -222,6 +240,18 @@ Page({
     },
 
     onShareAppMessage: function () {
+        return {
+            path: 'pages/Confession/index/inde?share=' + true,
+        }
+    },
+
+    //登录
+    getUserInfo: function (e) {
+        var that = this
+
+        app.shareLogin(this, e, function () {
+            that._loadData()
+        })
 
     },
 

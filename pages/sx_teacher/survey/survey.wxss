@@ -1,0 +1,405 @@
+/* pages/sx_teacher/survey/survey.wxss */
+
+page {
+    padding-bottom: 130rpx;
+}
+
+.header, .chartbox, .information {
+    padding: 0 20rpx 40rpx;
+    position: relative;
+}
+
+.title1 {
+    line-height: 100rpx;
+    font-size: 36rpx;
+    letter-spacing: 2rpx;
+}
+
+.headbox {
+    border: 1px #e5e5e5 solid;
+    border-radius: 10rpx;
+}
+
+.teachername {
+    font-size: 34rpx;
+    letter-spacing: 2rpx;
+    line-height: 80rpx;
+    color: #666;
+    padding: 0 20rpx;
+    display: flex;
+    border-bottom: 1px #e5e5e5 solid;
+}
+
+.teacherimg {
+    width: 40rpx;
+    height: 40rpx;
+    margin: 20rpx 0;
+    margin-right: 20rpx;
+}
+
+.teachername:last-child {
+    border-bottom: 0px #e5e5e5 solid;
+}
+
+.exportbtn {
+    background: #19b2ed;
+    color: #fff;
+    font-size: 30rpx;
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+    padding: 10rpx 20rpx;
+    border-radius: 10rpx;
+    letter-spacing: 2rpx;
+}
+
+/* tabel */
+
+/* .tabel {
+  width: 100%;
+}
+.th {
+  white-space: nowrap;
+  margin-bottom: 4px;
+}
+.th > .thbox {
+  display: inline-block;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 20rpx;
+  background: #f2f6fc;
+  font-size: 34rpx;
+  color: #9b9b9e;
+  letter-spacing: 2rpx;
+  border-top: 1px #dadadd solid;
+  border-bottom: 1px #dadadd solid;
+  border-right: 1px #dadadd solid;
+}
+.th > .thbox:first-child, 
+.tr > .td:first-child {
+  border-left: 1px #dadadd solid;
+  margin-left:1px;
+}
+.tr {
+  white-space: nowrap;
+  margin-top: -4px;
+}
+.tr > .td {
+  display: inline-block;
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #666;
+  padding-left: 20rpx;
+  letter-spacing: 2rpx;
+  border-right: 1px #dadadd solid;
+  border-bottom: 1px #dadadd solid;
+  background: #fff;
+}
+.tr > .td > .text, .tr > .td2 > .text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #666;
+}
+.tr > .td2 {
+  background: #f9feff;
+} */
+
+.tabel {
+    display: flex;
+}
+
+.studentname {
+    z-index: 999;
+}
+
+.studentname > .title {
+    height: 100rpx;
+    line-height: 100rpx;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    background: #f2f6fc;
+    font-size: 34rpx;
+    color: #9b9b9e;
+    letter-spacing: 2rpx;
+    border: 1rpx #dadadd solid;
+}
+
+.studentname > .list {
+    position: relative;
+    font-size: 30rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    color: #666;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    letter-spacing: 2rpx;
+    border-left: 1px #dadadd solid;
+    border-right: 1px #dadadd solid;
+    border-bottom: 1px #dadadd solid;
+    background: #fff;
+}
+
+.studentname > .list2 {
+    background: #f9feff;
+}
+
+.studentslide {
+    width: calc(100% - 150rpx);
+    overflow-x: auto;
+    margin-left: -4rpx;
+}
+
+.th {
+    white-space: nowrap;
+    display: flex;
+}
+
+.th > .thbox {
+    flex-shrink: 0;
+    height: 100rpx;
+    line-height: 100rpx;
+    padding-left: 20rpx;
+    background: #f2f6fc;
+    font-size: 34rpx;
+    color: #9b9b9e;
+    letter-spacing: 2rpx;
+    border-top: 1px #dadadd solid;
+    border-right: 1px #dadadd solid;
+    border-bottom: 1px #dadadd solid;
+}
+
+.btmimg {
+    width: 30rpx;
+    height: 30rpx;
+    margin-left: 5rpx;
+}
+
+.th > .thbox:first-child, .tr > .td:first-child {
+    border-left: 1px #dadadd solid;
+    margin-left: 1px;
+}
+
+.tr {
+    position: relative;
+    display: flex;
+}
+
+.tr > .td {
+    flex-shrink: 0;
+    position: relative;
+    display: block;
+    font-size: 30rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    color: #666;
+    padding-left: 20rpx;
+    letter-spacing: 2rpx;
+    background: #fff;
+    border-right: 1px #dadadd solid;
+    border-bottom: 1px #dadadd solid;
+}
+
+.tr > .td > .text, .tr > .td2 > .text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #666;
+}
+
+.tr > .td > .text > .yestext {
+    background: #009688;
+    color: #fff;
+    padding: 5rpx 15rpx;
+    border-radius: 20rpx;
+}
+
+.tr > .td > .text > .notext {
+    background: #ff5722;
+    color: #fff;
+    padding: 5rpx 15rpx;
+    border-radius: 20rpx;
+}
+
+.tr > .td2 {
+    background: #f9feff;
+}
+
+/* model */
+
+.model1 {
+    background: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999999999;
+}
+
+::-webkit-scrollbar {
+    width: 1rpx;
+    height: 1rpx;
+    color: transparent;
+}
+
+.model1con {
+    position: relative;
+    width: 88vw;
+    height: 80vh;
+    background: #fff;
+    border-radius: 10rpx;
+    box-shadow: 5rpx 5rpx 15rpx rgba(0, 0, 0, 0.2);
+    display: block;
+    margin: 6vh auto;
+    padding: 20rpx;
+    overflow-y: scroll;
+}
+
+.model1title {
+    line-height: 60rpx;
+    font-size: 36rpx;
+    letter-spacing: 2rpx;
+    color: #444;
+}
+
+.studentbox1 {
+    border: 1px #e6e6e6 solid;
+    width: 94%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20rpx;
+    margin-bottom: 50rpx;
+    background: #e6e6e6;
+}
+
+.studenttitle1 {
+    background: #f2f2f2;
+    font-size: 34rpx;
+    color: #666;
+    height: 90rpx;
+    line-height: 90rpx;
+    padding: 0 20rpx;
+    letter-spacing: 2rpx;
+}
+
+.boxlist1 {
+    width: 100%;
+    height: 80rpx;
+    line-height: 80rpx;
+    padding: 0 20rpx;
+    font-size: 30rpx;
+    color: #666;
+    display: flex;
+    background: #fff;
+    margin-top: 1px;
+}
+
+.boxlisttext {
+    line-height: 80rpx;
+}
+
+.boxlisttext2 {
+    width: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.studenttitle2 {
+    text-align: center;
+}
+
+.title3box {
+    display: flex;
+    margin-top: 1px;
+}
+
+.title3box1 {
+    width: calc(35% - 1px);
+    background: #f2f2f2;
+    font-size: 34rpx;
+    color: #666;
+    height: 90rpx;
+    line-height: 90rpx;
+    padding: 0 20rpx;
+    letter-spacing: 2rpx;
+    margin-right: 1px;
+}
+
+.title3box2 {
+    width: 65%;
+    background: #f2f2f2;
+    font-size: 34rpx;
+    color: #666;
+    height: 90rpx;
+    line-height: 90rpx;
+    padding: 0 20rpx;
+    letter-spacing: 2rpx;
+}
+
+.boxlist2 {
+    display: flex;
+    margin-top: 1px;
+}
+
+.list2text1 {
+    width: calc(35% - 1px);
+    font-size: 30rpx;
+    color: #666;
+    line-height: 1.5;
+    padding: 5rpx 20rpx;
+    white-space: pre-wrap;
+    margin-right: 1px;
+    background: #fff;
+}
+
+.list2text2 {
+    width: 65%;
+    font-size: 30rpx;
+    padding: 3rpx 20rpx;
+    color: #666;
+    line-height: 1.5;
+    background: #fff;
+    white-space: pre-wrap;
+}
+
+.list3box1 {
+    line-height: 90rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #666;
+    background: #fff;
+    margin-top: 1px;
+}
+
+.delimg {
+    width: 70rpx;
+    height: 70rpx;
+    position: absolute;
+    right: 0rpx;
+    left: 0;
+    bottom: 4vh;
+    margin: 0 auto;
+    z-index: 9999999999999;
+}
+
+.controller {
+    background: #FF5722;
+    color: #fff;
+    padding: 3rpx 10rpx;
+    border-radius: 15rpx;
+}
+.controller2 {
+    background: #009688;
+    color: #fff;
+    padding: 3rpx 10rpx;
+    border-radius: 15rpx;
+}
+
+/* .tr .change, .studentname .change{ 
+    border-top:1px #FF5722 solid;
+    border-bottom-color: #FF5722;
+} */
+
